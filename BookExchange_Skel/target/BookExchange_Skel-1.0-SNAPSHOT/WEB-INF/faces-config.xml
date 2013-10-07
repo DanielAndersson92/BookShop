@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config version="2.0"
+              xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+    <application>
+	  <message-bundle>
+	  	<!-- If customizing messages -->
+	  </message-bundle>
+     </application>
+    <!-- Main menu on all pages -->
+    <navigation-rule>
+        <from-view-id>*</from-view-id> 
+        <navigation-case>
+            <from-outcome>start</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>mypage</from-outcome>
+            <to-view-id>/jsf/Mypage/mypage.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>search</from-outcome>
+            <to-view-id>/jsf/Search/search.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>forum</from-outcome>
+            <to-view-id>/jsf/Forum/forum.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>about</from-outcome>
+            <to-view-id>/jsf/About/about.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule> 
+    <!-- Login -->
+    <navigation-rule>
+        <from-view-id>/jsf/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>login-success</from-outcome>
+            <to-view-id>/jsf/products/products.xhtml</to-view-id> 
+            <redirect/> 
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>login-fail</from-outcome>
+            <to-view-id>/jsf/login.xhtml</to-view-id>  
+        </navigation-case> 
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/jsf/products/products.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>logout-success</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>  
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+</faces-config>
