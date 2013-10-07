@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>Search for books</title>
+    </head>
+    <body>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:selectOneRadio
+                    value="Desired">
+                    <f:selectItems
+                        value="Desired" />
+                </h:selectOneRadio>
+                <h:commandButton action="#{search.execute}" value="Save" />
+            </h:panelGrid>
+        </h:form> 	   
+  
+        <ui:define name="content">
+                <h3>Edit product</h3>
+                <h:form>
+                    <h:panelGrid columns="3">
+                        <h:outputText value="Id" />
+                        <h:inputText id="id" value="#{search.id}" disabled="true"/>
+                        <h:message for="id" />
+                        <h:outputText value="Name" />
+                        <h:inputText id="name" value="#{searcg.name}"/>
+                        <h:message for="name" />
+                        <h:outputText value="Price" />
+                        <h:inputText id="price" value="#{search.price}"/>
+                        <h:message for="price" />
+                    </h:panelGrid>
+                    <h:button outcome="products" value="Cancel"/>                   
+                    <h:commandButton action="#{search.execute}" value="Save" />
+                </h:form>
+            </ui:define>
+        
+    </body>
+</html>
