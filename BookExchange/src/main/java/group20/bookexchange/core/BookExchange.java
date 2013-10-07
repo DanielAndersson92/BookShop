@@ -10,7 +10,8 @@ package group20.bookexchange.core;
  */
 public class BookExchange implements IBookExchange{
 
-    private BookList bookList;
+    private BookList wanted;
+    private BookList sellable;
     private UserRegistry userRegistry;
     
     public BookExchange(){
@@ -23,7 +24,12 @@ public class BookExchange implements IBookExchange{
     }
 
     @Override
-    public IBookList getBookList() {
-        return bookList;
+    public IBookList getWanted() {
+        return wanted;
+    }
+
+    @Override
+    public IBookList getSellable() {
+        return sellable;
     }
 }
