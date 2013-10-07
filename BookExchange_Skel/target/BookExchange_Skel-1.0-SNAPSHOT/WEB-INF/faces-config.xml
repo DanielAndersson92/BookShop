@@ -6,11 +6,8 @@
               xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
     <application>
 	  <message-bundle>
-<<<<<<< HEAD
-	  	<!-- If customizing messages -->
 	  </message-bundle>
      </application>
-    <!-- Main menu on all pages -->
     <navigation-rule>
         <from-view-id>*</from-view-id> 
         <navigation-case>
@@ -34,41 +31,4 @@
             <to-view-id>/jsf/About/about.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule> 
-    <!-- Login -->
-    <navigation-rule>
-        <from-view-id>/jsf/login.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>login-success</from-outcome>
-            <to-view-id>/jsf/products/products.xhtml</to-view-id> 
-            <redirect/> 
-        </navigation-case> 
-        <navigation-case>
-            <from-outcome>login-fail</from-outcome>
-            <to-view-id>/jsf/login.xhtml</to-view-id>  
-        </navigation-case> 
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/jsf/products/products.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>logout-success</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>  
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    
-=======
-	  </message-bundle>
-     </application>
-    <navigation-rule>
-        <from-view-id>*</from-view-id> 
-        <navigation-case>
-            <from-outcome>home</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>search</from-outcome>
-            <to-view-id>/jsf/Search/search.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
->>>>>>> 088b0f58de8764ab379e75b0aa334ba312f66901
 </faces-config>
