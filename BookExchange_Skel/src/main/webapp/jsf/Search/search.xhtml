@@ -20,6 +20,51 @@ and open the template in the editor.
                     <h:commandButton action="#{search.execute}" value="Search" />
                 </h:panelGrid>
             </h:form>
+                
+            <div class='bookTable'>
+                        <h:dataTable var="b" value="#{search.range}">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Id"/>
+                                </f:facet>
+                                <h:outputText value="#{b.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Title"/> 
+                                </f:facet>
+                                <h:outputText value="#{b.title}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Author"/> 
+                                </f:facet>
+                                <h:outputText value="#{b.author}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Owner"/> 
+                                </f:facet>
+                                <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Price"/>
+                                </f:facet>
+                                <h:outputText value="#{b.price}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="State"/>
+                                </f:facet>
+                                <h:outputText value="#{b.bookState}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                <h:form>
+                    <h:commandButton actionListener="#{search.prev}" value="Prev" class="small-button"/>
+                    <h:commandButton actionListener="#{search.next}" value="Next" class="small-button"/>
+                </h:form>
             </ui:define>
         </ui:composition>
         
