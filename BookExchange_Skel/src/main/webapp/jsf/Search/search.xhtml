@@ -8,6 +8,11 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
+    
+   <!-- <f:metadata>
+        <f:event type="preRenderView" listener="#{search.initialize}"/>
+    </f:metadata>-->
+    
     <h:head>
         <title>Search for books</title>
     </h:head>
@@ -16,8 +21,8 @@ and open the template in the editor.
             <ui:define name='content'>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:inputText value="Hej">123</h:inputText>
-                    <h:commandButton action="#{search.execute}" value="Search" />
+                    <h:inputText value="Type in the title of the book you seek" binding="#{input}">123</h:inputText>
+                    <h:commandButton action="#{search.execute(input.value)}" value="Search" />
                 </h:panelGrid>
             </h:form>
                 

@@ -5,6 +5,7 @@
 package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
+import group20.bookexchange.core.BookList;
 import group20.bookexchange.core.User;
 import group20.jsf.mb.ExchangeBean;
 import group20.jsf.utils.ContainerNavigator;
@@ -35,7 +36,7 @@ public class SearchBB implements Serializable {
     @PostConstruct
     public void post() {
 
-        cn = new ContainerNavigator(0, 3, bookExchange.getBookList());
+        initialize();
     }
     
 public List<Book> getRange() {
@@ -52,7 +53,26 @@ public List<Book> getRange() {
        cn.previous();
     }
     
-    public void execute(){
-        //cn = new ContainerNavigator(0,3, bookExchange.getBookList().getByTitle(null));
+    public void initialize(){
+        cn = new ContainerNavigator(0, 3, bookExchange.getBookList());
+    }
+    
+    public void execute(String title){
+        
+        if(!title.equals(""))
+        {
+            BookList t = new BookList();
+            List<Book> ts = bookExchange.getBookList().getByTitle(title);
+
+            for(Book b : ts){
+                t.add(b);
+            }
+            cn = new ContainerNavigator(0, 3, t);
+        }
+        else{
+            initialize();
+        }
+        LOGGER.info(cn.toString());
+        
     }
 }
