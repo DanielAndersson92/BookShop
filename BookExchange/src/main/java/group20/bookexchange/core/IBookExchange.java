@@ -12,7 +12,5 @@ public interface IBookExchange {
     
     public IUserRegistry getUserRegistry();
     
-    public IBookList getWanted();
-    
-    public IBookList getSellable();
+    public IBookList getBookList();
 }

@@ -12,7 +12,7 @@ import java.util.List;
  * @author Daniel
  */
 public interface IBookList extends IEntityContainer<Book, Long> {
-    public List<Book> getByName(String name);
+    public List<Book> getByTitle(String title);
     public List<Book> getByAuthor(String author);
     public List<Book> getByCourse(String course);
 }
