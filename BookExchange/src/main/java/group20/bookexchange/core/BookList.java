@@ -17,10 +17,10 @@ public class BookList extends AbstractEntityContainer<Book,Long> implements IBoo
     }
     
     @Override
-    public List<Book> getByName(String name){
+    public List<Book> getByTitle(String title){
         List<Book> found = new ArrayList<>();
         for (Book b : getRange(0, getCount())) {
-            if (b.getName().equals(name)) {
+            if (b.getTitle().equals(title)) {
                 found.add(b);
             }
         }
