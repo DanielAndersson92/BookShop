@@ -4,8 +4,12 @@
  */
 package group20.jsf.mb;
 
-import group20.bookexchange.core.BookList;
-import group20.bookexchange.core.UserRegistry;
+import group20.bookexchange.core.BookExchangeFactory;
+import group20.bookexchange.core.IBookExchange;
+import group20.bookexchange.core.IBookList;
+import group20.bookexchange.core.IUserRegistry;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  *
@@ -13,10 +17,22 @@ import group20.bookexchange.core.UserRegistry;
  */
 
 
-
+@Singleton
 public class ExchangeBean {
-    private BookList bookList;
-    private UserRegistry userRegistry;
+
+    private final IBookExchange bookExchange;
     
+    @Inject
+    public ExchangeBean() {
+        bookExchange = BookExchangeFactory.getBookExchange(true);
+    }
+    
+    public IBookList getBookList(){
+        return bookExchange.getBookList();
+    }
+    
+    public IUserRegistry getUserRegistry(){
+        return bookExchange.getUserRegistry();
+    }
     
 }

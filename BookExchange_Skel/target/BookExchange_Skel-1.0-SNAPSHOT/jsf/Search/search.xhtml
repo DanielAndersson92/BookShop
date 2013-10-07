@@ -21,26 +21,7 @@ and open the template in the editor.
                 </h:selectOneRadio>
                 <h:commandButton action="#{search.execute}" value="Save" />
             </h:panelGrid>
-        </h:form> 	   
-  
-        <ui:define name="content">
-                <h3>Edit product</h3>
-                <h:form>
-                    <h:panelGrid columns="3">
-                        <h:outputText value="Id" />
-                        <h:inputText id="id" value="#{search.id}" disabled="true"/>
-                        <h:message for="id" />
-                        <h:outputText value="Name" />
-                        <h:inputText id="name" value="#{searcg.name}"/>
-                        <h:message for="name" />
-                        <h:outputText value="Price" />
-                        <h:inputText id="price" value="#{search.price}"/>
-                        <h:message for="price" />
-                    </h:panelGrid>
-                    <h:button outcome="products" value="Cancel"/>                   
-                    <h:commandButton action="#{search.execute}" value="Save" />
-                </h:form>
-            </ui:define>
+        </h:form>
         
     </body>
 </html>

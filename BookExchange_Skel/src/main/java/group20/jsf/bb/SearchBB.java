@@ -4,18 +4,22 @@
  */
 package group20.jsf.bb;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
 
 /**
  *
  * @author Patrik
  */
-
-public class serachBB {
+@Named("search")
+@RequestScoped
+public class SearchBB {
 
     /**
      * Creates a new instance of serachBB
      */
-    public serachBB() {
+    public SearchBB() {
     }
     
     public void execute(){
