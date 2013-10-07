@@ -6,6 +6,7 @@
               xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
     <application>
 	  <message-bundle>
+<<<<<<< HEAD
 	  	<!-- If customizing messages -->
 	  </message-bundle>
      </application>
@@ -55,4 +56,19 @@
         </navigation-case>
     </navigation-rule>
     
+=======
+	  </message-bundle>
+     </application>
+    <navigation-rule>
+        <from-view-id>*</from-view-id> 
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>search</from-outcome>
+            <to-view-id>/jsf/Search/search.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+>>>>>>> 088b0f58de8764ab379e75b0aa334ba312f66901
 </faces-config>

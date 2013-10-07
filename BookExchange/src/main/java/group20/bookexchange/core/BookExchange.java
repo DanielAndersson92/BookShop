@@ -14,7 +14,8 @@ public class BookExchange implements IBookExchange{
     private UserRegistry userRegistry;
     
     public BookExchange(){
-    
+        bookList = new BookList();
+        userRegistry = new UserRegistry();
     }
     
     @Override
