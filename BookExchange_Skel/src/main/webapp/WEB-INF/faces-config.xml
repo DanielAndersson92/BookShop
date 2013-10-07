@@ -15,16 +15,8 @@
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>Search</from-outcome>
+            <from-outcome>search</from-outcome>
             <to-view-id>/jsf/Search/search.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>customers</from-outcome>
-            <to-view-id>/jsf/customers/customers.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>orders</from-outcome>
-            <to-view-id>/jsf/orders/orders.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

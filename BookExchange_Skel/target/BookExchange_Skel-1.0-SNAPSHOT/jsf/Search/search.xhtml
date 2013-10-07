@@ -8,20 +8,20 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
-    <head>
+    <h:head>
         <title>Search for books</title>
-    </head>
-    <body>
-        <h:form>
-            <h:panelGrid columns="2">
-                <h:selectOneRadio
-                    value="Desired">
-                    <f:selectItems
-                        value="Desired" />
-                </h:selectOneRadio>
-                <h:commandButton action="#{search.execute}" value="Save" />
-            </h:panelGrid>
-        </h:form>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/header.xhtml">
+            <ui:define name='content'>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:inputText value="Hej">123</h:inputText>
+                    <h:commandButton action="#{search.execute}" value="Search" />
+                </h:panelGrid>
+            </h:form>
+            </ui:define>
+        </ui:composition>
         
-    </body>
+    </h:body>
 </html>
