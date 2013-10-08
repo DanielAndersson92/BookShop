@@ -20,7 +20,7 @@ public class BookList extends AbstractEntityContainer<Book,Long> implements IBoo
     public List<Book> getByTitle(String title){
         List<Book> found = new ArrayList<>();
         for (Book b : getRange(0, getCount())) {
-            if (b.getTitle().equals(title)) {
+            if (b.getTitle().toLowerCase().equals(title.toLowerCase())) {
                 found.add(b);
             }
         }
@@ -30,7 +30,7 @@ public class BookList extends AbstractEntityContainer<Book,Long> implements IBoo
     public List<Book> getByAuthor(String author){
         List<Book> found = new ArrayList<>();
         for (Book b : getRange(0, getCount())) {
-            if (b.getAuthor().equals(author)) {
+            if (b.getAuthor().toLowerCase().equals(author.toLowerCase())) {
                 found.add(b);
             }
         }
@@ -40,7 +40,7 @@ public class BookList extends AbstractEntityContainer<Book,Long> implements IBoo
     public List<Book> getByCourse(String course){
         List<Book> found = new ArrayList<>();
         for (Book b : getRange(0, getCount())) {
-            if (b.getCourse().equals(course)) {
+            if (b.getCourse().toLowerCase().equals(course.toLowerCase())) {
                 found.add(b);
             }
         }
