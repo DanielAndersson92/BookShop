@@ -4,6 +4,8 @@
  */
 package group20.bookexchange.core;
 
+import java.util.Date;
+
 /**
  *
  * @author Patrik
@@ -26,23 +28,23 @@ public class BookExchangeFactory {
     private static void initTestData(IBookExchange bookExchange) {
         User u = new User(1L, "Greta","Garbo","grega","greta.garbo@hollywood.com");
         bookExchange.getUserRegistry().add(u);
-        bookExchange.getBookList().add(new Book("Signals, Systems ans Transforms", "PPE", 123, u, "TSS", Book.BookState.FORSALE));
+        bookExchange.getBookList().add(new Book("Signals, Systems ans Transforms", "PPE", 123, u, "TSS", Book.BookState.FORSALE, new Date(123L)));
         
         u = new User(2L, "Hans","Zimmer","hazi","hansz@hollywood.com");
         bookExchange.getUserRegistry().add(u);
-        bookExchange.getBookList().add(new Book("Signals, Systems ans Transforms", "PPE", 123, u, "TSS", Book.BookState.WANTED));
+        bookExchange.getBookList().add(new Book("Signals, Systems ans Transforms", "PPE", 123, u, "TSS", Book.BookState.WANTED, new Date(123123L)));
         
         u = new User(3L, "Beata","Rolfsdotter","bero","beata.butterfly@flix.com");
         bookExchange.getUserRegistry().add(u);
-        bookExchange.getBookList().add(new Book("Vägen till C", "Jan Skansholm", 123, u, "MOP", Book.BookState.FORSALE));
+        bookExchange.getBookList().add(new Book("Vägen till C", "Jan Skansholm", 123, u, "MOP", Book.BookState.FORSALE, new Date(0L)));
         
         u = new User(4L, "Runar","Agustsson","runa","runar@gmail.com");
         bookExchange.getUserRegistry().add(u);
-        bookExchange.getBookList().add(new Book("Vägen till C", "Jan Skansholm", 123, u, "MOP", Book.BookState.WANTED));
+        bookExchange.getBookList().add(new Book("Vägen till C", "Jan Skansholm", 123, u, "MOP", Book.BookState.WANTED, new Date(123123123123123L)));
         
         u = new User(5L, "Tilde","Stenhage","tiste","tilde.92@lunar.se");
         bookExchange.getUserRegistry().add(u);
-        bookExchange.getBookList().add(new Book("Signals, Systems ans Transforms", "PPE", 123, u, "TSS", Book.BookState.FORSALE));
+        bookExchange.getBookList().add(new Book("Signals, Systems ans Transforms", "PPE", 123, u, "TSS", Book.BookState.FORSALE, new Date(124L)));
         
     }
 }

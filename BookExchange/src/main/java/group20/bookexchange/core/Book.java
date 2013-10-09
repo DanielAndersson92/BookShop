@@ -5,6 +5,7 @@
 package group20.bookexchange.core;
 
 import group20.bookexchange.utils.AbstractEntity;
+import java.util.Date;
 
 /**
  *
@@ -25,24 +26,27 @@ public class Book extends AbstractEntity{
     private User owner;
     private String course;
     private BookState bookState;
+    private Date bookDate;
     
     public Book(String title, String author, int price, User owner, 
-            String course, BookState bookState){
+            String course, BookState bookState, Date bookDate){
         this.title = title;
         this.author = author;
         this.price = price;
         this.owner = owner;
         this.course = course;
         this.bookState = bookState;
+        this.bookDate = bookDate;
     }
     public Book(Long id, String title, String author, int price, User owner,
-            BookState bookState){
+            BookState bookState, Date bookDate){
         super(id);
         this.title = title;
         this.author = author;
         this.price = price;
         this.owner = owner;
         this.bookState = bookState;
+        this.bookDate = bookDate;
     }
     
     public String getTitle(){
@@ -74,5 +78,11 @@ public class Book extends AbstractEntity{
     }
     public void setBookState(BookState state){
         bookState = state;
+    }
+    public void setDate(Date bookDate){
+        this.bookDate = bookDate;
+    }
+    public Date getDate(){
+        return bookDate;
     }
 }

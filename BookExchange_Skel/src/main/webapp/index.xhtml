@@ -6,24 +6,21 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <head>
         <title>Start</title>
     </head>
     <body>
 
-        <div id="container" style="width:300px">
+        <div id="container">
 
-            <div id="header" style="background-color:#EEEEEE;">
-                <h1 align="center" style="margin-bottom:0;">
-                    Start Page
-                </h1>
-            </div>
+            
             <ui:composition template="/WEB-INF/template.xhtml">
                 <ui:define name="content"> 
-                    <h2>Welcome to the shop bla bla..</h2>
+                    <h2>Welcome to the shop.</h2>
                     
-                    <table align="center" border="1" width="300px" class="recentTable">
+                    <table border="1" class="recentTable">
                         <tr>
                             <td width="50%">
                                 <h2 align="center">Newly on sale</h2>
@@ -45,6 +42,93 @@ and open the template in the editor.
                             </td>
                         </tr>
                     </table>
+                    
+                    <h:panelGrid columns="2" border="1">
+                        <h:outputLabel>
+                            <h2 align="center">Newly on sale</h2>
+                        </h:outputLabel>
+                        <h:outputLabel>
+                            <h2 align="center">Newly wanted</h2>
+                        </h:outputLabel>
+                        <h:outputLabel>
+                            <div class='bookTable'>
+                                <h:dataTable var="b" value="#{search.range}">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText  value="Id"/>
+                                        </f:facet>
+                                        <h:outputText value="#{b.id}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText  value="Title"/> 
+                                        </f:facet>
+                                        <h:outputText value="#{b.title}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText  value="Author"/> 
+                                        </f:facet>
+                                        <h:outputText value="#{b.author}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText  value="Owner"/> 
+                                        </f:facet>
+                                        <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText  value="Price"/>
+                                        </f:facet>
+                                        <h:outputText value="#{b.price}"/>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                        </h:outputLabel>
+                        <h:outputLabel>
+                            <div class='bookTable'>
+                                <h:dataTable var="b" value="#{search.range}">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText  value="Id"/>
+                                        </f:facet>
+                                        <h:outputText value="#{b.id}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText  value="Title"/> 
+                                        </f:facet>
+                                        <h:outputText value="#{b.title}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText  value="Author"/> 
+                                        </f:facet>
+                                        <h:outputText value="#{b.author}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText  value="Owner"/> 
+                                        </f:facet>
+                                        <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText  value="Price"/>
+                                        </f:facet>
+                                        <h:outputText value="#{b.price}"/>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                        </h:outputLabel>
+                        
+                        
+                        <f:facet name="footer">
+                            Hejhejhe
+                        </f:facet>
+                        
+                    </h:panelGrid>
             
 
                 </ui:define>
