@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* 
     Document   : layout
     Author     : hajo
@@ -31,11 +31,21 @@ fieldset label{
     /* Make input form vertical */
     display: block;
 }
-=======
-
 
 .menu ul{
     padding: 4em 0 0 0;
 }
 
->>>>>>> 088b0f58de8764ab379e75b0aa334ba312f66901
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  background-color: white;
+  width: 100%;
+}
+
+body {
+  margin-bottom: 120px;
+}
+
