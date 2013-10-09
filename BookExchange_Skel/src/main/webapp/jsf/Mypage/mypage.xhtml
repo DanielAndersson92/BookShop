@@ -11,37 +11,37 @@ and open the template in the editor.
     
 <h:head>
         <title>This is your page</title>
-    </h:head>
+</h:head>
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name='content'>
-            <div class='bookTable'>
                 <!-- användarnamn + bild -->
-                <h:commandButton actionListener="#{book.add}" value="Add book" class="small-button"/>
-                <h:commandButton actionListener="#{book.remove}" value="Remove Book" class="small-button"/>
+                <h:commandButton actionListener="#{addBook.save()}" value="Add book" class="small-button"/>
 
-                <table align="center" border="1" width="500px">
-                <tr>
-                    <td width="50%">
-                        <h1 align="center">Books for sale</h1>
-                    </td>
-                    <td width="50%">
-                        <h1 align="center">Wanted books</h1>
-                    </td>
-                    <tr>
-                        <td>
-                            <a href="http://localhost:8080/BookExchange_Skel/jsf/Mypage/mypage.xhtml"> booklist </a>
-                        </td>
-                        <td>
-                            <a href="http://localhost:8080/BookExchange_Skel/jsf/Mypage/mypage.xhtml"> booklist </a>
-                        </td>
-                    </tr>
-                </tr>
-                </table>
-            </div>
-                <h:form>
-                    
-                </h:form>
+                <div class="bookTable">
+                    <h:dataTable var="b" value="#{mypage.range}">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value ="Books for sale" />
+                                <h:outputText  value="Id"/>
+                            </f:facet>
+                            <h:outputText value="#{b.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText  value="Title"/> 
+                            </f:facet>
+                                <h:outputText value="#{b.title}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Author"/>
+                                </f:facet>
+                                <h:outputText value="#{b.author}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                
             </ui:define>
         </ui:composition>
     </h:body>
