@@ -9,10 +9,6 @@ and open the template in the editor.
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
     
-   <!-- <f:metadata>
-        <f:event type="preRenderView" listener="#{search.initialize}"/>
-    </f:metadata>-->
-    
     <h:head>
         <title>Search for books</title>
     </h:head>
@@ -29,8 +25,8 @@ and open the template in the editor.
                     </h:selectOneRadio>
 
                     <h:inputText value="Type in the title of the book you seek" binding="#{input}" style="width: 50em"/>
-                    <h:commandButton action="#{search.execute(input.value)}" value="Search" />
-                    <h:commandButton action="#{search.reset}" value="reset" />
+                    <h:commandButton actionListener="#{search.execute(input.value)}" value="Search" />
+                    <h:commandButton actionListener="#{search.reset}" value="reset" />
 
                     <h:selectManyCheckbox value="#{search.selectedItems}">
                         <f:selectItems value="#{search.selectItems}"/>
