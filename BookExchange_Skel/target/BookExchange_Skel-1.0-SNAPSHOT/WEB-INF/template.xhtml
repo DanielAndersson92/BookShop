@@ -4,10 +4,8 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
 
-    <!--
-    
+    <!--    
       THIS IS THE OVERALL LAYOUT FOR THE SITE (not accessible from outside)
-    
     -->
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -21,11 +19,11 @@
         <header>
             <hgroup>
                 <h1>Book Exchange</h1>
-                <h2>Smater ways to trade</h2>
+                <h2>Smarter ways to trade</h2>
             </hgroup>
         </header>
-        <nav> 
-            <ul class="bookmenu">
+        <nav class="bookmenu"> 
+            <ul>
                 <li><h:link value="Start" outcome="start"/></li>
                 <li><h:link value="My Page" outcome="mypage"/></li>
                 <li><h:link value="Search" outcome="search"/></li>
@@ -37,7 +35,7 @@
             <ui:insert name="content">Content</ui:insert>
         </div>
         <footer>
-            <p> ThisIsFooter</p> 
+            <p> © 2013 BookExchange AB. </p> 
         </footer>
     </h:body>
 

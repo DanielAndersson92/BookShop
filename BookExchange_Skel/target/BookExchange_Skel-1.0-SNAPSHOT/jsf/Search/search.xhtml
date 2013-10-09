@@ -19,26 +19,26 @@ and open the template in the editor.
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name='content'>
-            <h:form>
-                <h:panelGrid columns="3">
-                    <h:selectOneRadio value="#{search.bookState}" layout="pageDirection">
-                    <f:selectItem itemLabel="Desired" itemValue="WANTED"/>
-                    <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
-                </h:selectOneRadio>
-                    
-                    <h:inputText value="Type in the title of the book you seek" binding="#{input}">123</h:inputText>
+                <p>
+                    Search your feelings!
+                </p>
+                <h:form>
+                    <h:selectOneRadio value="#{search.bookState}">
+                        <f:selectItem itemLabel="Desired" itemValue="WANTED"/>
+                        <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
+                    </h:selectOneRadio>
+
+                    <h:inputText value="Type in the title of the book you seek" binding="#{input}" style="width: 50em"/>
                     <h:commandButton action="#{search.execute(input.value)}" value="Search" />
                     <h:commandButton action="#{search.reset}" value="reset" />
-                </h:panelGrid>
-                
-                <h:selectManyCheckbox value="#{search.selectedItems}">
-                    <f:selectItems value="#{search.selectItems}"/>
-                </h:selectManyCheckbox>
 
-                
-            </h:form>
-                
-            <div class='bookTable'>
+                    <h:selectManyCheckbox value="#{search.selectedItems}">
+                        <f:selectItems value="#{search.selectItems}"/>
+                    </h:selectManyCheckbox>
+
+                </h:form>
+
+                <div class='bookTable'>
                         <h:dataTable var="b" value="#{search.range}">
                             <h:column>
                                 <f:facet name="header">
