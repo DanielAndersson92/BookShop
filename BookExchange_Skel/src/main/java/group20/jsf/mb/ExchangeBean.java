@@ -28,7 +28,7 @@ public class ExchangeBean implements Serializable{
     @Inject
     public ExchangeBean() {
         LOGGER.info("Exchangebean is under the way of being built.");
-        bookExchange = BookExchangeFactory.getBookExchange(true);
+        bookExchange = BookExchangeFactory.getBookExchange("BookExchange");
     }
     
     public IBookList getBookList(){

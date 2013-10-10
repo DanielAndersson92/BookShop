@@ -112,7 +112,7 @@ public class SearchCB implements Serializable{
             soughts.add(sought);
             
             IBookList bookList = bookExchange.getBookList();
-            IBookList newBookList = new BookList();
+            IBookList newBookList = new BookList("BookExchange");
             List<Book> bs = new ArrayList();
             for(String s : soughts){
                 LOGGER.info(s);

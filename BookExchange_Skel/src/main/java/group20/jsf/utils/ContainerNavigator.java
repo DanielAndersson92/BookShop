@@ -5,7 +5,7 @@
 package group20.jsf.utils;
 
 import group20.bookexchange.utils.IEntity;
-import group20.bookexchange.utils.IEntityContainer;
+import group20.bookexchange.db.IDAO;
 import java.util.List;
 
 /**
@@ -16,11 +16,11 @@ import java.util.List;
  */
 public class ContainerNavigator<T extends IEntity<Long>> {
 
-    private final IEntityContainer<T, Long> container;
+    private final IDAO<T, Long> container;
     private int first;  // Fist item in table
     private int nItems;  // Number of items in table
 
-    public ContainerNavigator(int first, int nItems, IEntityContainer<T, Long> container) {
+    public ContainerNavigator(int first, int nItems, IDAO<T, Long> container) {
         this.first = first;
         this.nItems = nItems;
         this.container = container;
