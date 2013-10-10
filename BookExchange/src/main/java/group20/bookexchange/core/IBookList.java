@@ -15,4 +15,5 @@ public interface IBookList extends IEntityContainer<Book, Long> {
     public List<Book> getByTitle(String title);
     public List<Book> getByAuthor(String author);
     public List<Book> getByCourse(String course);
+    public List<Book> getByState(Book.BookState bookState);
 }

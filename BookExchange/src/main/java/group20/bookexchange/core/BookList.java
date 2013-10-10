@@ -46,6 +46,7 @@ public class BookList extends AbstractEntityContainer<Book,Long> implements IBoo
         }
         return found;
     }
+    @Override
     public List<Book> getByState(Book.BookState bookState){
         List<Book> found = new ArrayList<>();
         for (Book b : getRange(0, getCount())) {

@@ -5,18 +5,13 @@
 package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
-import group20.bookexchange.core.BookList;
-import group20.bookexchange.core.IBookList;
 import group20.jsf.mb.ExchangeBean;
-import group20.jsf.utils.ContainerNavigator;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -30,60 +25,37 @@ import javax.inject.Named;
 public class StartBB implements Serializable {
 
     private static final Logger LOGGER = Logger.getLogger("InfoLogging");
-    
-    
+
     @Inject
     private ExchangeBean bookExchange;
     
-    private Book.BookState bookState;
-    private ContainerNavigator cn;
-    private List<String> selectedItems;
-    private List<SelectItem> selectItems;
+    private List<Book> wanted = new ArrayList<Book>();
+    private List<Book> forSale = new ArrayList<Book>();
+    private int numberOfBooks = 2;
     
     @PostConstruct
     public void post() {
-        initialize();
+        setForSale();
+        setWanted();
     }
     
-public List<Book> getRange() {
-        List<Book> bs = cn.getRange();
-        LOGGER.info(bs.toString());
-        return bs;
-    }
-
-    
-    public void initialize(){
-        
-        cn = new ContainerNavigator(0, 5, bookExchange.getBookList());
-        bookState = null;
-        
-        selectedItems = new ArrayList<String>();
-        selectedItems.add("all");
-        
-        selectItems = new ArrayList<SelectItem>();
-        selectItems.add(new SelectItem("all", "All"));
-        selectItems.add(new SelectItem("title", "Title"));
-        selectItems.add(new SelectItem("author", "Author"));
-        selectItems.add(new SelectItem("course", "Course"));
-        
-    }
-   
-    public Book.BookState getBookState(){
-        return bookState;
+    public List<Book> getForSale(){
+        return forSale;
     }
     
-    public List<SelectItem> getSelectItems(){
-        return selectItems;
-    }
-    public List<String> getSelectedItems(){
-        return selectedItems;
-    }
-    public void setSelectedItems(List<String> selectedItems){
-        this.selectedItems = selectedItems;
+    public void setForSale(){
+        List<Book> books;
+        books = bookExchange.getBookList().getByState(Book.BookState.FORSALE);
+        forSale = books.subList(0, numberOfBooks);
     }
     
+    public List<Book> getWanted(){
+        return wanted;
+    }
     
-    public void reset(){
-        initialize();
+    public void setWanted(){
+        List<Book> books;
+        books = bookExchange.getBookList().getByState(Book.BookState.WANTED);
+        wanted = books.subList(0, numberOfBooks);
     }
 }
