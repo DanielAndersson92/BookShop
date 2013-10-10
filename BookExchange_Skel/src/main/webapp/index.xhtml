@@ -17,31 +17,7 @@ and open the template in the editor.
 
             
             <ui:composition template="/WEB-INF/template.xhtml">
-                <ui:define name="content"> 
-                    <h2>Welcome to the shop.</h2>
-                    
-                    <table border="1" class="recentTable">
-                        <tr>
-                            <td width="50%">
-                                <h2 align="center">Newly on sale</h2>
-                            </td>
-                            <td width="50%">
-                                <h2 align="center">Newly wanted</h2>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="http://blog.thomasecon.com/wp-content/uploads/2012/09/book-image.jpg"
-                                     alt="book" width="50" height="50"/>
-                                <a href="http://www.imgur.com">Digodat-bok 100 spänn</a>
-                            </td>
-                            <td>
-                                <img src="http://library.thinkquest.org/J001156/publishing%20book/green2.gif"
-                                     alt="Funny book" width="50" height="50"/>
-                                <a href="http://www.facebook.com">Beta med cd</a>
-                            </td>
-                        </tr>
-                    </table>
+                <ui:define name="content">
                     
                     <h:panelGrid columns="2" border="1">
                         <h:outputLabel>
@@ -52,7 +28,7 @@ and open the template in the editor.
                         </h:outputLabel>
                         <h:outputLabel>
                             <div class='bookTable'>
-                                <h:dataTable var="b" value="#{search.range}">
+                                <h:dataTable var="b" value="#{start.range}">
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText  value="Id"/>
@@ -88,7 +64,7 @@ and open the template in the editor.
                         </h:outputLabel>
                         <h:outputLabel>
                             <div class='bookTable'>
-                                <h:dataTable var="b" value="#{search.range}">
+                                <h:dataTable var="b" value="#{start.range}">
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText  value="Id"/>
@@ -122,12 +98,6 @@ and open the template in the editor.
                                 </h:dataTable>
                             </div>
                         </h:outputLabel>
-                        
-                        
-                        <f:facet name="footer">
-                            Hejhejhe
-                        </f:facet>
-                        
                     </h:panelGrid>
             
 
