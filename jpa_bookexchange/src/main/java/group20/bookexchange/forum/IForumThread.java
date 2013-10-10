@@ -4,12 +4,12 @@
  */
 package group20.bookexchange.forum;
 
-import group20.bookexchange.utils.AbstractEntityContainer;
+import group20.bookexchange.db.IDAO;
 
 /**
  *
  * @author Daniel
  */
-public class ForumThread extends AbstractEntityContainer<Post, Long> implements IForumThread{
-    
+public interface IForumThread extends IDAO<Post,Long>{
+
 }

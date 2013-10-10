@@ -4,13 +4,13 @@
  */
 package group20.bookexchange.core;
 
-import group20.bookexchange.utils.*;
+import group20.bookexchange.db.IDAO;
 import java.util.List;
 
 /**
  *
  * @author Daniel
  */
-public interface IUserRegistry extends IEntityContainer<User,Long>{
+public interface IUserRegistry extends IDAO<User,Long>{
     public List<User> getByCID(String cid);
 }

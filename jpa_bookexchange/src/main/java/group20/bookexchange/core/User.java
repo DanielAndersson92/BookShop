@@ -6,18 +6,25 @@
 package group20.bookexchange.core;
 
 import group20.bookexchange.utils.AbstractEntity;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 /*
  *
  * @author Daniel
  */
+@Entity
 public class User extends AbstractEntity {
 
-    private final String fname;
-    private final String lname;
-    private final String cid;
-    private final String email;
+    private String fname;
+    private String lname;
+    private String cid;
+    private String email;
+    @OneToOne
     private BookList books;
+
+    public User() {
+    }
 
     public User(String fname,
             String lname, String cid, String email) {
@@ -25,16 +32,6 @@ public class User extends AbstractEntity {
         this.lname = lname;
         this.cid = cid;
         this.email = email;
-    }
-    
-    public User(Long id, String fname,
-            String lname, String cid, String email) {
-        super(id);
-        this.fname = fname;
-        this.lname = lname;
-        this.cid = cid;
-        this.email = email;
-        
     }
 
     public String getEmail() {

@@ -10,12 +10,12 @@ package group20.bookexchange.core;
  */
 public class BookExchange implements IBookExchange{
 
-    private BookList bookList;
-    private UserRegistry userRegistry;
+    private final BookList bookList;
+    private final UserRegistry userRegistry;
     
-    public BookExchange(){
-        bookList = new BookList();
-        userRegistry = new UserRegistry();
+    public BookExchange(String puName){
+        bookList = new BookList(puName);
+        userRegistry = new UserRegistry(puName);
     }
     
     @Override

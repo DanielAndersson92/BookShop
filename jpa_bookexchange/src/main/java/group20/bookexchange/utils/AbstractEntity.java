@@ -1,28 +1,28 @@
 
 package group20.bookexchange.utils;
 
+import java.io.Serializable;
 import java.util.Objects;
-import java.util.Random;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
  * Base class for all entities (later to be stored in database), 
  * Product, Order, etc
  * @author hajo
  */
-public abstract class AbstractEntity implements IEntity<Long>{
+@MappedSuperclass
+public abstract class AbstractEntity implements Serializable{
 
-    private final Long id; 
+    @Id
+    @GeneratedValue
+    private Long id; 
    
     protected AbstractEntity(){
-        // This is for now, later database will generate
-        this.id = new Long(new Random().nextInt(1000));
+
     }
     
-    protected AbstractEntity(Long id){
-        this.id = id;
-    }
-    
-    @Override
     public Long getId(){
         return id;
     }

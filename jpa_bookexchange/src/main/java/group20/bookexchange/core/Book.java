@@ -6,11 +6,18 @@ package group20.bookexchange.core;
 
 import group20.bookexchange.utils.AbstractEntity;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Daniel
  */
+@Entity
 public class Book extends AbstractEntity{
     
     public enum BookState{
@@ -23,10 +30,16 @@ public class Book extends AbstractEntity{
     private String title;
     private String author;
     private int price;
+    @ManyToOne
     private User owner;
     private String course;
+    @Enumerated(EnumType.STRING)
     private BookState bookState;
+    @Temporal(TemporalType.DATE)
     private Date bookDate;
+
+    public Book() {
+    }
     
     public Book(String title, String author, int price, User owner, 
             String course, BookState bookState, Date bookDate){
@@ -35,16 +48,6 @@ public class Book extends AbstractEntity{
         this.price = price;
         this.owner = owner;
         this.course = course;
-        this.bookState = bookState;
-        this.bookDate = bookDate;
-    }
-    public Book(Long id, String title, String author, int price, User owner,
-            BookState bookState, Date bookDate){
-        super(id);
-        this.title = title;
-        this.author = author;
-        this.price = price;
-        this.owner = owner;
         this.bookState = bookState;
         this.bookDate = bookDate;
     }
