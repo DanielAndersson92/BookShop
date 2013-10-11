@@ -9,6 +9,7 @@ import group20.bookexchange.core.Book.BookState;
 import group20.bookexchange.core.User;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
+import java.util.Date;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -30,7 +31,7 @@ public class AddBookBB implements Serializable{
     private ExchangeBean eb;
     
     public String save(){
-        Book b = new Book(title, author, price, owner, course, bookState);
+        Book b = new Book(title, author, price, owner, course, bookState, new Date(1L));
         eb.getBookList().add(b);
         return null; //what to return?
     }
