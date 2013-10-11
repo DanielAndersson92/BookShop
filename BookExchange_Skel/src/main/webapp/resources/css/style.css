@@ -47,8 +47,8 @@ header h2{
 }
 
 footer {
-    background-color: #b8e356;
-    color: black;
+    background-color: #333333;
+    color: #0099ff;
 }
 
 thead {
@@ -59,11 +59,11 @@ thead {
     padding-right: 1em;
 }
 #bookmenu{
-    background: #a8d346;
+    background: #333333;
     
 }
 .bookmenu ul{
-  background: #333;
+  background: #333333;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -79,9 +79,9 @@ thead {
   list-style: none;
 }
 .bookmenu a {
-  background: #a8d346;
+  background: #333333;
   border-bottom: 1px solid #393939;
-  color: #000;
+  color: #0099ff;
   display: block;
   margin: 0;
   padding: 1em 1.5em;
@@ -89,6 +89,6 @@ thead {
   font-weight: normal;
 }
 .bookmenu a:hover {
-  background: #ccc;
-  color: #fff;
+    background: #0099ff;
+    color: #333333;
 }
