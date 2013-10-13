@@ -17,6 +17,10 @@ public class BookExchangeFactory {
     
     }
 
+    public static IBookList getBookList() {
+        return new BookList("BookExchange");
+    }
+    
     public static IBookExchange getBookExchange(boolean test) {
         IBookExchange be = new BookExchange("BookExchange");
         if(test){
