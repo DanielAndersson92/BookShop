@@ -17,34 +17,35 @@ public class BookExchangeFactory {
     
     }
 
-    public static IBookExchange getBookExchange(String persistenceUnitName) {
-        IBookExchange be = new BookExchange(persistenceUnitName);
-        //if (initTestData) {
-        //    initTestData(be);
-        //}
+    public static IBookExchange getBookExchange(boolean test) {
+        IBookExchange be = new BookExchange("BookExchange");
+        if(test){
+            initTestData(be);
+        }
         return be;
     }
 
-    private static void initTestData(IBookExchange bookExchange) {
-        User u = new User("Greta","Garbo","grega","greta.garbo@hollywood.com");
-        bookExchange.getUserRegistry().add(u);
-        bookExchange.getBookList().add(new Book("Signals, Systems ans Transforms", "PPE", 123, u, "TSS", Book.BookState.FORSALE, new Date(123L)));
+    private static void initTestData(IBookExchange be) {
+        IUserRegistry ur = be.getUserRegistry();
+        IBookList bl = be.getBookList();
         
-        u = new User("Hans","Zimmer","hazi","hansz@hollywood.com");
-        bookExchange.getUserRegistry().add(u);
-        bookExchange.getBookList().add(new Book("Signals, Systems ans Transforms", "PPE", 123, u, "TSS", Book.BookState.WANTED, new Date(123123L)));
+        User u1 = new User("Greta","Garbo","grega","greta@hollywood.com");
+        ur.add(u1);
+        User u2 = new User("Ingmar","Bergman","ingbe","ingmar@hollywood.com");
+        ur.add(u2);
         
-        u = new User("Beata","Rolfsdotter","bero","beata.butterfly@flix.com");
-        bookExchange.getUserRegistry().add(u);
-        bookExchange.getBookList().add(new Book("Vägen till C", "Jan Skansholm", 123, u, "MOP", Book.BookState.FORSALE, new Date(0L)));
+        Book b1 = new Book("Transformer, Signals and Systems", "PPE", 220, u1,
+                "TSS", Book.BookState.FORSALE, new Date());
+        Book b2 = new Book("Transformer, Signals and Systems", "PPE", 500, u2,
+                "TSS", Book.BookState.WANTED, new Date());
+        bl.add(b1);
+        bl.add(b2);
         
-        u = new User("Runar","Agustsson","runa","runar@gmail.com");
-        bookExchange.getUserRegistry().add(u);
-        bookExchange.getBookList().add(new Book("Vägen till C", "Jan Skansholm", 123, u, "MOP", Book.BookState.WANTED, new Date(123123123123123L)));
-        
-        u = new User("Tilde","Stenhage","tiste","tilde.92@lunar.se");
-        bookExchange.getUserRegistry().add(u);
-        bookExchange.getBookList().add(new Book("Signals, Systems ans Transforms", "PPE", 123, u, "TSS", Book.BookState.FORSALE, new Date(124L)));
-        
+        Book b3 = new Book("Vägen till C", "Jan Skansholm", 150, u1,
+                "MOP", Book.BookState.WANTED, new Date());
+        Book b4 = new Book("Vägen till C", "Jan Skansholm", 200, u2,
+                "MOP", Book.BookState.FORSALE, new Date());
+        bl.add(b3);
+        bl.add(b4);
     }
 }

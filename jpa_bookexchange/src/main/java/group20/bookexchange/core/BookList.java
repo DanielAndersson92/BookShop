@@ -9,8 +9,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-
-
 public class BookList extends AbstractDAO<Book,Long> implements IBookList {
     
     public BookList(String puName){
@@ -22,7 +20,7 @@ public class BookList extends AbstractDAO<Book,Long> implements IBookList {
         EntityManager em = getEMF().createEntityManager();
         List<Book> books;
         TypedQuery<Book> q = em.createQuery
-                ("SELECT b FROM Book b WHERE b.title = '" + title + "'", Book.class);
+                ("SELECT b FROM Book b WHERE b.title LIKE '%" + title + "%'", Book.class);
         books = q.getResultList();
         em.close();
         return books;
@@ -32,7 +30,7 @@ public class BookList extends AbstractDAO<Book,Long> implements IBookList {
         EntityManager em = getEMF().createEntityManager();
         List<Book> books;
         TypedQuery<Book> q = em.createQuery
-                ("SELECT b FROM Book b WHERE b.author = '" + author + "'", Book.class);
+                ("SELECT b FROM Book b WHERE b.author LIKE '%" + author + "%'", Book.class);
         books = q.getResultList();
         em.close();
         return books;
@@ -42,16 +40,28 @@ public class BookList extends AbstractDAO<Book,Long> implements IBookList {
         EntityManager em = getEMF().createEntityManager();
         List<Book> books;
         TypedQuery<Book> q = em.createQuery
-                ("SELECT b FROM Book b WHERE b.course = '" + course + "'", Book.class);
+                ("SELECT b FROM Book b WHERE b.course LIKE '%" + course + "%'", Book.class);
         books = q.getResultList();
         em.close();
         return books;
     }
+    @Override
     public List<Book> getByState(Book.BookState bookState){
         EntityManager em = getEMF().createEntityManager();
         List<Book> books;
         TypedQuery<Book> q = em.createQuery
-                ("SELECT b FROM Book b WHERE b.bookState = '" + bookState + "'", Book.class);
+                ("SELECT b FROM Book b WHERE b.bookState = :BOKS", Book.class).
+                setParameter("BOKS", bookState);
+        books = q.getResultList();
+        em.close();
+        return books;
+    }
+    @Override
+    public List<Book> getByUser(User user){
+        EntityManager em = getEMF().createEntityManager();
+        List<Book> books;
+        TypedQuery<Book> q = em.createQuery
+                ("SELECT b FROM Book b WHERE b.owner.id = '" + user.getId() + "'", Book.class);
         books = q.getResultList();
         em.close();
         return books;
