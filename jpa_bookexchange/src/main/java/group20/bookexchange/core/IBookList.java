@@ -16,9 +16,6 @@ public interface IBookList extends IDAO<Book, Long> {
     public List<Book> getByAuthor(String author);
     public List<Book> getByCourse(String course);
     public List<Book> getByState(Book.BookState bookState);
-<<<<<<< HEAD:jpa_bookexchange/src/main/java/group20/bookexchange/core/IBookList.java
     public List<Book> getByUser(User user);
     
-=======
->>>>>>> origin/Dev:BookExchange/src/main/java/group20/bookexchange/core/IBookList.java
 }
