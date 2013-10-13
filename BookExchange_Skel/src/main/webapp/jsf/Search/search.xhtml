@@ -19,61 +19,46 @@ and open the template in the editor.
                     Search your feelings!
                 </p>
                 <h:form>
-                    <h:selectOneRadio value="#{search.bookState}">
+                    <h:selectOneRadio value="#{searchBB.bookState}">
                         <f:selectItem itemLabel="Desired" itemValue="WANTED"/>
                         <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
                     </h:selectOneRadio>
 
-                    <h:inputText value="Type in the title of the book you seek" binding="#{input}" style="width: 50em"/>
-                    <h:commandButton actionListener="#{search.execute(input.value)}" value="Search" />
+                    <h:inputText value="#{searchBB.input}"/><br/>
+                    <h:commandButton actionListener="#{search.execute}" value="Search" />
                     <h:commandButton actionListener="#{search.reset}" value="reset" />
 
-                    <h:selectManyCheckbox value="#{search.selectedItems}">
-                        <f:selectItems value="#{search.selectItems}"/>
+                    <h:selectManyCheckbox value="#{searchBB.selectedItems}">
+                        <f:selectItems value="#{searchBB.selectItems}"/>
                     </h:selectManyCheckbox>
 
                 </h:form>
 
                 <div class='bookTable'>
-                        <h:dataTable var="b" value="#{search.range}">
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText  value="Id"/>
-                                </f:facet>
-                                <h:outputText value="#{b.id}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText  value="Title"/> 
-                                </f:facet>
-                                <h:outputText value="#{b.title}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText  value="Author"/> 
-                                </f:facet>
-                                <h:outputText value="#{b.author}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText  value="Owner"/> 
-                                </f:facet>
-                                <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText  value="Price"/>
-                                </f:facet>
-                                <h:outputText value="#{b.price}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText  value="State"/>
-                                </f:facet>
-                                <h:outputText value="#{b.bookState}"/>
-                            </h:column>
-                        </h:dataTable>
-                    </div>
+                    <h:dataTable var="b" value="#{search.list}">
+                        <h:column>
+                            <img src="#{resource['img:book.jpg']}" alt="some_text"/> 
+                        </h:column>
+                        <h:column>
+                            <table class="bookTable2">
+                                <thead>
+                                    <h:outputText class="booktitle" value="#{b.title}" />
+                                </thead>
+                                <td>
+                                    <h:outputText value="#{b.author}"/><br/>
+                                    <h:outputText value="#{b.course}"/><br/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/><br/>
+                                    <h:outputText class="#{b.bookState}" value="#{b.bookState}"/>
+                                </td>
+                                <td>
+                                    <h:outputText class="bookprice" value="#{b.price}kr"/>
+                                </td>
+                            </table>
+                        </h:column>
+                    </h:dataTable>
+                </div>
                 <h:form>
                     <h:commandButton actionListener="#{search.prev}" value="Prev" class="small-button"/>
                     <h:commandButton actionListener="#{search.next}" value="Next" class="small-button"/>

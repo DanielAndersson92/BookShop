@@ -46,7 +46,7 @@ public class BookListTest {
         bl.add(b3);
         bl.add(b4);
         
-        List<User> us = ur.getRange(0, 2);
+        List<User> us = ur.getRange(0, 1000);
         assertTrue(us.size() == 2);
     }
     @Test
@@ -83,6 +83,7 @@ public class BookListTest {
         assertTrue(books.size() == 2);
         
         books = bl.getByAuthor("Jan");
+        System.out.println(books.toString());
         assertTrue(books.size() == 2);
         
         books = bl.getByCourse("TSS");

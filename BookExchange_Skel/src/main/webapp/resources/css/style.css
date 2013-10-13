@@ -14,9 +14,11 @@ body{
 }
 
 header {
-    background-image:url("#{resource['img:banner.jpg']}"); 
-    background-repeat: repeat;
-    background-position: center;
+    background-image:url("#{resource['img:banner3.jpg']}"); 
+    background-position:right;
+    background-repeat: no-repeat;
+    background-color: #000;
+        
 }
 
 header h1{  
@@ -42,8 +44,47 @@ header h2{
 .bookTable tr:nth-child(odd) { background-color:#fff; }
 .bookTable tr:nth-child(even) { background-color:#eee; }
 
-.bookTable thead{
+.bookTable{
+    padding-top: 4em;
+    padding-bottom: 1em;
+    font-size: 12px;
     color: black;
+}
+.bookTable img{
+    height: 50px;
+    width: 50px;
+}
+.bookTable tr{
+    border: 1px solid black;
+    margin: 3em;
+}
+.bookTable td{
+    background-color: inherit;
+    padding: 1em;
+}
+.bookTable .booktitle{
+    font-weight: bold;
+    font-size: 12px;
+    color: #0088ee;
+}
+.bookTable .FORSALE{
+    color: green;
+}
+.bookTable .WANTED{
+    color: red;
+}
+.bookTable .bookprice{
+    font-weight: bold;
+}
+.bookTable2{
+    background-color: inherit;
+}
+.bookTable2 tr{
+    background-color: inherit;
+    border: 0px;
+}.bookTable2 td{
+    background-color: inherit;
+    border: 0px;
 }
 
 footer {

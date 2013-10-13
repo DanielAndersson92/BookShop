@@ -17,30 +17,33 @@ public class BookList extends AbstractDAO<Book,Long> implements IBookList {
     
     @Override
     public List<Book> getByTitle(String title){
+        title = title.toLowerCase();
         EntityManager em = getEMF().createEntityManager();
         List<Book> books;
         TypedQuery<Book> q = em.createQuery
-                ("SELECT b FROM Book b WHERE b.title LIKE '%" + title + "%'", Book.class);
+                ("SELECT b FROM Book b WHERE LOWER(b.title) LIKE '%" + title + "%'", Book.class);
         books = q.getResultList();
         em.close();
         return books;
     }
     @Override
     public List<Book> getByAuthor(String author){
+        author = author.toLowerCase();
         EntityManager em = getEMF().createEntityManager();
         List<Book> books;
         TypedQuery<Book> q = em.createQuery
-                ("SELECT b FROM Book b WHERE b.author LIKE '%" + author + "%'", Book.class);
+                ("SELECT b FROM Book b WHERE LOWER(b.author) LIKE '%" + author + "%'", Book.class);
         books = q.getResultList();
         em.close();
         return books;
     }
     @Override
     public List<Book> getByCourse(String course){
+        course = course.toLowerCase();
         EntityManager em = getEMF().createEntityManager();
         List<Book> books;
         TypedQuery<Book> q = em.createQuery
-                ("SELECT b FROM Book b WHERE b.course LIKE '%" + course + "%'", Book.class);
+                ("SELECT b FROM Book b WHERE LOWER(b.course) LIKE '%" + course + "%'", Book.class);
         books = q.getResultList();
         em.close();
         return books;

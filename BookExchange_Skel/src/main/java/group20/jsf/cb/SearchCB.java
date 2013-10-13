@@ -1,11 +1,9 @@
 package group20.jsf.cb;
 
 import group20.bookexchange.core.Book;
-import group20.bookexchange.core.BookExchangeFactory;
 import group20.bookexchange.core.IBookList;
 import group20.jsf.bb.SearchBB;
 import group20.jsf.mb.ExchangeBean;
-import group20.jsf.utils.ContainerNavigator;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +24,7 @@ import javax.inject.Named;
 public class SearchCB implements Serializable{
     private static final Logger LOGGER = Logger.getLogger("InfoLogging");
     
+    private static final String SEARCH_STRING = "Search your feelings..";
     
     @Inject
     private ExchangeBean bookExchange;
@@ -43,12 +42,11 @@ public class SearchCB implements Serializable{
      * Initializes the Search page. 
      */
     public void initialize(){
-        /*
-         * Initializes the ContainerNavigator with the entire collection of Books
-         * and points to the first and gives N items with getRange.
-         */
-        searchBB.setContainerNavigator(
-                new ContainerNavigator(0, 3, bookExchange.getBookList()));
+        
+        searchBB.setRangeStart(0);
+        searchBB.setRange(3);
+        
+        searchBB.setInput(SEARCH_STRING);
         
         // The radiobuttons will not have any alternative preselected.
         searchBB.setBookState(null);
@@ -71,47 +69,17 @@ public class SearchCB implements Serializable{
      * Returns N Books, where N is predefined in code. 
      * @return N Books.
      */
-    public List<Book> getRange() {
-        List<Book> bs = searchBB.getContainerNavigator().getRange();
-        return bs;
-    }
-    /**
-     * Gets the next N Books if there are any, where N is predefined in code.
-     */
-    public void next() { 
-        searchBB.getContainerNavigator().next();
-    }
-    /**
-     * Gets the previous N Btems if there are any, where N is predefined in code.
-     */
-    public void prev() {
-       searchBB.getContainerNavigator().previous();
-    }
-    /**
-     * Resets the Search page.
-     */
-    public void reset(){
-        initialize();
-    }
-    /**
-     * Sets the ContainerNavigator to contain only the Books that applies to
-     * any of the words given in sought or, if no Books was found, reset the
-     * Search page.
-     * @param sought A string containing what is sought.
-     */
-    public void execute(String sought){
+    public List<Book> getList() {
         
-        if(searchBB.getBookState() != null) 
-            LOGGER.info(searchBB.getBookState().toString());
-        
-        if(!sought.equals(""))
+        if(searchBB.getInput()!= null && !searchBB.getInput().equals(SEARCH_STRING))
         {
+            String sought = searchBB.getInput();
+            
             List<String> soughts = new ArrayList();
             soughts.addAll(Arrays.asList(sought.split("\\W")));
             soughts.add(sought);
             
             IBookList bookList = bookExchange.getBookList();
-            IBookList newBookList = BookExchangeFactory.getBookList();
             List<Book> bs = new ArrayList();
             for(String s : soughts){
                 LOGGER.info(s);
@@ -128,35 +96,62 @@ public class SearchCB implements Serializable{
                     bs.addAll(bookList.getByCourse(s));
                 }
             }
-            for(Book b : bs){
-                if(searchBB.getBookState() != null){
-                    if(b.getBookState() == searchBB.getBookState()) newBookList.add(b);
+            if(searchBB.getBookState() != null){
+                List<Book> nbs = new ArrayList();
+                for(Book b : bs){
+                    if(b.getBookState().equals(searchBB.getBookState()))
+                        nbs.add(b);
                 }
-                else newBookList.add(b);
+                bs = nbs;
             }
-            searchBB.setContainerNavigator(new ContainerNavigator(0, 3, newBookList));
+            int count = bs.size();
+            int first = searchBB.getRangeStart();
+            int nItems = searchBB.getRange();
+            first = first > count ? 0 : first;
+            nItems = (first + nItems) > count ? (count - first) : nItems;
+            searchBB.setRangeStart(first);
+            return bs.subList(searchBB.getRangeStart(), searchBB.getRangeStart()+nItems);
         }
-        else{
-            initialize();
+        if(searchBB.getBookState() != null){
+            return bookExchange.getBookList().getByState(searchBB.getBookState());
         }
+        return bookExchange.getBookList().getRange(searchBB.getRangeStart(),
+                searchBB.getRange());
     }
-    /*
-     * Setters and getters for SearchBB.
+    /**
+     * Gets the next N Books if there are any, where N is predefined in code.
      */
-    public void setBookState(Book.BookState state){
-        searchBB.setBookState(state);
+    public void next() { 
+        int count = bookExchange.getBookList().getCount();
+        int first = searchBB.getRangeStart();
+        int nItems = searchBB.getRange();
+        searchBB.setRangeStart((first + nItems < count) ? first + nItems : first);
     }
-    public Book.BookState getBookState(){
-        return searchBB.getBookState();
+    /**
+     * Gets the previous N Btems if there are any, where N is predefined in code.
+     */
+    public void prev() {
+        int first = searchBB.getRangeStart();
+        int nItems = searchBB.getRange();
+         searchBB.setRangeStart((first - nItems > 0) ? first - nItems : 0);
+
     }
-    
-    public List<SelectItem> getSelectItems(){
-        return searchBB.getSelectItems();
+    /**
+     * Resets the Search page.
+     */
+    public void reset(){
+        initialize();
     }
-    public void setSelectedItems(List<String> selectedItems){
-        searchBB.setSelectedItems(selectedItems);
-    }
-    public List<String> getSelectedItems(){
-        return searchBB.getSelectedItems();
+    /**
+     * Sets the ContainerNavigator to contain only the Books that applies to
+     * any of the words given in sought or, if no Books was found, reset the
+     * Search page.
+     * @param sought A string containing what is sought.
+     */
+    public void execute(){
+        if(searchBB.getInput()==null) initialize();
+        else{
+            searchBB.setRangeStart(0);
+        }
     }
 }
