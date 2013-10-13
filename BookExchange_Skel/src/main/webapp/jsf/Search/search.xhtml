@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Search for books</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name='content'>
+                <p>
+                    Search your feelings!
+                </p>
+                <h:form>
+                    <h:selectOneRadio value="#{search.bookState}">
+                        <f:selectItem itemLabel="Desired" itemValue="WANTED"/>
+                        <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
+                    </h:selectOneRadio>
+
+                    <h:inputText value="Type in the title of the book you seek" binding="#{input}" style="width: 50em"/>
+                    <h:commandButton actionListener="#{search.execute(input.value)}" value="Search" />
+                    <h:commandButton actionListener="#{search.reset}" value="reset" />
+
+                    <h:selectManyCheckbox value="#{search.selectedItems}">
+                        <f:selectItems value="#{search.selectItems}"/>
+                    </h:selectManyCheckbox>
+
+                </h:form>
+
+                <div class='bookTable'>
+                        <h:dataTable var="b" value="#{search.range}">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Id"/>
+                                </f:facet>
+                                <h:outputText value="#{b.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Title"/> 
+                                </f:facet>
+                                <h:outputText value="#{b.title}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Author"/> 
+                                </f:facet>
+                                <h:outputText value="#{b.author}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Owner"/> 
+                                </f:facet>
+                                <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="Price"/>
+                                </f:facet>
+                                <h:outputText value="#{b.price}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText  value="State"/>
+                                </f:facet>
+                                <h:outputText value="#{b.bookState}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                <h:form>
+                    <h:commandButton actionListener="#{search.prev}" value="Prev" class="small-button"/>
+                    <h:commandButton actionListener="#{search.next}" value="Next" class="small-button"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
