@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+<h:head>
+        <title>This is your page</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name='content'>
+            <div class='bookTable'>
+                <!-- användarnamn + bild -->
+                <h:commandButton actionListener="#{book.add}" value="Add book" class="small-button"/>
+                <h:commandButton actionListener="#{book.remove}" value="Remove Book" class="small-button"/>
+
+                <table align="center" border="1" width="500px">
+                <tr>
+                    <td width="50%">
+                        <h1 align="center">Books for sale</h1>
+                    </td>
+                    <td width="50%">
+                        <h1 align="center">Wanted books</h1>
+                    </td>
+                    <tr>
+                        <td>
+                            <a href="http://localhost:8080/BookExchange_Skel/jsf/Mypage/mypage.xhtml"> booklist </a>
+                        </td>
+                        <td>
+                            <a href="http://localhost:8080/BookExchange_Skel/jsf/Mypage/mypage.xhtml"> booklist </a>
+                        </td>
+                    </tr>
+                </tr>
+                </table>
+            </div>
+                <h:form>
+                    
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
