@@ -1,7 +1,7 @@
 package group20.jsf.cb;
 
 import group20.bookexchange.core.Book;
-import group20.bookexchange.core.BookList;
+import group20.bookexchange.core.BookExchangeFactory;
 import group20.bookexchange.core.IBookList;
 import group20.jsf.bb.SearchBB;
 import group20.jsf.mb.ExchangeBean;
@@ -73,7 +73,6 @@ public class SearchCB implements Serializable{
      */
     public List<Book> getRange() {
         List<Book> bs = searchBB.getContainerNavigator().getRange();
-        LOGGER.info(bs.toString());
         return bs;
     }
     /**
@@ -112,7 +111,7 @@ public class SearchCB implements Serializable{
             soughts.add(sought);
             
             IBookList bookList = bookExchange.getBookList();
-            IBookList newBookList = new BookList();
+            IBookList newBookList = BookExchangeFactory.getBookList();
             List<Book> bs = new ArrayList();
             for(String s : soughts){
                 LOGGER.info(s);
