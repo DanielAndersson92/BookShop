@@ -2,12 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
                 <h3>Add Book</h3>
                 <h:form>
+                    <h:selectOneRadio value="#{addBook.bookState}">
+                        <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
+                        <f:selectItem itemLabel="Wanted" itemValue="WANTED"/>
+                    </h:selectOneRadio>
                     <h:panelGrid columns="3">
                         <h:outputText value="Title" />
                         <h:inputText id="title" value="#{addBook.title}"/>
@@ -18,18 +23,18 @@
                         <h:outputText value="Price" />
                         <h:inputText id="price" value="#{addBook.price}"/>
                         <h:message for="price" />
+                        <!--
+                        behöver kunna hitta användare
                         <h:outputText value="Owner" />
-                        <h:inputText id="owner" value="#{addBook.owner}"/>
+                        <h:inputText id="owner" value="#{addBook.loggedIn}"/>
                         <h:message for="owner" />
+                        -->
                         <h:outputText value="Course" />
                         <h:inputText id="course" value="#{addBook.course}"/>
                         <h:message for="course" />
-                        <h:outputText value="Book State" />
-                        <h:inputText id="bookState" value="#{addBook.bookState}"/>
-                        <h:message for="bookState" />
                     </h:panelGrid>
-                    <h:button outcome="bookList" value="Cancel"/>                   
-                    <h:commandButton action="#{addBook.save}" value="Save" />             
+                    <h:commandButton action="#{addBook.save()}" value="Save" />
+                    <h:button outcome="mypage" value="Cancel"/>                   
                 </h:form>
             </ui:define>
         </ui:composition>

@@ -25,14 +25,13 @@ public class MyPageBB implements Serializable {
 
     @Inject
     private ExchangeBean bookExchange;
-    private Book.BookState bookState;
-    private ContainerNavigator cn;
+    private ContainerNavigator conNav;
     private List<Book> wanted = new ArrayList<Book>();
     private List<Book> forSale = new ArrayList<Book>();
-    private int numberOfBooks = 1;
     
     @PostConstruct
     public void post() {
+        conNav = new ContainerNavigator(0, 3, bookExchange.getBookList());
         setForSale();
         setWanted();
     }
@@ -43,9 +42,10 @@ public class MyPageBB implements Serializable {
     }
     
     public void setWanted(){
+        //inte bara sätta efter state, även efter user
         List<Book> books;
         books = bookExchange.getBookList().getByState(Book.BookState.WANTED);
-        wanted = books.subList(0, numberOfBooks);
+        wanted = books.subList(0, 1);
     }
     
     public List<Book> getForSale(){
@@ -54,18 +54,14 @@ public class MyPageBB implements Serializable {
     }
     
     public void setForSale(){
+        //inte bara sätta efter state, även efter user
         List<Book> books;
         books = bookExchange.getBookList().getByState(Book.BookState.FORSALE);
-        forSale = books.subList(0, numberOfBooks);
+        forSale = books.subList(0, 1);
     }
     
     public List<Book> getRange() {
-        List<Book> bs = cn.getRange();
+        List<Book> bs = conNav.getRange();
         return bs;
-    }
-
-    private void initialize() {
-        cn = new ContainerNavigator(0, 10, bookExchange.getBookList());
-        bookState = null;
     }
 }

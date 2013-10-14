@@ -31,4 +31,11 @@
             <to-view-id>/jsf/About/about.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule> 
+    <navigation-rule>
+        <from-view-id>/jsf/Mypage/mypage.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add</from-outcome>
+            <to-view-id>/jsf/Mypage/addBook.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
