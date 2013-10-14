@@ -21,6 +21,7 @@ public class User extends AbstractEntity {
     private String lname;
     private String cid;
     private String email;
+    private String password;
 
     public User() {
     }
@@ -54,5 +55,8 @@ public class User extends AbstractEntity {
     }
     public String getCID(){
         return cid;
+    }
+    public String getPassword(){
+        return password;
     }
 }

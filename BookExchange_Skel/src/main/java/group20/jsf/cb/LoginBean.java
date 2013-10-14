@@ -1,5 +1,7 @@
 package group20.jsf.cb;
  
+import group20.bookexchange.core.User;
+import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
  
 import javax.faces.application.FacesMessage;
@@ -7,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
  
  
 /**
@@ -23,8 +26,12 @@ public class LoginBean implements Serializable {
  
     // Simple user database :)
     private static final String[] users = {"anna:qazwsx","kate:123456"};
+    
+    @Inject
+    private ExchangeBean bookExchange;
      
-    private String username;
+    private User user;
+    private String cid;
     private String password;
      
     private boolean loggedIn;
@@ -37,16 +44,12 @@ public class LoginBean implements Serializable {
      * @return
      */
     public String doLogin() {
-        // Get every user from our sample database :)
-        for (String user: users) {
-            String dbUsername = user.split(":")[0];
-            String dbPassword = user.split(":")[1];
-             
+        user = bookExchange.getUserRegistry().getByCID(cid);
+        
             // Successful login
-            if (dbUsername.equals(username) && dbPassword.equals(password)) {
-                loggedIn = true;
-                return navigationBean.redirectToMypage();
-            }
+        if (user.getPassword().equals(password)) {
+            loggedIn = true;
+            return navigationBean.redirectToMypage();
         }
          
         // Set login ERROR
@@ -78,12 +81,12 @@ public class LoginBean implements Serializable {
     // ------------------------------
     // Getters & Setters
      
-    public String getUsername() {
-        return username;
+    public String getCid() {
+        return cid;
     }
  
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCid(String cid) {
+        this.cid = cid;
     }
  
     public String getPassword() {

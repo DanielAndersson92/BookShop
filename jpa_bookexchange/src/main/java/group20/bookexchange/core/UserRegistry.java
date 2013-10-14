@@ -20,12 +20,12 @@ public class UserRegistry extends AbstractDAO<User, Long> implements IUserRegist
     }
     
     @Override
-    public List<User> getByCID(String cid) {
+    public User getByCID(String cid) {
         EntityManager em = getEMF().createEntityManager();
-        List<User> users;
+        User users;
         TypedQuery<User> q = em.createQuery
                 ("SELECT u FROM User u WHERE u.cid = '" + cid + "'", User.class);
-        users = q.getResultList();
+        users = q.getSingleResult();
         em.close();
         return users;
     }
