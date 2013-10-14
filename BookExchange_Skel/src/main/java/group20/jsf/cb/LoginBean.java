@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.inject.Named;
  
  
 /**
@@ -35,20 +36,15 @@ public class LoginBean implements Serializable {
     private String password;
      
     private boolean loggedIn;
- 
-    @ManagedProperty(value="#{navigationBean}")
-    private NavigationBean navigationBean;
      
-    /**
-     * Login operation.
-     * @return
-     */
     public String doLogin() {
         try{
+            LOGGER.info(cid + password);
             user = bookExchange.getUserRegistry().getByCID(cid);
+            LOGGER.info(user.getCID() + user.getPassword());
             if (user.getPassword().equals(password)) {
-            loggedIn = true;
-            return navigationBean.redirectToMypage();
+                loggedIn = true;
+                return "mypage";
             }
 
             // Set login ERROR
@@ -57,31 +53,27 @@ public class LoginBean implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, msg);
 
             // To to login page
-            return navigationBean.toLogin();
+            return "login";
         }
         catch(Exception e){
             FacesMessage msg = new FacesMessage("Login error!", "ERROR MSG");
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext.getCurrentInstance().addMessage(null, msg);
             
-            // To to login page
-            return navigationBean.toLogin();
+            return "login";
         }
     }
      
-    /**
-     * Logout operation.
-     * @return
-     */
     public String doLogout() {
         LOGGER.info("Nu loggar jag ut förihelvette!");
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();       
-        return navigationBean.toIndex();
+        return "start";
     }
  
     // ------------------------------
     // Getters & Setters
      
+    public User getUser(){ return user; }
     public String getCid() {
         return cid;
     }
@@ -105,9 +97,5 @@ public class LoginBean implements Serializable {
     public void setLoggedIn(boolean loggedIn) {
         this.loggedIn = loggedIn;
     }
- 
-    public void setNavigationBean(NavigationBean navigationBean) {
-        this.navigationBean = navigationBean;
-    }
-     
+
 }
