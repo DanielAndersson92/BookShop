@@ -16,7 +16,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>mypage</from-outcome>
-            <to-view-id>/jsf/Mypage/mypage.xhtml</to-view-id>
+            <to-view-id>/jsf/Secured/mypage.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>search</from-outcome>
@@ -29,6 +29,10 @@
         <navigation-case>
             <from-outcome>about</from-outcome>
             <to-view-id>/jsf/About/about.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/jsf/Login/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule> 
 </faces-config>

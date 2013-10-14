@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+        <title>This is your page</title>
+</h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name='content'>
+                <!-- hitta användare och visa -->
+                <h:commandButton actionListener="#{addBook.save()}" value="Add book" class="small-button"/>
+                <h:panelGrid columns="2" border="1">
+                    <h:outputLabel>
+                        <h2 align="center">Wanted books</h2>
+                    </h:outputLabel>
+                    <h:outputLabel>
+                        <h2 align="center">My books for sale</h2>
+                    </h:outputLabel>
+                    <h:outputLabel>
+                        <div class='bookTable'>
+                            <h:dataTable var="b" value="#{mypage.wanted}">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Id"/>
+                                    </f:facet>
+                                    <h:outputText value="#{b.id}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Title"/> 
+                                    </f:facet>
+                                    <h:outputText value="#{b.title}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Author"/> 
+                                    </f:facet>
+                                    <h:outputText value="#{b.author}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Owner"/> 
+                                    </f:facet>
+                                    <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Price"/>
+                                    </f:facet>
+                                    <h:outputText value="#{b.price}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                    </h:outputLabel>
+                    <h:outputLabel>
+                        <div class='bookTable'>
+                            <h:dataTable var="b" value="#{mypage.forSale}">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Id"/>
+                                    </f:facet>
+                                    <h:outputText value="#{b.id}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Title"/> 
+                                    </f:facet>
+                                    <h:outputText value="#{b.title}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Author"/> 
+                                    </f:facet>
+                                    <h:outputText value="#{b.author}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Owner"/> 
+                                    </f:facet>
+                                    <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Price"/>
+                                    </f:facet>
+                                    <h:outputText value="#{b.price}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                    </h:outputLabel>
+                </h:panelGrid>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
