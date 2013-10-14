@@ -29,21 +29,31 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    <!-- Login filter -->
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>group20.jsf.utils.LoginFilter</filter-class>
+    </filter>
+    <!-- Set the login filter to secure all the pages in the /secured/* path of the application  -->
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/jsf/Secured/*</url-pattern>
+    </filter-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
+        <welcome-file>/index.xhtml</welcome-file>
     </welcome-file-list>
     <!-- Security -->
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>file</realm-name>
         <form-login-config>
-            <form-login-page>/jsf/login.xhtml</form-login-page>
-            <form-error-page>/jsf/login.xhtml</form-error-page>
+            <form-login-page>/jsf/Login/login.xhtml</form-login-page>
+            <form-error-page>/jsf/Login/login.xhtml</form-error-page>
         </form-login-config>
     </login-config>
     <security-role>
@@ -58,6 +68,6 @@
     -->
     <error-page>
         <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-        <location>/jsf/login.xhtml</location>
+        <location>/jsf/Secured/login.xhtml</location>
     </error-page>
 </web-app>

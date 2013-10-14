@@ -21,6 +21,9 @@
                 <hgroup>
                     <h1>Book Exchange</h1>
                     <h2>Smarter ways to trade</h2>
+                    <form name="LogoutForm">
+                        <h:commandButton id="button" value="Logout" action="#{loginBean.doLogout}"/>
+                    </form>
                 </hgroup>
             </header>
             <div id="content">
@@ -32,6 +35,7 @@
                             <li><h:link value="Search" outcome="search"/></li>
                             <li><h:link value="Forum" outcome="forum"/></li>
                             <li><h:link value="About" outcome="about"/></li>
+                            <li><h:link value="Log in" outcome="login"/></li>
                         </ul>
                     </nav>
                 </div>
