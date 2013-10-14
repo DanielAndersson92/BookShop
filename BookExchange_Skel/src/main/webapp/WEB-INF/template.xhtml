@@ -21,9 +21,31 @@
                 <hgroup>
                     <h1>Book Exchange</h1>
                     <h2>Smarter ways to trade</h2>
-                    <form name="LogoutForm">
-                        <h:commandButton id="button" value="Logout" action="#{loginBean.doLogout}"/>
-                    </form>
+                    <h:form id="headerLogin">
+                        <h:outputText value="Chalmers ID: "
+                                      rendered="#{!loginBean.loggedIn}"
+                                      class="loginformtext"/>
+                        <h:outputText value="#{loginBean.cid}"
+                                      rendered="#{loginBean.loggedIn}"
+                                      class="loginformtext"/>
+                        <h:inputText value="#{loginBean.cid}" 
+                                     
+                                     rendered="#{!loginBean.loggedIn}"/>
+                        <h:outputText value="Password: "
+                                      rendered="#{!loginBean.loggedIn}"
+                                      class="loginformtext"/>
+                        <h:inputSecret value="#{loginBean.password}" 
+                                       id="password"
+                                       rendered="#{!loginBean.loggedIn}"/>
+                        <h:commandButton class="LogoutButton" 
+                                         value="Log in" 
+                                         rendered="#{!loginBean.loggedIn}" 
+                                         action="#{loginBean.doLogin}"/>
+                        <h:commandButton class="LogoutButton" 
+                                         value="Logout" 
+                                         rendered="#{loginBean.loggedIn}" 
+                                         action="#{loginBean.doLogout}"/>
+                    </h:form>
                 </hgroup>
             </header>
             <div id="content">
@@ -35,7 +57,8 @@
                             <li><h:link value="Search" outcome="search"/></li>
                             <li><h:link value="Forum" outcome="forum"/></li>
                             <li><h:link value="About" outcome="about"/></li>
-                            <li><h:link value="Log in" outcome="login"/></li>
+                            <li><h:link value="Log in" outcome="login" 
+                                        rendered="#{!loginBean.loggedIn}"/></li>
                         </ul>
                     </nav>
                 </div>

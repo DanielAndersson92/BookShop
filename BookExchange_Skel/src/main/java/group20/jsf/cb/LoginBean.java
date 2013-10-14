@@ -3,6 +3,7 @@ package group20.jsf.cb;
 import group20.bookexchange.core.User;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
+import java.util.logging.Logger;
  
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -24,8 +25,7 @@ public class LoginBean implements Serializable {
  
     private static final long serialVersionUID = 7765876811740798583L;
  
-    // Simple user database :)
-    private static final String[] users = {"anna:qazwsx","kate:123456"};
+    private static final Logger LOGGER = Logger.getLogger("InfoLogging");
     
     @Inject
     private ExchangeBean bookExchange;
@@ -44,22 +44,29 @@ public class LoginBean implements Serializable {
      * @return
      */
     public String doLogin() {
-        user = bookExchange.getUserRegistry().getByCID(cid);
-        
-            // Successful login
-        if (user.getPassword().equals(password)) {
+        try{
+            user = bookExchange.getUserRegistry().getByCID(cid);
+            if (user.getPassword().equals(password)) {
             loggedIn = true;
             return navigationBean.redirectToMypage();
+            }
+
+            // Set login ERROR
+            FacesMessage msg = new FacesMessage("Login error!", "ERROR MSG");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+
+            // To to login page
+            return navigationBean.toLogin();
         }
-         
-        // Set login ERROR
-        FacesMessage msg = new FacesMessage("Login error!", "ERROR MSG");
-        msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-         
-        // To to login page
-        return navigationBean.toLogin();
-         
+        catch(Exception e){
+            FacesMessage msg = new FacesMessage("Login error!", "ERROR MSG");
+            msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+            
+            // To to login page
+            return navigationBean.toLogin();
+        }
     }
      
     /**
@@ -67,14 +74,8 @@ public class LoginBean implements Serializable {
      * @return
      */
     public String doLogout() {
-        // Set the paremeter indicating that user is logged in to false
-        loggedIn = false;
-         
-        // Set logout message
-        FacesMessage msg = new FacesMessage("Logout success!", "INFO MSG");
-        msg.setSeverity(FacesMessage.SEVERITY_INFO);
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-         
+        LOGGER.info("Nu loggar jag ut förihelvette!");
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();       
         return navigationBean.toIndex();
     }
  

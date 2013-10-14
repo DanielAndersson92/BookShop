@@ -27,9 +27,9 @@ public class BookListTest {
         IUserRegistry ur = be.getUserRegistry();
         IBookList bl = be.getBookList();
         
-        User u1 = new User("Greta","Garbo","grega","greta@hollywood.com");
+        User u1 = new User("Greta","Garbo","grega","greta@hollywood.com", "123456");
         ur.add(u1);
-        User u2 = new User("Ingmar","Bergman","ingbe","ingmar@hollywood.com");
+        User u2 = new User("Ingmar","Bergman","ingbe","ingmar@hollywood.com", "qwerty");
         ur.add(u2);
         
         Book b1 = new Book("Transformer, Signals and Systems", "PPE", 220, u1,
@@ -54,9 +54,9 @@ public class BookListTest {
         IUserRegistry ur = be.getUserRegistry();
         IBookList bl = be.getBookList();
         
-        User u1 = new User("Greta","Garbo","grega","greta@hollywood.com");
+        User u1 = new User("Greta","Garbo","grega","greta@hollywood.com", "123456");
         ur.add(u1);
-        User u2 = new User("Ingmar","Bergman","ingbe","ingmar@hollywood.com");
+        User u2 = new User("Ingmar","Bergman","ingbe","ingmar@hollywood.com", "qwerty");
         ur.add(u2);
         
         Book b1 = new Book("Transformer, Signals and Systems", "PPE", 220, u1,

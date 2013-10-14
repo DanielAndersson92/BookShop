@@ -14,17 +14,39 @@
                 <ui:define name="content"> 
                 <h3>Login here</h3>
                     <h:form id="login-form">
-                       <h:outputText value="username:"/>
-                       <h:inputText value="#{loginBean.cid}" id="username"/>
-                       <br/>
-                       <h:outputText value="password:"/>
-                       <h:inputSecret value="#{loginBean.password}" id="password"/>
-                       <br/>
-                       <h:commandButton id="button" value="Login" action="#{loginBean.doLogin}"/>
-                       <br/>
-                       <h:messages />
-                       <br/>
-                    </h:form>
+                       <table>
+                           <tr>
+                               <td>
+                                    <h:outputText value="Chalmers ID: "/>
+                               </td>
+                               <td>
+                                    <h:inputText value="#{loginBean.cid}" id="username"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                     <h:outputText value="Password: "/>
+                               </td>
+                               <td>
+                                    <h:inputSecret value="#{loginBean.password}" id="password"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <h:commandButton class="LogButton" value="Log in"
+                                                    rendered="#{!loginBean.loggedIn}"
+                                                    action="#{loginBean.doLogin}"/>
+                                   <h:commandButton class="LogButton" value="Logout" 
+                                                    rendered="#{loginBean.loggedIn}" 
+                                                    action="#{loginBean.doLogout}"/>
+                               </td>
+                           </tr>
+                        </table>
+                        <br/>
+                        <h:messages />
+                        <br/>
+                       
+                    </h:form>      
                 </ui:define>
         </ui:composition>
     </body>
