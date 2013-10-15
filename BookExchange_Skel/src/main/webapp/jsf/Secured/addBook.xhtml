@@ -13,6 +13,7 @@
                         <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
                         <f:selectItem itemLabel="Wanted" itemValue="WANTED"/>
                     </h:selectOneRadio>
+                    
                     <h:panelGrid columns="3">
                         <h:outputText value="Title" />
                         <h:inputText id="title" value="#{addBook.title}"/>
@@ -23,12 +24,9 @@
                         <h:outputText value="Price" />
                         <h:inputText id="price" value="#{addBook.price}"/>
                         <h:message for="price" />
-                        <!--
-                        behöver kunna hitta användare
                         <h:outputText value="Owner" />
-                        <h:inputText id="owner" value="#{addBook.loggedIn}"/>
+                        <h:inputText id="owner" value="#{addBook.isLoggedIn}"/>
                         <h:message for="owner" />
-                        -->
                         <h:outputText value="Course" />
                         <h:inputText id="course" value="#{addBook.course}"/>
                         <h:message for="course" />

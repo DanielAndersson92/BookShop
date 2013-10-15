@@ -29,15 +29,8 @@ public class MyPageBB implements Serializable {
     private List<Book> wanted = new ArrayList<Book>();
     private List<Book> forSale = new ArrayList<Book>();
     
-    @PostConstruct
-    public void post() {
-        conNav = new ContainerNavigator(0, 3, bookExchange.getBookList());
-        setForSale();
-        setWanted();
-    }
     
     public List<Book> getWanted(){
-    //ska endast hämta inloggade användarens böcker        
         return wanted;
     }
     
@@ -64,4 +57,5 @@ public class MyPageBB implements Serializable {
         List<Book> bs = conNav.getRange();
         return bs;
     }
+    
 }
