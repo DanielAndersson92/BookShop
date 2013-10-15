@@ -32,6 +32,12 @@ public class AddBookBB implements Serializable{
     private BookState bookState;
     private ExchangeBean eb;
     
+    public String save(){
+        Book b = new Book(title, author, price, owner, course, bookState, new Date(1L));
+        eb.getBookList().add(b);
+        return eb.toString();
+    }
+    
     @Inject
     public void setShop(ExchangeBean s){
         this.eb = s;
