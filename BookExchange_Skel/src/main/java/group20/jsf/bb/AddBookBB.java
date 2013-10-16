@@ -8,10 +8,7 @@ import group20.bookexchange.core.Book;
 import group20.bookexchange.core.Book.BookState;
 import group20.bookexchange.core.User;
 import group20.jsf.mb.ExchangeBean;
-import group20.jsf.utils.ContainerNavigator;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,7 +17,7 @@ import javax.inject.Named;
  *
  * @author alexandralazic
  */
-@Named("addBook")
+@Named("addBookBB")
 @RequestScoped
 public class AddBookBB implements Serializable{
     

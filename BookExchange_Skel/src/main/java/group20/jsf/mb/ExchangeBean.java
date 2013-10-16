@@ -8,6 +8,7 @@ import group20.bookexchange.core.BookExchangeFactory;
 import group20.bookexchange.core.IBookExchange;
 import group20.bookexchange.core.IBookList;
 import group20.bookexchange.core.IUserRegistry;
+import group20.bookexchange.pm.IPMController;
 import java.io.Serializable;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -37,6 +38,10 @@ public class ExchangeBean implements Serializable{
     
     public IUserRegistry getUserRegistry(){
         return bookExchange.getUserRegistry();
+    }
+    
+    public IPMController getPMController(){
+        return bookExchange.getPMController();
     }
     
 }

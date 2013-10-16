@@ -19,23 +19,23 @@ import javax.persistence.OrderBy;
  * @author Patrik
  */
 @Entity
-public class Conversation extends AbstractEntity{
+public class PMConversation extends AbstractEntity{
     @OneToMany
     private List<User> users;
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity=Post.class)
     @OrderBy("postDate DESC")
     private List<Post> posts;
     
-    public Conversation(){
+    public PMConversation(){
     }
-    public Conversation(User u1, User u2, Post post){
+    public PMConversation(User u1, User u2, Post post){
         users = new ArrayList();
         users.add(u1);
         users.add(u2);
         posts = new ArrayList();
         posts.add(post);
     }
-    public Conversation(Long id, List<User> users, List<Post> posts){
+    public PMConversation(Long id, List<User> users, List<Post> posts){
         super(id);
         this.users = users;
         this.posts = posts;

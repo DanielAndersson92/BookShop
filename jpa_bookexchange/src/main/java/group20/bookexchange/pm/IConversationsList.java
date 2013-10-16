@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Patrik
  */
-public interface IConversationsList extends IDAO<Conversation, Long> {
-    public List<Conversation> getByUser(User user1);
-    public Conversation getByUsers(User u1, User u2);
+public interface IConversationsList extends IDAO<PMConversation, Long> {
+    public List<PMConversation> getByUser(User user1);
+    public PMConversation getByUsers(User u1, User u2);
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name='content'>
+                Hej
+                
+                <h:form>
+                    <h:outputText value="Sen to: "/>
+                    <h:inputText value="#{pmBB.reciever}"/>
+                    
+                    <h:outputText value="Message: "/>
+                    <h:inputText value="#{pmBB.message}"/>
+                    
+                    <h:commandButton value="Send" actionListener="#{pm.send}"/>                   
+                </h:form>
+                
+                <h:dataTable var="convers" value="#{pm.conversations}">
+                    <h:column>
+                        <h:dataTable var="p" value="#{convers.posts}">
+                            <h:column>
+                                <h:outputText value="#{p.author.CID}"/><br/>
+                            </h:column>
+                            <h:column>
+                                <h:outputText value="#{p.message}"/><br/>
+                            </h:column>
+                            <h:column>
+                                <h:outputText value="#{p.postDate}"/><br/>
+                            </h:column>
+
+                        </h:dataTable>
+                    </h:column>
+                </h:dataTable>
+                
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -34,23 +34,23 @@ public class ConversationsListTest {
         be.getUserRegistry().add(u1);
         be.getUserRegistry().add(u2);
         Post p1 = new Post("Hej", new Date(), u1);
-        Conversation c1 = new Conversation(u1,u2,p1);
+        PMConversation c1 = new PMConversation(u1,u2,p1);
         pc.getConversationsList().add(c1);
         
-        List<Conversation> cs = pc.getConversationsList().getByUser(u1);
+        List<PMConversation> cs = pc.getConversationsList().getByUser(u1);
         assertTrue(cs.size() == 1);
         
         
         User u3 = new User("Anders", "Bo", "anbo", "greta@hollywood.com", "qwerty");
         be.getUserRegistry().add(u3);
         Post p2 = new Post("Hejsan", new Date(), u1);
-        Conversation c2 = new Conversation(u1,u3,p2);
+        PMConversation c2 = new PMConversation(u1,u3,p2);
         pc.getConversationsList().add(c2);
         
         cs = pc.getConversationsList().getByUser(u1);
         assertTrue(cs.size() == 2);
         
-        Conversation ctemp = pc.getConversationsList().getByUsers(u1,u2);
+        PMConversation ctemp = pc.getConversationsList().getByUsers(u1,u2);
         assertTrue(ctemp.equals(c1));
         
         

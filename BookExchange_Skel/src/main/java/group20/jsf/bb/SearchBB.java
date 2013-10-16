@@ -5,11 +5,8 @@
 package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
-import group20.jsf.utils.ContainerNavigator;
 import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Logger;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
