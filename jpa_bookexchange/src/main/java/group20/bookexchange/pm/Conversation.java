@@ -20,10 +20,10 @@ import javax.persistence.OrderBy;
  */
 @Entity
 public class Conversation extends AbstractEntity{
-    @OneToMany
+    @OneToMany(targetEntity=User.class)
     private List<User> users;
-    @OneToMany(cascade = {CascadeType.ALL})
-    @OrderBy("postDate DESC")
+    @OneToMany(cascade = {CascadeType.ALL}, targetEntity=Post.class)
+    //@OrderBy("postDate DESC")
     private List<Post> posts;
     
     public Conversation(){
