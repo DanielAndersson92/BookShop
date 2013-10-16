@@ -25,7 +25,7 @@ public class ConversationsList extends AbstractDAO<Conversation, Long> implement
         EntityManager em = getEMF().createEntityManager();
         List<Conversation> conversations;
         TypedQuery<Conversation> q = em.createQuery
-                ("SELECT c FROM Conversation AS c WHERE :user MEMBER OF c.users", Conversation.class).
+                ("SELECT c FROM Conversation c WHERE :user MEMBER OF c.users", Conversation.class).
                 setParameter("user", user1);
         conversations = q.getResultList();
         em.close();
@@ -33,16 +33,15 @@ public class ConversationsList extends AbstractDAO<Conversation, Long> implement
     }
 
     @Override
-    public List<Conversation> getByUsers(User u1, User u2) {
+    public Conversation getByUsers(User u1, User u2) {
         EntityManager em = getEMF().createEntityManager();
-        List<Conversation> conversations;
+        Conversation conversation;
         TypedQuery<Conversation> q = em.createQuery
-                ("SELECT c FROM Conversation AS c WHERE :user1 MEMBER OF c.users"
+                ("SELECT c FROM Conversation c WHERE :user1 MEMBER OF c.users "
                 + "AND :user2 MEMBER OF c.users", Conversation.class).
-                setParameter("user1", u1)
-                .setParameter("user2", u2);
-        conversations = q.getResultList();
+                setParameter("user1", u1).setParameter("user2", u2);
+        conversation = q.getSingleResult();
         em.close();
-        return conversations;    }
+        return conversation;    }
     
 }

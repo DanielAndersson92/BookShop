@@ -20,10 +20,10 @@ import javax.persistence.OrderBy;
  */
 @Entity
 public class Conversation extends AbstractEntity{
-    @OneToMany(targetEntity=User.class)
+    @OneToMany
     private List<User> users;
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity=Post.class)
-    //@OrderBy("postDate DESC")
+    @OrderBy("postDate DESC")
     private List<Post> posts;
     
     public Conversation(){
@@ -33,6 +33,17 @@ public class Conversation extends AbstractEntity{
         users.add(u1);
         users.add(u2);
         posts = new ArrayList();
+        posts.add(post);
+    }
+    public Conversation(Long id, List<User> users, List<Post> posts){
+        super(id);
+        this.users = users;
+        this.posts = posts;
+    }
+    
+    public List<User> getUsers(){ return users; }
+    public List<Post> getPosts(){ return posts; }
+    public void addPost(Post post){
         posts.add(post);
     }
 }
