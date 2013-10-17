@@ -94,7 +94,7 @@ header h2{
 }
 
 footer {
-    background-color: #333333;
+    background-color: #000000;
     color: #0099ff;
 }
 
@@ -106,11 +106,11 @@ thead {
     padding-right: 1em;
 }
 #bookmenu{
-    background: #333333;
+    background: #000000;
     
 }
 .bookmenu ul{
-  background: #333333;
+  background: #000000;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -126,7 +126,7 @@ thead {
   list-style: none;
 }
 .bookmenu a {
-  background: #333333;
+  background: #000000;
   border-bottom: 1px solid #393939;
   color: #0099ff;
   display: block;
@@ -137,5 +137,5 @@ thead {
 }
 .bookmenu a:hover {
     background: #0099ff;
-    color: #333333;
+    color: #000000;
 }

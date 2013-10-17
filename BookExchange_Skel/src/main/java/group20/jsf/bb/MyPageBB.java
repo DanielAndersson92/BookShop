@@ -22,7 +22,7 @@ import javax.inject.Named;
  *
  * @author alexandralazic
  */
-@Named("mypage")
+@Named("mypageBB")
 @SessionScoped
 public class MyPageBB implements Serializable {
 

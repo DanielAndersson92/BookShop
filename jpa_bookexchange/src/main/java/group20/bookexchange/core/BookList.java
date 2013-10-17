@@ -69,4 +69,19 @@ public class BookList extends AbstractDAO<Book,Long> implements IBookList {
         em.close();
         return books;
     }
+    @Override
+    public List<Book> getRangeDate(Integer nrOfBooks, Book.BookState bookState){
+        EntityManager em = getEMF().createEntityManager();
+        List<Book> books;
+        TypedQuery<Book> q = em.createQuery
+                ("SELECT b FROM Book b"
+                + " WHERE b.bookState = :BOKS"
+                + " ORDER BY b.bookDate DESC", Book.class).
+                setParameter("BOKS", bookState);
+                 
+        q.setMaxResults(nrOfBooks);
+        books = q.getResultList();
+        em.close();
+        return books;
+    }
 }
