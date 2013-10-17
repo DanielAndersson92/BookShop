@@ -39,7 +39,10 @@
                                </td>
                                <td>
                                     <h:inputText required="true" value="#{registerBB.CID}"
-                                                 requiredMessage="Chalmers ID must be filled in."/>
+                                                 requiredMessage="Chalmers ID must be filled in.">
+                                        <f:validator validatorId="CIDValidator" />
+                                        <f:attribute name="cidValid" value="#{CIDExists}"/>
+                                    </h:inputText>
                                </td>
                            </tr><tr>
                                <td>
@@ -47,7 +50,10 @@
                                </td>
                                <td>
                                     <h:inputText required="true" value="#{registerBB.email}"
-                                                 requiredMessage="Email must be filled in."/>
+                                                 requiredMessage="Email must be filled in.">
+                                    <f:validator validatorId="emailValidator" />
+                                        <f:attribute name="emailValid" value="#{emailValid}"/>
+                                    </h:inputText>
                                </td>
                            </tr>            
                            <tr>
@@ -56,7 +62,10 @@
                                </td>
                                <td>
                                     <h:inputSecret required="true" value="#{registerBB.password}"
-                                                   requiredMessage="Password must be filled in"/>
+                                                   requiredMessage="Password must be filled in">
+                                        <f:validator validatorId="passwordValidator" />
+                                        <f:attribute name="confirm" value="#{confirm}"/>
+                                    </h:inputSecret>
                                </td>
                            </tr>
                            <tr>
@@ -64,8 +73,7 @@
                                      <h:outputText value="Confirm password: "/>
                                </td>
                                <td>
-                                   <h:inputSecret required="true" value="#{registerBB.confirmPassword}"
-                                                  requiredMessage="Must be filled in."/>
+                                   <h:inputSecret id="confirm" binding="#{confirm}" required="true" />
                                </td>
                            </tr>
                            <tr>
