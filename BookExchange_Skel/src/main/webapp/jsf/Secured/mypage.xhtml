@@ -57,12 +57,8 @@ and open the template in the editor.
                                     <h:outputText value="#{b.price}"/>
                                 </h:column>
                                 <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Action"/>
-                                    </f:facet>
-
-                                    <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
-                                                     action="editBook" 
+                                   <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
+                                                     action="#{mypageBB.navigate('editBook')}" 
                                                      value="Edit" class="small-button"/>
 
                                     <h:commandButton actionListener="#{deleteBook.setSelected(b.id)}"      
@@ -107,9 +103,6 @@ and open the template in the editor.
                                 </h:column>
                                 
                                 <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Action"/>
-                                    </f:facet>
                                     <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
                                                      action="/jsf/Secured/editBook.xhtml" 
                                                      value="Edit" class="small-button"/>

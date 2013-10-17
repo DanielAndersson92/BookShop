@@ -70,4 +70,8 @@ public class MyPageBB implements Serializable {
         List<Book> bs = bookExchange.getBookList().getByUser(logBean.getUser());
         return bs;
     }
+    
+    public String navigate(String target) {
+        return target;
+    }
 }

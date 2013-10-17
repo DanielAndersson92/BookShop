@@ -8,6 +8,8 @@ import group20.bookexchange.core.Book;
 import group20.bookexchange.core.IBookList;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.Conversation;
 import javax.inject.Inject;
@@ -24,7 +26,7 @@ public abstract class Conversational implements Serializable {
     private ExchangeBean exchangeBean;
     
     private Long id;
-    private String name;
+    private String title;
     private String author;
     private String price;
     private String course;
@@ -35,7 +37,7 @@ public abstract class Conversational implements Serializable {
         }
         Book b = exchangeBean.getBookList().find(Long.valueOf(id));
         this.id = b.getId();
-        this.name = b.getTitle();
+        this.title = b.getTitle();
         this.author = b.getAuthor();
         this.price = String.valueOf(b.getPrice());
         this.course = b.getCourse();
@@ -53,7 +55,7 @@ public abstract class Conversational implements Serializable {
             conversation.end();
         }
         execute();
-        return "";
+        return "mypage";
     }
     
     protected abstract void execute();
@@ -69,10 +71,10 @@ public abstract class Conversational implements Serializable {
         this.id = id;
     }
     public String getTitle() {
-        return name;
+        return title;
     }
-    public void setTitle(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
     public String getAuthor(){
         return author;
