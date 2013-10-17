@@ -8,11 +8,8 @@ import group20.bookexchange.core.BookExchangeFactory;
 import group20.bookexchange.core.IBookExchange;
 import group20.bookexchange.core.IBookList;
 import group20.bookexchange.core.IUserRegistry;
-<<<<<<< HEAD
 import group20.bookexchange.pm.IPMController;
-=======
 import group20.bookexchange.forum.IForumThread;
->>>>>>> origin/databasFilter
 import java.io.Serializable;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -44,13 +41,11 @@ public class ExchangeBean implements Serializable{
         return bookExchange.getUserRegistry();
     }
     
-<<<<<<< HEAD
     public IPMController getPMController(){
         return bookExchange.getPMController();
-=======
+    }
     public IForumThread getPostList(){
         return bookExchange.getPostList();
->>>>>>> origin/databasFilter
     }
     
 }

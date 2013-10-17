@@ -17,11 +17,9 @@ and open the template in the editor.
                 Hej
                 
                 <h:form>
-                    <h:outputText value="Sen to: "/>
-                    <h:inputText value="#{pmBB.reciever}"/>
+                    <h:outputText value="Sen to: #{pmBB.reciever.fname}"/><br/>
                     
-                    <h:outputText value="Message: "/>
-                    <h:inputText value="#{pmBB.message}"/>
+                    <h:inputText value="#{pmBB.message}"/><br/>
                     
                     <h:commandButton value="Send" actionListener="#{pm.send}"/>                   
                 </h:form>

@@ -10,12 +10,8 @@ import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-<<<<<<< HEAD
-import javax.enterprise.context.SessionScoped;
-=======
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
->>>>>>> origin/databasFilter
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -24,20 +20,11 @@ import javax.inject.Named;
  * @author alexandralazic
  */
 @Named("mypageBB")
-<<<<<<< HEAD
-@SessionScoped
-=======
 @RequestScoped
->>>>>>> origin/databasFilter
 public class MyPageBB implements Serializable {
 
     @Inject
     private ExchangeBean bookExchange;
-<<<<<<< HEAD
-    private List<Book> wanted = new ArrayList<Book>();
-    private List<Book> forSale = new ArrayList<Book>();
-    
-=======
     private List<Book> wanted;
     private List<Book> forSale;
     @Inject
@@ -48,7 +35,6 @@ public class MyPageBB implements Serializable {
         setWanted();
         setForSale();
     }
->>>>>>> origin/databasFilter
     
     public List<Book> getWanted(){
         return wanted;
@@ -79,12 +65,4 @@ public class MyPageBB implements Serializable {
             }
         }
     }
-<<<<<<< HEAD
-=======
-    
-    public List<Book> getRange() {
-        List<Book> bs = bookExchange.getBookList().getByUser(logBean.getUser());
-        return bs;
-    }
->>>>>>> origin/databasFilter
 }

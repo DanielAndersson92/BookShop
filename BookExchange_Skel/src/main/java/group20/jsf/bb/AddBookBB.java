@@ -10,10 +10,7 @@ import group20.bookexchange.core.User;
 import group20.jsf.cb.LoginBean;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
-<<<<<<< HEAD
-=======
 import java.util.Date;
->>>>>>> origin/databasFilter
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;

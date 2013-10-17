@@ -5,12 +5,7 @@ import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
- 
 import javax.faces.application.FacesMessage;
-<<<<<<< HEAD
-import javax.enterprise.context.SessionScoped;
-=======
->>>>>>> origin/databasFilter
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;

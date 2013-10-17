@@ -33,7 +33,7 @@ public class RegisterCB implements Serializable {
                 registerBB.getCID(), registerBB.getEmail(), 
                 registerBB.getPassword());
         try{
-        bookExchange.getUserRegistry().add(user);
+            bookExchange.getUserRegistry().add(user);
         }
         catch(RollbackException e){
             

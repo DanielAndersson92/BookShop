@@ -33,7 +33,7 @@ public class ConversationsListTest {
         User u2 = new User("Lars", "Bo", "bola", "greta@hollywood.com", "qwerty");
         be.getUserRegistry().add(u1);
         be.getUserRegistry().add(u2);
-        Post p1 = new Post("Hej", new Date(), u1);
+        PMPost p1 = new PMPost("Hej", new Date(), u1);
         PMConversation c1 = new PMConversation(u1,u2,p1);
         pc.getConversationsList().add(c1);
         
@@ -43,7 +43,7 @@ public class ConversationsListTest {
         
         User u3 = new User("Anders", "Bo", "anbo", "greta@hollywood.com", "qwerty");
         be.getUserRegistry().add(u3);
-        Post p2 = new Post("Hejsan", new Date(), u1);
+        PMPost p2 = new PMPost("Hejsan", new Date(), u1);
         PMConversation c2 = new PMConversation(u1,u3,p2);
         pc.getConversationsList().add(c2);
         
@@ -55,7 +55,7 @@ public class ConversationsListTest {
         
         
         assertTrue(ctemp.getPosts().size() == 1);
-        ctemp.addPost(new Post("Nämen hej!", new Date(), u2));
+        ctemp.addPost(new PMPost("Nämen hej!", new Date(), u2));
         pc.getConversationsList().update(ctemp);
         
         ctemp = pc.getConversationsList().getByUsers(u1,u2);

@@ -4,11 +4,8 @@
  */
 package group20.bookexchange.core;
 
-<<<<<<< HEAD
 import group20.bookexchange.pm.IPMController;
-=======
 import group20.bookexchange.forum.*;
->>>>>>> origin/databasFilter
 
 /**
  *
@@ -20,9 +17,6 @@ public interface IBookExchange {
     
     public IBookList getBookList();
     
-<<<<<<< HEAD
     public IPMController getPMController();
-=======
     public IForumThread getPostList();
->>>>>>> origin/databasFilter
 }

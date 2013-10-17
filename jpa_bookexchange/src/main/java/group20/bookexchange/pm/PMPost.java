@@ -4,7 +4,6 @@
  */
 package group20.bookexchange.pm;
 
-import group20.bookexchange.forum.*;
 import group20.bookexchange.core.User;
 import group20.bookexchange.utils.AbstractEntity;
 import java.util.Date;
@@ -20,8 +19,8 @@ import javax.persistence.TemporalType;
 @Entity
 public class PMPost extends AbstractEntity{
     private String message;
-    @Temporal(TemporalType.DATE)
-    private Date postDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date postDate;
     @ManyToOne
     private User author;
     private Boolean unread;

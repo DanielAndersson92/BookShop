@@ -55,7 +55,12 @@ and open the template in the editor.
                                     <h:outputText value="#{b.course}"/><br/>
                                 </td>
                                 <td>
-                                    <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/><br/>
+                                    <h:form>
+                                        <h:commandButton action="user" actionListener="#{userBB.setUser(b.owner)}" 
+                                                         value="#{b.owner.fname} #{b.owner.lname}"
+                                                         class="small-button"/>
+                                                      <br/>
+                                    </h:form>
                                     <h:outputText class="#{b.bookState}" value="#{b.bookState}"/>
                                 </td>
                                 <td>

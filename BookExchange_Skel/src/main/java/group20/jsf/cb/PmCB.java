@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.NoResultException;
 
 /**
  *
@@ -35,8 +36,8 @@ public class PmCB implements Serializable{
     private PmBB pmBB;
     
     public void send(){
-        User user2 = bookExchange.getUserRegistry().getByCID(pmBB.getReciever());
-        Post p = new Post(pmBB.getMessage(), new Date(), loginbean.getUser());
+        User user2 = pmBB.getReciever();
+        PMPost p = new PMPost(pmBB.getMessage(), new Date(), loginbean.getUser());
         PMConversation c;
         try{
             c = bookExchange.getPMController().getConversationsList()
@@ -44,7 +45,8 @@ public class PmCB implements Serializable{
             c.addPost(p);
             bookExchange.getPMController().getConversationsList().update(c);
         }
-        catch(Exception e){
+        catch(NoResultException e){
+            //A previous converstation does not extis, create new one.
             c = new PMConversation(loginbean.getUser(), user2, p);
             bookExchange.getPMController().getConversationsList().add(c);
         }
