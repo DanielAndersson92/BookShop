@@ -36,16 +36,18 @@ public class PmCB implements Serializable{
     
     public void send(){
         User user2 = bookExchange.getUserRegistry().getByCID(pmBB.getReciever());
-        LOGGER.info(user2.getCID());
-        LOGGER.info(loginbean.getUser().getCID());
-
-        Post p = new Post(pmBB.getMessage(), new Date(), user2);
-        LOGGER.info(p.toString());
-        
-        PMConversation c = new PMConversation(loginbean.getUser(), user2, p);
-        LOGGER.info(c.toString());
-
-        bookExchange.getPMController().getConversationsList().add(c);
+        Post p = new Post(pmBB.getMessage(), new Date(), loginbean.getUser());
+        PMConversation c;
+        try{
+            c = bookExchange.getPMController().getConversationsList()
+                    .getByUsers(user2, loginbean.getUser());
+            c.addPost(p);
+            bookExchange.getPMController().getConversationsList().update(c);
+        }
+        catch(Exception e){
+            c = new PMConversation(loginbean.getUser(), user2, p);
+            bookExchange.getPMController().getConversationsList().add(c);
+        }
     }
     
     public List<PMConversation> getConversations(){

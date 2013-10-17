@@ -28,6 +28,7 @@ and open the template in the editor.
                 
                 <h:dataTable var="convers" value="#{pm.conversations}">
                     <h:column>
+                        <h:outputText value="#{convers.users}"/><br/>
                         <h:dataTable var="p" value="#{convers.posts}">
                             <h:column>
                                 <h:outputText value="#{p.author.CID}"/><br/>
