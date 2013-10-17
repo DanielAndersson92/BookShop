@@ -15,18 +15,22 @@
                     </h:selectOneRadio>
                     <h:panelGrid columns="3">
                         <h:outputText value="Title" />
-                        <h:inputText id="title" value="#{addBook.title}"/>
+                        <h:inputText id="title" value="#{addBookBB.title}"/>
                         <h:message for="title" />
                         <h:outputText value="Author" />
-                        <h:inputText id="author" value="#{addBook.author}"/>
+                        <h:inputText id="author" value="#{addBookBB.author}"/>
                         <h:message for="author" />
                         <h:outputText value="Price" />
-                        <h:inputText id="price" value="#{addBook.price}"/>
+                        <h:inputText id="price" value="#{addBookBB.price}"/>
                         <h:message for="price" />
                         <!--
                         behöver kunna hitta användare
                         <h:outputText value="Owner" />
+<<<<<<< HEAD
                         <h:inputText id="owner" value="#{addBook.loggedIn}"/>
+=======
+                        <h:inputText id="owner" value="#{LoginBean.isLoggedIn}"/>
+>>>>>>> b90c390a3a42424f239ee27716af7cd0ad715f96
                         <h:message for="owner" />
                         -->
                         <h:outputText value="Course" />
