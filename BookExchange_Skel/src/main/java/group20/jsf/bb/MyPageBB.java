@@ -5,8 +5,11 @@
 package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
+import group20.bookexchange.core.User;
+import group20.jsf.cb.LoginBean;
 import group20.jsf.mb.ExchangeBean;
 import group20.jsf.utils.ContainerNavigator;
+import group20.jsf.utils.LoginFilter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,10 @@ public class MyPageBB implements Serializable {
     private ContainerNavigator conNav;
     private List<Book> wanted = new ArrayList<Book>();
     private List<Book> forSale = new ArrayList<Book>();
+    private List<Book> userBooks;
+    private Book book;
+    private User user;
+    private LoginBean logBean;
     
     @PostConstruct
     public void post() {
@@ -37,8 +44,7 @@ public class MyPageBB implements Serializable {
     }
     
     public List<Book> getWanted(){
-    //ska endast hämta inloggade användarens böcker        
-        return wanted;
+        return logBean;
     }
     
     public void setWanted(){
