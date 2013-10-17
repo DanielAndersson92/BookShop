@@ -7,11 +7,10 @@ package group20.jsf.bb;
 import group20.bookexchange.core.Book;
 import group20.bookexchange.core.Book.BookState;
 import group20.bookexchange.core.User;
+import group20.jsf.cb.LoginBean;
 import group20.jsf.mb.ExchangeBean;
-import group20.jsf.utils.ContainerNavigator;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -30,17 +29,21 @@ public class AddBookBB implements Serializable{
     private int price;
     private User owner;
     private BookState bookState;
-    private ExchangeBean eb;
     
-    public String save(){
-        Book b = new Book(title, author, price, owner, course, bookState, new Date(1L));
-        eb.getBookList().add(b);
-        return eb.toString();
-    }
+    @Inject
+    private LoginBean logBean;
+    
+    @Inject
+    private ExchangeBean exchangeBean;
     
     @Inject
     public void setShop(ExchangeBean s){
-        this.eb = s;
+        this.exchangeBean = s;
+    }
+    
+    public void save(){
+        Book b = new Book(title, author, price, logBean.getUser(), course, bookState, new Date());
+        exchangeBean.getBookList().add(b);
     }
     
     public String getTitle() {

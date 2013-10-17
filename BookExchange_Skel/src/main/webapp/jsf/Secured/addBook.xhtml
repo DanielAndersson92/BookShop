@@ -9,7 +9,7 @@
             <ui:define name="content">
                 <h3>Add Book</h3>
                 <h:form>
-                    <h:selectOneRadio value="#{addBook.bookState}">
+                    <h:selectOneRadio value="#{addBookBB.bookState}">
                         <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
                         <f:selectItem itemLabel="Wanted" itemValue="WANTED"/>
                     </h:selectOneRadio>
@@ -23,21 +23,11 @@
                         <h:outputText value="Price" />
                         <h:inputText id="price" value="#{addBookBB.price}"/>
                         <h:message for="price" />
-                        <!--
-                        behöver kunna hitta användare
-                        <h:outputText value="Owner" />
-<<<<<<< HEAD
-                        <h:inputText id="owner" value="#{addBook.loggedIn}"/>
-=======
-                        <h:inputText id="owner" value="#{LoginBean.isLoggedIn}"/>
->>>>>>> b90c390a3a42424f239ee27716af7cd0ad715f96
-                        <h:message for="owner" />
-                        -->
                         <h:outputText value="Course" />
-                        <h:inputText id="course" value="#{addBook.course}"/>
+                        <h:inputText id="course" value="#{addBookBB.course}"/>
                         <h:message for="course" />
                     </h:panelGrid>
-                    <h:commandButton action="#{addBook.save()}" value="Save" />
+                    <h:commandButton action="mypage" actionListener="#{addBookBB.save()}" value="Save" />
                     <h:button outcome="mypage" value="Cancel"/>                   
                 </h:form>
             </ui:define>
