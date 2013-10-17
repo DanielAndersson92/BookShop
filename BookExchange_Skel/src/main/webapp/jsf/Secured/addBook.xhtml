@@ -16,16 +16,16 @@
                     
                     <h:panelGrid columns="3">
                         <h:outputText value="Title" />
-                        <h:inputText id="title" value="#{addBook.title}"/>
+                        <h:inputText id="title" value="#{addBookBB.title}"/>
                         <h:message for="title" />
                         <h:outputText value="Author" />
-                        <h:inputText id="author" value="#{addBook.author}"/>
+                        <h:inputText id="author" value="#{addBookBB.author}"/>
                         <h:message for="author" />
                         <h:outputText value="Price" />
-                        <h:inputText id="price" value="#{addBook.price}"/>
+                        <h:inputText id="price" value="#{addBookBB.price}"/>
                         <h:message for="price" />
                         <h:outputText value="Owner" />
-                        <h:inputText id="owner" value="#{addBook.isLoggedIn}"/>
+                        <h:inputText id="owner" value="#{LoginBean.isLoggedIn}"/>
                         <h:message for="owner" />
                         <h:outputText value="Course" />
                         <h:inputText id="course" value="#{addBook.course}"/>

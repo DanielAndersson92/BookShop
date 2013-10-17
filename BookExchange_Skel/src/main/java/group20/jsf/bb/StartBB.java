@@ -44,7 +44,6 @@ public class StartBB implements Serializable {
     }
     
     public void setForSale(){
-        List<Book> books;
         forSale = bookExchange.getBookList().getRangeDate(numberOfBooks, Book.BookState.FORSALE);
         
     }
@@ -54,8 +53,6 @@ public class StartBB implements Serializable {
     }
     
     public void setWanted(){
-        List<Book> books;
         wanted = bookExchange.getBookList().getRangeDate(numberOfBooks, Book.BookState.WANTED);
-        //wanted = books.subList(0, numberOfBooks);
     }
 }

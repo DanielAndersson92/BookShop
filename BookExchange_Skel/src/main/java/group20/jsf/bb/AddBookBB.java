@@ -20,7 +20,7 @@ import javax.inject.Named;
  *
  * @author alexandralazic
  */
-@Named("addBook")
+@Named("addBookBB")
 @RequestScoped
 public class AddBookBB implements Serializable{
     
