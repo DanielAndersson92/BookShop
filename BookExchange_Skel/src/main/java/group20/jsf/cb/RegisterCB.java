@@ -9,6 +9,7 @@ import javax.enterprise.context.RequestScoped;
  
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.RollbackException;
  
 
 @Named("register")
@@ -31,9 +32,12 @@ public class RegisterCB implements Serializable {
         User user = new User(registerBB.getFname(), registerBB.getLname(),
                 registerBB.getCID(), registerBB.getEmail(), 
                 registerBB.getPassword());
-        
+        try{
         bookExchange.getUserRegistry().add(user);
-        
+        }
+        catch(RollbackException e){
+            
+        }
         return "login";
     }
 

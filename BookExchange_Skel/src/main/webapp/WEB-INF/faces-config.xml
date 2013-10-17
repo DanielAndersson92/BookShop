@@ -50,4 +50,12 @@
         <validator-id>passwordValidator</validator-id>
         <validator-class>group20.jsf.utils.PasswordValidator</validator-class>
     </validator>
+    <validator>
+        <validator-id>emailValidator</validator-id>
+        <validator-class>group20.jsf.utils.EmailValidator</validator-class>
+    </validator>
+    <validator>
+        <validator-id>CIDValidator</validator-id>
+        <validator-class>group20.jsf.utils.CIDValidator</validator-class>
+    </validator>
 </faces-config>
