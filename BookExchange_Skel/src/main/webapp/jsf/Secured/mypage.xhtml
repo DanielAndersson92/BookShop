@@ -56,6 +56,19 @@ and open the template in the editor.
                                     </f:facet>
                                     <h:outputText value="#{b.price}"/>
                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Action"/>
+                                    </f:facet>
+
+                                    <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
+                                                     action="editBook" 
+                                                     value="Edit" class="small-button"/>
+
+                                    <h:commandButton actionListener="#{deleteBook.setSelected(b.id)}"      
+                                                     action="deleteBook" 
+                                                     value="Delete" class="small-button"/>
+                                </h:column>
                             </h:dataTable>
                         </div>
                     </h:outputLabel>
@@ -91,7 +104,19 @@ and open the template in the editor.
                                         <h:outputText  value="Price"/>
                                     </f:facet>
                                     <h:outputText value="#{b.price}"/>
-                                    
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText  value="Action"/>
+                                    </f:facet>
+                                    <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
+                                                     action="/jsf/Secured/editBook.xhtml" 
+                                                     value="Edit" class="small-button"/>
+
+                                    <h:commandButton actionListener="#{deleteBook.setSelected(b.id)}"      
+                                                     action="deleteBook" 
+                                                     value="Delete" class="small-button"/>
                                 </h:column>
                             </h:dataTable>
                         </div>

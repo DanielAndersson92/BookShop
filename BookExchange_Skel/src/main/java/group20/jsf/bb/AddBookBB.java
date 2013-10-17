@@ -14,6 +14,9 @@ import java.util.Date;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -23,11 +26,15 @@ import javax.inject.Named;
 @RequestScoped
 public class AddBookBB implements Serializable{
     
+    @NotNull
     private String title;
+    @NotNull
     private String author;
+    @NotNull
     private String course;
+    @Min(value=0)
+    @Max(value=10000)
     private int price;
-    private User owner;
     private BookState bookState;
     
     @Inject
@@ -63,12 +70,6 @@ public class AddBookBB implements Serializable{
     }
     public void setPrice(int price) {
         this.price = price;
-    }
-    public User getLoggedIn(){
-        return owner;
-    }   
-    public void setLoggedIn(User owner){
-        this.owner = owner;
     } 
     public String getCourse(){
         return course;
