@@ -9,11 +9,8 @@ import group20.bookexchange.forum.Post;
 import group20.jsf.cb.LoginBean;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Date;
-=======
->>>>>>> 0d6a335df70d565b1f30f67a0fff4a011a38dfb0
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -37,7 +34,7 @@ public class ForumBB implements Serializable {
     private List<Post> posts;
     
     private String message;
-    private User author;
+    private String author;
     private Date date;
     
     @PostConstruct
@@ -46,8 +43,12 @@ public class ForumBB implements Serializable {
     }
 
     public void sendPost(){
-        Post p = new Post(message, new Date(), logbean.getUser());
-        bookExchange.getPostList().add(p);
+        
+        if(logbean.isLoggedIn()){
+            author = logbean.getUser().getFname() 
+                + " " + logbean.getUser().getLname();
+        }
+        bookExchange.getPostList().add(new Post(message, new Date(), author));
     }
     
     
@@ -66,11 +67,11 @@ public class ForumBB implements Serializable {
     private String getMessage(){
         return message;
     }
-     private void setAuthor(User author){
+     private void setAuthor(String author){
         this.author = author;
     }
     
-    private User getAuthor(){
+    private String getAuthor(){
         return author;
     }
      private void setDate(Date date){

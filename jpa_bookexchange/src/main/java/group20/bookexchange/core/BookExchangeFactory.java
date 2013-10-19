@@ -58,11 +58,14 @@ public class BookExchangeFactory {
         bl.add(b3);
         bl.add(b4);
         
-        Post p1 = new Post("Fan vilken fin gästbok, nästan så att man tror att det är jag som har gjort den :)", new Date(), u1);
+        Post p1 = new Post("Fan vilken fin gästbok, nästan så att man tror att det är jag som har gjort den :)"
+                , new Date(), u1.getFname() + " " + u1.getLname());
         
-        Post p2 = new Post("Finns det någon som har en kursbok till Javakursen?", new Date(), u2);
+        Post p2 = new Post("Finns det någon som har en kursbok till Javakursen?"
+                , new Date(), u2.getFname() + " " + u2.getLname());
         
-        Post p3 = new Post("Du behöver ingen bok till programmeringskurser dumfan!", new Date(), u1);
+        Post p3 = new Post("Du behöver ingen bok till programmeringskurser dumfan!"
+                , new Date(), u1.getFname() + " " + u1.getLname());
         
         pl.add(p1);
         pl.add(p2);
