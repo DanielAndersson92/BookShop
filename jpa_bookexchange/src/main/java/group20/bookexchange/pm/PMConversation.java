@@ -22,7 +22,7 @@ public class PMConversation extends AbstractEntity{
     @OneToMany
     private List<User> users;
     @OneToMany(cascade = {CascadeType.ALL}, targetEntity=PMPost.class)
-    @OrderBy("postDate ASC")
+    @OrderBy("postDate DESC")
     private List<PMPost> posts;
     
     public PMConversation(){

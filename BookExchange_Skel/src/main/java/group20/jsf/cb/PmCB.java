@@ -5,7 +5,6 @@
 package group20.jsf.cb;
 
 import group20.bookexchange.core.User;
-import group20.bookexchange.forum.*;
 import group20.bookexchange.pm.*;
 import group20.jsf.bb.PmBB;
 import group20.jsf.mb.ExchangeBean;
@@ -13,6 +12,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,7 +23,7 @@ import javax.persistence.NoResultException;
  * @author Patrik
  */
 @Named("pm")
-@SessionScoped
+@RequestScoped
 public class PmCB implements Serializable{
     
     private static final Logger LOGGER = Logger.getLogger("InfoLogging");
@@ -52,9 +52,14 @@ public class PmCB implements Serializable{
         }
     }
     
-    public List<PMConversation> getConversations(){
+    public PMConversation getConversations(){
         LOGGER.info(bookExchange.getPMController().getConversationsList().getByUser(loginbean.getUser()).toString());
-        return bookExchange.getPMController().getConversationsList().getByUser(loginbean.getUser());
+        try{
+            return bookExchange.getPMController().getConversationsList().getByUsers(loginbean.getUser(), pmBB.getReciever());
+        }
+        catch(NoResultException e){
+            return null;
+        }
     }
     
 }

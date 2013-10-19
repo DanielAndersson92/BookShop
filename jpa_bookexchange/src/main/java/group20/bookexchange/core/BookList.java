@@ -74,7 +74,7 @@ public class BookList extends AbstractDAO<Book,Long> implements IBookList {
         EntityManager em = getEMF().createEntityManager();
         List<Book> books;
         TypedQuery<Book> q = em.createQuery
-                ("SELECT b FROM Book b"
+                ("SELECT b FROM Book AS b"
                 + " WHERE b.bookState = :BOKS"
                 + " ORDER BY b.bookDate DESC", Book.class).
                 setParameter("BOKS", bookState);

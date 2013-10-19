@@ -9,39 +9,35 @@ and open the template in the editor.
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
     <head>
-        <title>TODO supply a title</title>
     </head>
     <body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name='content'>
-                Hej
-                
-                <h:form>
-                    <h:outputText value="Sen to: #{pmBB.reciever.fname}"/><br/>
-                    
-                    <h:inputText value="#{pmBB.message}"/><br/>
-                    
-                    <h:commandButton value="Send" actionListener="#{pm.send}"/>                   
-                </h:form>
-                
-                <h:dataTable var="convers" value="#{pm.conversations}">
-                    <h:column>
-                        <h:outputText value="#{convers.users}"/><br/>
-                        <h:dataTable var="p" value="#{convers.posts}">
-                            <h:column>
-                                <h:outputText value="#{p.author.CID}"/><br/>
-                            </h:column>
-                            <h:column>
-                                <h:outputText value="#{p.message}"/><br/>
-                            </h:column>
-                            <h:column>
-                                <h:outputText value="#{p.postDate}"/><br/>
-                            </h:column>
+                <h1>Send PM</h1>   
+                <table>
+                    <tr>
+                        <td>
+                            <h:form>
+                                <h:outputText value="Sen to: #{pmBB.reciever.fname}"/><br/>
 
-                        </h:dataTable>
-                    </h:column>
-                </h:dataTable>
-                
+                                <h:inputTextarea value="#{pmBB.message}"/><br/>
+
+                                <h:commandButton value="Send" action="sendpm" actionListener="#{pm.send}"/> 
+                            </h:form>
+                        </td>
+                        <td>
+                            <h:dataTable class="pmTable" var="p" value="#{pm.conversations.posts}">
+                                <h:column>
+                                    <h:outputText class="author" value="#{p.author.fname} #{p.author.lname}"/><br/>
+                                    <h:outputText value="#{p.message}"/>
+                                </h:column>
+                                <h:column>
+                                    <h:outputText value="#{p.postDate}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </td>
+                    </tr>
+                </table>
             </ui:define>
         </ui:composition>
     </body>

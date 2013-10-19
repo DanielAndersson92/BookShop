@@ -6,10 +6,11 @@ package group20.jsf.bb;
 
 import group20.bookexchange.core.User;
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -35,7 +36,6 @@ public class PmBB implements Serializable{
     public User getReciever(){ return reciever; }
     
     public void setMessage(String message){ 
-        
         this.message = message; 
     }
     public String getMessage(){ return message; }

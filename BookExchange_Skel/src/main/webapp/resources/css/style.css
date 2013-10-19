@@ -139,3 +139,15 @@ thead {
     background: #0099ff;
     color: #000000;
 }
+
+.pmTable{
+    width: 20em;
+    border: 1px solid black;
+}
+.pmTable .author{
+    font-size: 14px;
+    font-weight: bold;
+}
+.pmTable .message{
+    font-size: 10px;
+}
