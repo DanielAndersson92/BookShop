@@ -13,10 +13,13 @@ and open the template in the editor.
     <body>
         <ui:composition template="/WEB-INF/template.xhtml">
                 <ui:define name="content"> 
-                    
-        <div>About</div>
-            
-
+                    <h:form>
+                            <tr>
+                    <img src="#{resource['img:Patrik.jpg']}" width="200px"/> 
+                    <img src="#{resource['img:daniel.jpg']}" width="310px"/> 
+                    <img src="#{resource['img:Alexandra.jpg']}" width="310px"/> 
+                            </tr>
+                    </h:form>
                 </ui:define>
         </ui:composition>
     </body>
