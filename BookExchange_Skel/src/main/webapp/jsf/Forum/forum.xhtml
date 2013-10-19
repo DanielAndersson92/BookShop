@@ -14,21 +14,25 @@ and open the template in the editor.
     <body>
         <ui:composition template="/WEB-INF/template.xhtml">
                 <ui:define name="content"> 
-                    <form>
-                        <h:inputTextarea class="CommentField"  rows="4" cols="50" style="resize:none" ></h:inputTextarea>
-                        <h:commandButton class="CommentButton" value="Comment" action="forum"/>
-                    </form>
-                    <h:dataTable var="post" value="#{forum.post}">
+                    <h:form>
+                        <h:inputTextarea class="CommentField"
+                                         value="#{forum.message}"
+                                         rows="4" cols="50" style="resize:none" ></h:inputTextarea>
+                        <h:commandButton class="CommentButton" value="Comment" 
+                                         action="forum"
+                                         actionListener="#{forum.sendPost}"/>
+                    </h:form>
+                    <h:dataTable var="post" value="#{forum.postar}">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText  value="Date"/> 
                             </f:facet>
-                            <h:outputText value="#{post.date}"/>
+                            <h:outputText value="#{post.postDate}"/>
                         </h:column><h:column>
                             <f:facet name="header">
                                 <h:outputText  value="Author"/>
                             </f:facet>
-                            <h:outputText value="#{post.author}"/>
+                            <h:outputText value="#{post.author.fname} #{post.author.lname}"/>
                         </h:column>
 
                         <h:column>
