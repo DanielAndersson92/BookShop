@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <!--    
+      THIS IS THE OVERALL LAYOUT FOR THE SITE (not accessible from outside)
+    -->
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="normalize.css"  />
+        <h:outputStylesheet library="css" name="layout.css"  />
+        <h:outputStylesheet library="css" name="style.css"  />
+        <title>Book Exchange</title>
+    </h:head>
+
+    <h:body>
+        <span id="page">
+            <header>
+                <hgroup>
+                    <h1>Book Exchange</h1>
+                    <h2>Smarter ways to trade</h2>
+                    <h:form id="headerLogin">
+                        <h:outputText value="Chalmers ID: "
+                                      rendered="#{!loginBean.loggedIn}"
+                                      class="loginformtext"/>
+                        <h:outputText value="Logged in as: #{loginBean.user.fname}"
+                                      rendered="#{loginBean.loggedIn}"
+                                      class="loginformtext"/>
+                        <h:inputText value="#{loginBean.cid}" 
+                                     
+                                     rendered="#{!loginBean.loggedIn}"/>
+                        <h:outputText value="Password: "
+                                      rendered="#{!loginBean.loggedIn}"
+                                      class="loginformtext"/>
+                        <h:inputSecret value="#{loginBean.password}" 
+                                       id="password"
+                                       rendered="#{!loginBean.loggedIn}"/>
+                        <h:commandButton class="LogoutButton" 
+                                         value="Log in" 
+                                         rendered="#{!loginBean.loggedIn}" 
+                                         action="#{loginBean.doLogin}"/>
+                        <h:commandButton class="LogoutButton" 
+                                         value="Logout" 
+                                         rendered="#{loginBean.loggedIn}" 
+                                         action="#{loginBean.doLogout}"/>
+                        <h:commandButton class="LogoutButton" 
+                                         value="Register" 
+                                         rendered="#{!loginBean.loggedIn}" 
+                                         action="register"/>
+                    </h:form>
+                </hgroup>
+            </header>
+            <div id="content">
+                <div id="bookmenu" class="bookmenu">
+                    <nav> 
+                        <ul>
+                            <li><h:link value="Start" outcome="start"/></li>
+                            <li><h:link value="My Page" outcome="mypage"/></li>
+                            <li><h:link value="Search" outcome="search"/></li>
+                            <li><h:link value="Forum" outcome="forum"/></li>
+                            <li><h:link value="About" outcome="about"/></li>
+                            <li><h:link value="Log in" outcome="login" 
+                                        rendered="#{!loginBean.loggedIn}"/></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div id="right_content">
+                    <ui:insert name="content">Content</ui:insert>
+                </div>
+            </div>
+            <footer>
+                <p> © 2013 BookExchange AB. </p> 
+            </footer>
+        </span>
+    </h:body>
+
+</html>

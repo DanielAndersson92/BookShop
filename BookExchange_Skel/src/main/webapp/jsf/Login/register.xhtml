@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"htth://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+  
+    <h:head>
+        <title>Login</title>
+    </h:head>
+    <body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+                <ui:define name="content"> 
+                <h3>Login here</h3>
+                    <h:form id="login-form" rendered="#{!loginBean.loggedIn}">
+                       <table>
+                           <tr>
+                               <td>
+                                    <h:outputText value="First name: "/>
+                               </td>
+                               <td>
+                                    <h:inputText required="true" value="#{registerBB.fname}"
+                                                 requiredMessage="First name must be filled in."/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                    <h:outputText value="Last name: "/>
+                               </td>
+                               <td>
+                                    <h:inputText required="true" value="#{registerBB.lname}"
+                                                 requiredMessage="Last name must be filled in."/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                    <h:outputText value="Chalmers ID: "/>
+                               </td>
+                               <td>
+                                    <h:inputText required="true" value="#{registerBB.CID}"
+                                                 requiredMessage="Chalmers ID must be filled in.">
+                                        <f:validator validatorId="CIDValidator" />
+                                        <f:attribute name="cidValid" value="#{CIDExists}"/>
+                                    </h:inputText>
+                               </td>
+                           </tr><tr>
+                               <td>
+                                    <h:outputText value="Email: "/>
+                               </td>
+                               <td>
+                                    <h:inputText required="true" value="#{registerBB.email}"
+                                                 requiredMessage="Email must be filled in.">
+                                    <f:validator validatorId="emailValidator" />
+                                        <f:attribute name="emailValid" value="#{emailValid}"/>
+                                    </h:inputText>
+                               </td>
+                           </tr>            
+                           <tr>
+                               <td>
+                                     <h:outputText value="Password: "/>
+                               </td>
+                               <td>
+                                    <h:inputSecret required="true" value="#{registerBB.password}"
+                                                   requiredMessage="Password must be filled in">
+                                        <f:validator validatorId="passwordValidator" />
+                                        <f:attribute name="confirm" value="#{confirm}"/>
+                                    </h:inputSecret>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                     <h:outputText value="Confirm password: "/>
+                               </td>
+                               <td>
+                                   <h:inputSecret id="confirm" binding="#{confirm}" required="true" />
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <h:commandButton class="LogButton" value="Register"                
+                                                    action="#{register.register}"/>
+                                   <h:commandButton class="LogButton" value="Cancel"  
+                                                    action="start"/>
+                               </td>
+                           </tr>
+                        </table>
+                        <br/>
+                        <h:messages />
+                        <br/>
+                       
+                    </h:form>      
+                </ui:define>
+        </ui:composition>
+    </body>
+</html>
+

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content">
+                <h3>Add Book</h3>
+                <h:form>
+                    <h:selectOneRadio value="#{addBookBB.bookState}">
+                        <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
+                        <f:selectItem itemLabel="Wanted" itemValue="WANTED"/>
+                    </h:selectOneRadio>
+                    <h:panelGrid columns="3">
+                        <h:outputText value="Title" />
+                        <h:inputText id="title" value="#{addBookBB.title}"/>
+                        <h:message for="title" />
+                        <h:outputText value="Author" />
+                        <h:inputText id="author" value="#{addBookBB.author}"/>
+                        <h:message for="author" />
+                        <h:outputText value="Price" />
+                        <h:inputText id="price" value="#{addBookBB.price}"/>
+                        <h:message for="price" />
+                        <h:outputText value="Course" />
+                        <h:inputText id="course" value="#{addBookBB.course}"/>
+                        <h:message for="course" />
+                    </h:panelGrid>
+                    <h:commandButton action="mypage" actionListener="#{addBookBB.save()}" value="Save" />
+                    <h:button outcome="mypage" value="Cancel"/>                   
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

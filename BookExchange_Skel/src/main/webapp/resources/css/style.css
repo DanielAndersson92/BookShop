@@ -1,0 +1,153 @@
+body{
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:10px; 
+    background-color: #ccc;
+}
+#page{
+    box-shadow: 8px 8px 5px gainsboro;
+    background-color: white;
+    
+}
+#content{   
+    background-color: white;
+}
+
+header {
+    background-image:url("#{resource['img:banner3.jpg']}"); 
+    background-position:right;
+    background-repeat: no-repeat;
+    background-color: #000;
+        
+}
+
+header h1{  
+    padding-top: 0.5em;
+    font-size: 40px;
+    font-family: fantasy;
+    font-style: italic;
+    font-weight: 900;
+    font-variant: small-caps;
+    color: white;
+    text-align: left;
+    margin-left: 0.5em;
+    vertical-align: middle;
+}
+
+header h2{  
+    margin-right: 1em;
+    text-align: right;
+    font-size: 20px;
+}
+#headerLogin .loginformtext{
+    padding-left: 1em;
+    font-size: 12px;
+    color: #0099ff;
+    
+}
+
+/* Colort for rows in table (alternating) */
+.bookTable tr:nth-child(odd) { background-color:#fff; }
+.bookTable tr:nth-child(even) { background-color:#eee; }
+
+.bookTable{
+    padding-top: 4em;
+    padding-bottom: 1em;
+    font-size: 12px;
+    color: black;
+}
+.bookTable img{
+    height: 50px;
+    width: 50px;
+}
+.bookTable tr{
+    border: 1px solid black;
+    margin: 3em;
+}
+.bookTable td{
+    background-color: inherit;
+    padding: 1em;
+}
+.bookTable .booktitle{
+    font-weight: bold;
+    font-size: 12px;
+    color: #0088ee;
+}
+.bookTable .FORSALE{
+    color: green;
+}
+.bookTable .WANTED{
+    color: red;
+}
+.bookTable .bookprice{
+    font-weight: bold;
+}
+.bookTable2{
+    background-color: inherit;
+}
+.bookTable2 tr{
+    background-color: inherit;
+    border: 0px;
+}.bookTable2 td{
+    background-color: inherit;
+    border: 0px;
+}
+
+footer {
+    background-color: #000000;
+    color: #0099ff;
+}
+
+thead {
+    background-color: black;
+    color: white;
+    text-align: left;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+#bookmenu{
+    background: #000000;
+    
+}
+.bookmenu ul{
+  background: #000000;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 12em;
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+.bookmenu li {
+  font: 12px 'Lucida Sans Unicode', 'Bitstream Vera Sans', 'Trebuchet Unicode MS', 'Lucida Grande', Verdana, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.bookmenu a {
+  background: #000000;
+  border-bottom: 1px solid #393939;
+  color: #0099ff;
+  display: block;
+  margin: 0;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  font-weight: normal;
+}
+.bookmenu a:hover {
+    background: #0099ff;
+    color: #000000;
+}
+
+.pmTable{
+    width: 20em;
+    border: 1px solid black;
+}
+.pmTable .author{
+    font-size: 14px;
+    font-weight: bold;
+}
+.pmTable .message{
+    font-size: 10px;
+}

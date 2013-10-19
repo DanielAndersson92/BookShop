@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"htth://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+  
+    <h:head>
+        <title>Login</title>
+    </h:head>
+    <body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+                <ui:define name="content"> 
+                <h3>Login here</h3>
+                    <h:form id="login-form">
+                       <table>
+                           <tr>
+                               <td>
+                                    <h:outputText value="Chalmers ID: "/>
+                               </td>
+                               <td>
+                                    <h:inputText value="#{loginBean.cid}" id="username"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                     <h:outputText value="Password: "/>
+                               </td>
+                               <td>
+                                    <h:inputSecret value="#{loginBean.password}" id="password"/>
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <h:commandButton class="LogButton" value="Log in"
+                                                    rendered="#{!loginBean.loggedIn}"
+                                                    action="#{loginBean.doLogin}"/>
+                                   <h:commandButton class="LogButton" value="Logout" 
+                                                    rendered="#{loginBean.loggedIn}" 
+                                                    action="#{loginBean.doLogout}"/>
+                               </td>
+                           </tr>
+                        </table>
+                        <br/>
+                        <h:messages />
+                        <br/>
+                       
+                    </h:form>      
+                </ui:define>
+        </ui:composition>
+    </body>
+</html>
+

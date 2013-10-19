@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+    </head>
+    <body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name='content'>
+                <h1>Send PM</h1>   
+                <table>
+                    <tr>
+                        <td>
+                            <h:form>
+                                <h:outputText value="Sen to: #{pmBB.reciever.fname}"/><br/>
+
+                                <h:inputTextarea value="#{pmBB.message}"/><br/>
+
+                                <h:commandButton value="Send" action="sendpm" actionListener="#{pm.send}"/> 
+                            </h:form>
+                        </td>
+                        <td>
+                            <h:dataTable class="pmTable" var="p" value="#{pm.conversations.posts}">
+                                <h:column>
+                                    <h:outputText class="author" value="#{p.author.fname} #{p.author.lname}"/><br/>
+                                    <h:outputText value="#{p.message}"/>
+                                </h:column>
+                                <h:column>
+                                    <h:outputText value="#{p.postDate}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </td>
+                    </tr>
+                </table>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
