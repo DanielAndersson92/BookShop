@@ -6,7 +6,6 @@ package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
 import group20.bookexchange.core.Book.BookState;
-import group20.bookexchange.core.User;
 import group20.jsf.cb.LoginBean;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;

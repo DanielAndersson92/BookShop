@@ -14,7 +14,6 @@ and open the template in the editor.
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name='content'>
-                <!-- hitta och visa inloggad användare -->
                 <h:button outcome="add" value="Add book" class="small-button"/>
                 <h:panelGrid columns="2" border="1">
                     <h:outputLabel>
@@ -56,18 +55,17 @@ and open the template in the editor.
                                     </f:facet>
                                     <h:outputText value="#{b.price}"/>
                                 </h:column>
+                                
                                 <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Action"/>
-                                    </f:facet>
-
-                                    <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
-                                                     action="editBook" 
+                                    <h:form>
+                                   <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
+                                                     action="#{mypageBB.navigate('editBook')}" 
                                                      value="Edit" class="small-button"/>
 
-                                    <h:commandButton actionListener="#{deleteBook.setSelected(b.id)}"      
-                                                     action="deleteBook" 
-                                                     value="Delete" class="small-button"/>
+                                   <h:commandButton actionListener="#{deleteBook.setSelected(b.id)}"      
+                                                    action="deleteBook" 
+                                                    value="Delete" class="small-button"/>
+                                    </h:form>
                                 </h:column>
                             </h:dataTable>
                         </div>
@@ -107,9 +105,7 @@ and open the template in the editor.
                                 </h:column>
                                 
                                 <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Action"/>
-                                    </f:facet>
+                                    <h:form>
                                     <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
                                                      action="/jsf/Secured/editBook.xhtml" 
                                                      value="Edit" class="small-button"/>
@@ -117,6 +113,7 @@ and open the template in the editor.
                                     <h:commandButton actionListener="#{deleteBook.setSelected(b.id)}"      
                                                      action="deleteBook" 
                                                      value="Delete" class="small-button"/>
+                                    </h:form>
                                 </h:column>
                             </h:dataTable>
                         </div>

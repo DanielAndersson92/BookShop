@@ -15,7 +15,7 @@ import javax.inject.Named;
 @Named("deleteBook")
 @ConversationScoped
 public class DeleteBookBB extends Conversational{
-
+    
     @Override
     protected void execute() {
         Long id = getId();

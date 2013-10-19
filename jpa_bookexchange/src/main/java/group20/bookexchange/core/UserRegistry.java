@@ -30,6 +30,24 @@ public class UserRegistry extends AbstractDAO<User, Long> implements IUserRegist
         return users;
     }
     @Override
+    public Boolean checkCID(String cid) {
+        EntityManager em = getEMF().createEntityManager();
+        System.out.println("<------------------------------------------------------------------------------------------------------------------------------------------------");
+        Integer i;
+        TypedQuery<Integer> q = em.createQuery
+                ("SELECT COUNT(u.cid) FROM User u WHERE u.cid='" + cid + "'", Integer.class);
+        i = (Integer) q.getSingleResult();
+        em.close();
+        //System.out.println(i + "<------------------------------------------------------------------------------------------------------------------------------------------------");
+        if(i == null){
+            return true; //Finns i databasen
+        }
+        else{ return false; //Finns inte i databasen
+        }
+        
+        
+    }
+    @Override
     public List<User> getByName(String name) {
         List<User> users = getByFName(name);
         users.addAll(getByLName(name));

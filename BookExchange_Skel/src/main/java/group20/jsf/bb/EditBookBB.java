@@ -4,6 +4,7 @@
  */
 package group20.jsf.bb;
 
+import group20.bookexchange.core.Book;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 
@@ -18,7 +19,10 @@ public class EditBookBB extends Conversational{
 
     @Override
     protected void execute() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Book b = new Book(getId(), getTitle(), getAuthor(), 
+                Integer.parseInt(getPrice()), getUser(), getCourse(), 
+                getState(), getDate());
+        getBookList().update(b);
     }
 
 }

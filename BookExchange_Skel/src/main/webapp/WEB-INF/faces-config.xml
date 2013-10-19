@@ -52,6 +52,14 @@
             <from-outcome>add</from-outcome>
             <to-view-id>/jsf/Secured/addBook.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-action>editBook</from-action>
+            <to-view-id>/jsf/Secured/editBook.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>deleteBook</from-action>
+            <to-view-id>/jsf/Secured/deleteBook.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <validator>
         <validator-id>passwordValidator</validator-id>
