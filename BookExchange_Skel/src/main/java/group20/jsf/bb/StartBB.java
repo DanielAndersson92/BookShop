@@ -24,8 +24,6 @@ import javax.inject.Named;
 @SessionScoped
 public class StartBB implements Serializable {
 
-    private static final Logger LOGGER = Logger.getLogger("InfoLogging");
-
     @Inject
     private ExchangeBean bookExchange;
     

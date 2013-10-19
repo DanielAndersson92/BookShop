@@ -35,11 +35,11 @@ public class UserRegistry extends AbstractDAO<User, Long> implements IUserRegist
         System.out.println("<------------------------------------------------------------------------------------------------------------------------------------------------");
         Integer i;
         TypedQuery<Integer> q = em.createQuery
-                ("SELECT COUNT(u.cid) FROM User u WHERE u.cid= '" + cid + "'", Integer.class);
-        i = q.getSingleResult();
+                ("SELECT COUNT(u.cid) FROM User u WHERE u.cid='" + cid + "'", Integer.class);
+        i = (Integer) q.getSingleResult();
         em.close();
-        System.out.println(i + "<------------------------------------------------------------------------------------------------------------------------------------------------");
-        if(i == 1){
+        //System.out.println(i + "<------------------------------------------------------------------------------------------------------------------------------------------------");
+        if(i == null){
             return true; //Finns i databasen
         }
         else{ return false; //Finns inte i databasen

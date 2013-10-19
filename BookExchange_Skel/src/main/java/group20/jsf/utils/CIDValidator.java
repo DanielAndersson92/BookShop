@@ -6,11 +6,14 @@ package group20.jsf.utils;
 
 import group20.bookexchange.core.BookExchange;
 import group20.bookexchange.core.User;
+import group20.jsf.mb.ExchangeBean;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
+import javax.inject.Inject;
 import javax.persistence.RollbackException;
 
 /**
@@ -19,11 +22,14 @@ import javax.persistence.RollbackException;
  */
 public class CIDValidator implements Validator {
     
-    public BookExchange bookExchange;
+    private static final Logger LOGGER = Logger.getLogger("InfoLogging");
+    
+    @Inject
+    public ExchangeBean exchangeBean;
     
     private Boolean CIDExists(String cid){
        
-        return bookExchange.getUserRegistry().checkCID(cid);
+        return exchangeBean.getUserRegistry().checkCID(cid);
     }
     
     
@@ -32,9 +38,10 @@ public class CIDValidator implements Validator {
             throws ValidatorException{
         
         String cid = (String) value;
+        LOGGER.info("Fuck this " + cid);
+        LOGGER.info("Fuck this " + exchangeBean.toString());
         
         if(CIDExists(cid)){
-            System.out.println(" if <------------------------------------------------------------------------------------------------------------------------------------------------");
             throw new ValidatorException(new FacesMessage("CID already in use."));
         }
     }
