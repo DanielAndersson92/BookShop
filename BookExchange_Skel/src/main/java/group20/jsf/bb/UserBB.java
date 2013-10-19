@@ -36,12 +36,13 @@ public class UserBB implements Serializable{
         }
     }
     
-    public void setUser(User user){ 
+    public String setUser(User user){ 
         if (conversation.isTransient()) {
             conversation.begin();
         }
         LOGGER.info("setUser = "+user.getCID());
         this.user = user; 
+        return "user";
     }
     public User getUser() { 
         LOGGER.info("getUser = "+user.getCID());

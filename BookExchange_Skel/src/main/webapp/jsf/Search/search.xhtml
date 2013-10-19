@@ -56,7 +56,7 @@ and open the template in the editor.
                                 </td>
                                 <td>
                                     <h:form>
-                                        <h:commandButton action="user" actionListener="#{userBB.setUser(b.owner)}" 
+                                        <h:commandLink action="#{userBB.setUser(b.owner)}"
                                                          value="#{b.owner.fname} #{b.owner.lname}"
                                                          class="small-button"/>
                                                       <br/>
