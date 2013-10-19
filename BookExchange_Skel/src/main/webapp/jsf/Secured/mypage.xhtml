@@ -6,8 +6,7 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
         <title>This is your page</title>
 </h:head>
@@ -23,100 +22,68 @@ and open the template in the editor.
                         <h2 align="center">My books for sale</h2>
                     </h:outputLabel>
                     <h:outputLabel>
-                        <div class='bookTable'>
-                            <h:dataTable var="b" value="#{mypageBB.wanted}">
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Id"/>
-                                    </f:facet>
-                                    <h:outputText value="#{b.id}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Title"/> 
-                                    </f:facet>
-                                    <h:outputText value="#{b.title}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Author"/> 
-                                    </f:facet>
-                                    <h:outputText value="#{b.author}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Owner"/> 
-                                    </f:facet>
-                                    <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Price"/>
-                                    </f:facet>
-                                    <h:outputText value="#{b.price}"/>
-                                </h:column>
-                                
-                                <h:column>
-                                    <h:form>
-                                   <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
-                                                     action="#{mypageBB.navigate('editBook')}" 
-                                                     value="Edit" class="small-button"/>
+                        <h:dataTable class='bookTable' var="b" value="#{mypageBB.wanted}">
+                            <h:column>
+                                <img src="#{resource['img:book.jpg']}" alt="some_text"/> 
+                            </h:column>
+                            <h:column>
+                                <table class="bookTable2">
+                                    <thead>
+                                        <h:outputText class="booktitle" value="#{b.title}" />
+                                    </thead>
+                                    <td>
+                                        <h:outputText value="#{b.author}"/><br/>
+                                        <h:outputText value="#{b.course}"/><br/>
+                                    </td>
+                                    <td>
+                                        <h:outputText class="bookprice" value="#{b.price}kr"/>
+                                    </td>
+                                    <td>
+                                        <h:form>
+                                        <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
+                                                         action="editBook" 
+                                                         value="Edit" class="small-button"/>
 
-                                   <h:commandButton actionListener="#{deleteBook.setSelected(b.id)}"      
-                                                    action="deleteBook" 
-                                                    value="Delete" class="small-button"/>
-                                    </h:form>
-                                </h:column>
-                            </h:dataTable>
-                        </div>
+                                        <h:commandButton actionListener="#{deleteBook.setSelected(b.id)}"      
+                                                         action="deleteBook" 
+                                                         value="Delete" class="small-button"/>
+                                        </h:form>
+                                    </td>
+                                </table>
+                            </h:column>
+                        </h:dataTable>
                     </h:outputLabel>
                     <h:outputLabel>
-                        <div class='bookTable'>
-                            <h:dataTable var="b" value="#{mypageBB.forSale}">
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Id"/>
-                                    </f:facet>
-                                    <h:outputText value="#{b.id}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Title"/> 
-                                    </f:facet>
-                                    <h:outputText value="#{b.title}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Author"/> 
-                                    </f:facet>
-                                    <h:outputText value="#{b.author}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Owner"/> 
-                                    </f:facet>
-                                    <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText  value="Price"/>
-                                    </f:facet>
-                                    <h:outputText value="#{b.price}"/>
-                                </h:column>
-                                
-                                <h:column>
-                                    <h:form>
-                                    <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
-                                                     action="/jsf/Secured/editBook.xhtml" 
-                                                     value="Edit" class="small-button"/>
+                        <h:dataTable class='bookTable' var="b" value="#{mypageBB.forSale}">
+                            <h:column>
+                                <img src="#{resource['img:book.jpg']}" alt="some_text"/> 
+                            </h:column>
+                            <h:column>
+                                <table class="bookTable2">
+                                    <thead>
+                                        <h:outputText class="booktitle" value="#{b.title}" />
+                                    </thead>
+                                    <td>
+                                        <h:outputText value="#{b.author}"/><br/>
+                                        <h:outputText value="#{b.course}"/><br/>
+                                    </td>
+                                    <td>
+                                        <h:outputText class="bookprice" value="#{b.price}kr"/>
+                                    </td>
+                                    <td>
+                                        <h:form>
+                                        <h:commandButton actionListener="#{editBook.setSelected(b.id)}" 
+                                                         action="editBook" 
+                                                         value="Edit" class="small-button"/>
 
-                                    <h:commandButton actionListener="#{deleteBook.setSelected(b.id)}"      
-                                                     action="deleteBook" 
-                                                     value="Delete" class="small-button"/>
-                                    </h:form>
-                                </h:column>
-                            </h:dataTable>
-                        </div>
+                                        <h:commandButton actionListener="#{deleteBook.setSelected(b.id)}"      
+                                                         action="deleteBook" 
+                                                         value="Delete" class="small-button"/>
+                                        </h:form>
+                                    </td>
+                                </table>
+                            </h:column>
+                        </h:dataTable>
                     </h:outputLabel>
                 </h:panelGrid>
                 
