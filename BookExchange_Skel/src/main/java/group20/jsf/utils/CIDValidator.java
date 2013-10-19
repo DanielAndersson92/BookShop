@@ -6,6 +6,7 @@ package group20.jsf.utils;
 
 import group20.bookexchange.core.BookExchange;
 import group20.bookexchange.core.User;
+import group20.jsf.cb.RegisterCB;
 import group20.jsf.mb.ExchangeBean;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
@@ -27,9 +28,17 @@ public class CIDValidator implements Validator {
     @Inject
     public ExchangeBean exchangeBean;
     
+    public RegisterCB register;
+    
     private Boolean CIDExists(String cid){
-       
-        return exchangeBean.getUserRegistry().checkCID(cid);
+        Boolean b = false;
+        try{
+        b = exchangeBean.getUserRegistry().checkCID(cid);
+        }
+        catch(NullPointerException e){
+            
+        }
+        return b;
     }
     
     
@@ -38,8 +47,6 @@ public class CIDValidator implements Validator {
             throws ValidatorException{
         
         String cid = (String) value;
-        LOGGER.info("Fuck this " + cid);
-        LOGGER.info("Fuck this " + exchangeBean.toString());
         
         if(CIDExists(cid)){
             throw new ValidatorException(new FacesMessage("CID already in use."));
