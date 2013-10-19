@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface IUserRegistry extends IDAO<User,Long>{
     public User getByCID(String cid);
+    public Boolean checkCID(String cid);
     public List<User> getByName(String name);
     public List<User> getByFName(String name);
     public List<User> getByLName(String name);
