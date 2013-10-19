@@ -9,15 +9,10 @@ import group20.bookexchange.forum.Post;
 import group20.jsf.cb.LoginBean;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
-<<<<<<< HEAD
-import java.util.ArrayList;
 import java.util.Date;
-=======
->>>>>>> 0d6a335df70d565b1f30f67a0fff4a011a38dfb0
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.*;
 
 /**

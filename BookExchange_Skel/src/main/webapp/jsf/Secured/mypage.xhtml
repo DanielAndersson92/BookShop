@@ -29,7 +29,11 @@ and open the template in the editor.
                             <h:column>
                                 <table class="bookTable2">
                                     <thead>
-                                        <h:outputText class="booktitle" value="#{b.title}" />
+                                        <h:form>
+                                        <h:commandLink action="#{bookBB.setBook(b)}" 
+                                                       class="booktitle" 
+                                                       value="#{b.title}" />
+                                        </h:form>
                                     </thead>
                                     <td>
                                         <h:outputText value="#{b.author}"/><br/>
@@ -61,7 +65,11 @@ and open the template in the editor.
                             <h:column>
                                 <table class="bookTable2">
                                     <thead>
-                                        <h:outputText class="booktitle" value="#{b.title}" />
+                                        <h:form>
+                                        <h:commandLink action="#{bookBB.setBook(b)}" 
+                                                       class="booktitle" 
+                                                       value="#{b.title}" />
+                                        </h:form>
                                     </thead>
                                     <td>
                                         <h:outputText value="#{b.author}"/><br/>

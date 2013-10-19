@@ -41,9 +41,14 @@
         <navigation-case>
             <from-outcome>sendpm</from-outcome>
             <to-view-id>/jsf/Secured/PM/pm.xhtml</to-view-id>
-        </navigation-case><navigation-case>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>user</from-outcome>
             <to-view-id>/jsf/Other/userpage.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>bookpage</from-outcome>
+            <to-view-id>/jsf/Book/bookpage.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule> 
     <navigation-rule>
@@ -59,6 +64,10 @@
         <navigation-case>
             <from-action>deleteBook</from-action>
             <to-view-id>/jsf/Secured/deleteBook.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>bookpage</from-outcome>
+            <to-view-id>/jsf/Book/bookpage.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <validator>

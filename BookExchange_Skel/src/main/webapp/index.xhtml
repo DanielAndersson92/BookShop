@@ -36,7 +36,11 @@ and open the template in the editor.
                                         <f:facet name="header">
                                             <h:outputText  value="Title"/> 
                                         </f:facet>
-                                        <h:outputText value="#{b.title}"/>
+                                        <h:form>
+                                        <h:commandLink action="#{bookBB.setBook(b)}" 
+                                                       class="booktitle" 
+                                                       value="#{b.title}" />
+                                        </h:form>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
@@ -72,7 +76,11 @@ and open the template in the editor.
                                         <f:facet name="header">
                                             <h:outputText  value="Title"/> 
                                         </f:facet>
-                                        <h:outputText value="#{b.title}"/>
+                                        <h:form>
+                                        <h:commandLink action="#{bookBB.setBook(b)}" 
+                                                       class="booktitle" 
+                                                       value="#{b.title}" />
+                                        </h:form>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
