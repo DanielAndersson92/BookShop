@@ -54,7 +54,7 @@ public class BookList extends AbstractDAO<Book,Long> implements IBookList {
         List<Book> books;
         TypedQuery<Book> q = em.createQuery
                 ("SELECT b FROM Book b WHERE b.bookState = :BOKS", Book.class).
-                setParameter("BOKS", bookState);
+                setParameter("BOKS", bookState.toString());
         books = q.getResultList();
         em.close();
         return books;
@@ -75,9 +75,9 @@ public class BookList extends AbstractDAO<Book,Long> implements IBookList {
         List<Book> books;
         TypedQuery<Book> q = em.createQuery
                 ("SELECT b FROM Book b"
-                + " WHERE b.bookState = :BOKS"
-                + " ORDER BY b.bookDate DESC", Book.class).
-                setParameter("BOKS", bookState);
+                + " WHERE b.bookState = group20.bookexchange.core.Book.BookState.FORSALE"
+                + " ORDER BY b.bookDate DESC", Book.class);
+//                setParameter("BOKS", bookState);
                  
         q.setMaxResults(nrOfBooks);
         books = q.getResultList();
