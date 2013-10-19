@@ -19,6 +19,10 @@ public class EditBookBB extends Conversational{
 
     @Override
     protected void execute() {
+        Book b = new Book(getId(), getTitle(), getAuthor(), 
+                Integer.parseInt(getPrice()), getUser(), getCourse(), 
+                getState(), getDate());
+        getBookList().update(b);
     }
 
 }

@@ -52,6 +52,18 @@ public class Book extends AbstractEntity{
         this.bookDate = bookDate;
     }
     
+    public Book(Long id, String title, String author, int price, User owner, 
+            String course, BookState bookState, Date bookDate){
+        super(id);
+        this.title = title;
+        this.author = author;
+        this.price = price;
+        this.owner = owner;
+        this.course = course;
+        this.bookState = bookState;
+        this.bookDate = bookDate;
+    }
+    
     public String getTitle(){
         return title;
     }
