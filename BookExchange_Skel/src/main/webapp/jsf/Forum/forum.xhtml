@@ -17,7 +17,8 @@ and open the template in the editor.
                     <h:form>
                         <h:inputTextarea class="CommentField"
                                          value="#{forum.message}"
-                                         rows="4" cols="50" style="resize:none" ></h:inputTextarea>
+                                         rows="4" cols="50" style="resize:none" /><br/>
+                        <h:inputText value="#{forum.author}" />
                         <h:commandButton class="CommentButton" value="Comment" 
                                          action="forum"
                                          actionListener="#{forum.sendPost}"/>
@@ -32,7 +33,7 @@ and open the template in the editor.
                             <f:facet name="header">
                                 <h:outputText  value="Author"/>
                             </f:facet>
-                            <h:outputText value="#{post.author.fname} #{post.author.lname}"/>
+                            <h:outputText value="#{post.author}"/>
                         </h:column>
 
                         <h:column>

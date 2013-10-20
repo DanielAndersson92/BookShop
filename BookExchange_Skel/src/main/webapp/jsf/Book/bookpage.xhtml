@@ -13,9 +13,27 @@ and open the template in the editor.
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name='content'>
-                
-                
-                
+                <h:panelGrid columns="1" border="1">
+                    
+                <h:outputLabel>
+                    <h:dataTable class='bookTable' var="b" value="#{bookBB.book}">
+                        
+                            <img src="#{resource['img:book.jpg']}" alt="some_text"/> 
+                            <table class="bookTable2">
+                                    <h:outputText value="#{b.title}"/><br/>
+                                <td>
+                                    <h:outputText value="#{b.author}"/><br/>
+                                    <h:outputText value="#{b.course}"/><br/>
+                                </td>
+                                <td>
+                                    <h:outputText class="bookprice" value="#{b.price}kr"/>
+                                </td>
+                            </table>
+                        </h:column>
+                       
+                    </h:dataTable>
+                </h:outputLabel>
+              </h:panelGrid>
             </ui:define>
         </ui:composition>
     </h:body>

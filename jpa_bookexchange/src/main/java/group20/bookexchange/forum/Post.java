@@ -4,11 +4,9 @@
  */
 package group20.bookexchange.forum;
 
-import group20.bookexchange.core.User;
 import group20.bookexchange.utils.AbstractEntity;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,15 +17,14 @@ import javax.persistence.TemporalType;
 @Entity
 public class Post extends AbstractEntity{
     private String message;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date postDate;
-    @ManyToOne
-    public User author;
+    private String author;
 
     public Post() {
     }
     
-    public Post(String message, Date date ,User author){
+    public Post(String message, Date date , String author){
         this.message = message;
         this.postDate = date;
         this.author = author;
@@ -38,5 +35,5 @@ public class Post extends AbstractEntity{
     public void setPostDate(Date postDate){ this.postDate = postDate; }
     public Date getPostDate() { return postDate; }
   
-    public User getAuthor(){ return author; }
+    public String getAuthor(){ return author; }
 }
