@@ -14,7 +14,7 @@
                         <h:inputText id="id" value="#{editBook.id}" disabled="true"/>
                         <h:message for="id" />
                         <h:outputText value="Title" />
-                        <h:inputText id="name" value="#{editBook.title}"/>
+                        <h:inputText id="title" value="#{editBook.title}"/>
                         <h:message for="title" />
                         <h:outputText value="Author" />
                         <h:inputText id="author" value="#{editBook.author}"/>
@@ -22,6 +22,9 @@
                         <h:outputText value="Price" />
                         <h:inputText id="price" value="#{editBook.price}"/>
                         <h:message for="price" />
+                        <h:outputText value="Description" />
+                        <h:inputText id="description" value="#{editBook.descr}"/>
+                        <h:message for="description" />
                     </h:panelGrid>
                     <h:button outcome="mypage" value="Cancel"/>                   
                     <h:commandButton action="#{editBook.actOnSelected}" value="Edit" />

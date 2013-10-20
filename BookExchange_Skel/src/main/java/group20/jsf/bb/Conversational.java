@@ -38,6 +38,7 @@ public abstract class Conversational implements Serializable {
     private String course;
     private BookState bookState;
     private Date bookDate;
+    private String descr;
 
     public void setSelected(Long id){
         if (conversation.isTransient()) {
@@ -52,6 +53,7 @@ public abstract class Conversational implements Serializable {
         this.owner = b.getOwner();
         this.bookState = b.getBookState();
         this.bookDate = b.getDate();
+        this.descr = b.getDescr();
     }
     
     @PreDestroy
@@ -114,9 +116,10 @@ public abstract class Conversational implements Serializable {
     public Date getDate(){
         return bookDate;
     }
-            
-    @Inject
-    public void setShop(ExchangeBean eb){
-        this.exchangeBean = eb;
+    public String getDescr(){
+        return descr;
     }
+    public void setDescr(String descr){
+        this.descr = descr;
+    }   
 }

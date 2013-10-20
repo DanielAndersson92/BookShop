@@ -33,16 +33,16 @@ public class BookListTest {
         ur.add(u2);
         
         Book b1 = new Book("Transformer, Signals and Systems", "PPE", 220, u1,
-                "TSS", BookState.FORSALE, new Date());
+                "TSS", BookState.FORSALE, new Date(), "No description");
         Book b2 = new Book("Transformer, Signals and Systems", "PPE", 500, u2,
-                "TSS", BookState.WANTED, new Date());
+                "TSS", BookState.WANTED, new Date(), "No description");
         bl.add(b1);
         bl.add(b2);
         
         Book b3 = new Book("Vägen till C", "Jan Skansholm", 150, u1,
-                "MOP", BookState.WANTED, new Date());
+                "MOP", BookState.WANTED, new Date(), "No description");
         Book b4 = new Book("Vägen till C", "Jan Skansholm", 200, u2,
-                "MOP", BookState.FORSALE, new Date());
+                "MOP", BookState.FORSALE, new Date(), "No description");
         bl.add(b3);
         bl.add(b4);
         
@@ -60,16 +60,16 @@ public class BookListTest {
         ur.add(u2);
         
         Book b1 = new Book("Transformer, Signals and Systems", "PPE", 220, u1,
-                "TSS", BookState.FORSALE, new Date());
+                "TSS", BookState.FORSALE, new Date(), "No description");
         Book b2 = new Book("Transformer, Signals and Systems", "PPE", 500, u2,
-                "TSS", BookState.WANTED, new Date());
+                "TSS", BookState.WANTED, new Date(), "No description");
         bl.add(b1);
         bl.add(b2);
         
         Book b3 = new Book("Vägen till C", "Jan Skansholm", 150, u1,
-                "MOP", BookState.WANTED, new Date());
+                "MOP", BookState.WANTED, new Date(), "No description");
         Book b4 = new Book("Vägen till C", "Jan Skansholm", 200, u2,
-                "MOP", BookState.FORSALE, new Date());
+                "MOP", BookState.FORSALE, new Date(), "No description");
         bl.add(b3);
         bl.add(b4);
         

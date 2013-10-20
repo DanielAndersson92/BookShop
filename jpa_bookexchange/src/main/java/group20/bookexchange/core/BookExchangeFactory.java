@@ -45,16 +45,16 @@ public class BookExchangeFactory {
         ur.add(u2);
         
         Book b1 = new Book("Transformer, Signals and Systems", "PPE", 220, u1,
-                "TSS", Book.BookState.FORSALE, new Date());
+                "TSS", Book.BookState.FORSALE, new Date(), "This book is only one year old.");
         Book b2 = new Book("Transformer, Signals and Systems", "PPE", 500, u2,
-                "TSS", Book.BookState.WANTED, new Date());
+                "TSS", Book.BookState.WANTED, new Date(), "No description");
         bl.add(b1);
         bl.add(b2);
         
         Book b3 = new Book("Vägen till C", "Jan Skansholm", 150, u1,
-                "MOP", Book.BookState.WANTED, new Date());
+                "MOP", Book.BookState.WANTED, new Date(), "No description");
         Book b4 = new Book("Vägen till C", "Jan Skansholm", 200, u2,
-                "MOP", Book.BookState.FORSALE, new Date());
+                "MOP", Book.BookState.FORSALE, new Date(), "No description");
         bl.add(b3);
         bl.add(b4);
         

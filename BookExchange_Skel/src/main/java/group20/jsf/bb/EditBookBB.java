@@ -5,6 +5,7 @@
 package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
+import java.util.logging.Logger;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 
@@ -21,7 +22,7 @@ public class EditBookBB extends Conversational{
     protected void execute() {
         Book b = new Book(getId(), getTitle(), getAuthor(), 
                 Integer.parseInt(getPrice()), getUser(), getCourse(), 
-                getState(), getDate());
+                getState(), getDate(), getDescr());
         getBookList().update(b);
     }
 

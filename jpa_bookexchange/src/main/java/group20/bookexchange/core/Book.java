@@ -37,12 +37,13 @@ public class Book extends AbstractEntity{
     private BookState bookState;
     @Temporal(TemporalType.DATE)
     private Date bookDate;
-
+    private String descr;
+    
     public Book() {
     }
     
     public Book(String title, String author, int price, User owner, 
-            String course, BookState bookState, Date bookDate){
+            String course, BookState bookState, Date bookDate, String descr){
         this.title = title;
         this.author = author;
         this.price = price;
@@ -50,10 +51,11 @@ public class Book extends AbstractEntity{
         this.course = course;
         this.bookState = bookState;
         this.bookDate = bookDate;
+        this.descr = descr;
     }
     
     public Book(Long id, String title, String author, int price, User owner, 
-            String course, BookState bookState, Date bookDate){
+            String course, BookState bookState, Date bookDate, String descr){
         super(id);
         this.title = title;
         this.author = author;
@@ -62,6 +64,7 @@ public class Book extends AbstractEntity{
         this.course = course;
         this.bookState = bookState;
         this.bookDate = bookDate;
+        this.descr = descr;
     }
     
     public String getTitle(){
@@ -99,5 +102,11 @@ public class Book extends AbstractEntity{
     }
     public Date getDate(){
         return bookDate;
+    }
+    public String getDescr(){
+        return descr;
+    }
+    public void setDescr(String descr){
+        this.descr = descr;
     }
 }

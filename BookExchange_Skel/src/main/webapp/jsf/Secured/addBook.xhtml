@@ -26,6 +26,9 @@
                         <h:outputText value="Course" />
                         <h:inputText id="course" value="#{addBookBB.course}"/>
                         <h:message for="course" />
+                        <h:outputText value="Description" />
+                        <h:inputText id="description" value="#{addBookBB.descr}"/>
+                        <h:message for="description" />
                     </h:panelGrid>
                     <h:commandButton action="mypage" actionListener="#{addBookBB.save()}" value="Save" />
                     <h:button outcome="mypage" value="Cancel"/>                   

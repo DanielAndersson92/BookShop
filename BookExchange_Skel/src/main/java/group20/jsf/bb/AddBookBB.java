@@ -35,6 +35,7 @@ public class AddBookBB implements Serializable{
     @Max(value=10000)
     private int price;
     private BookState bookState;
+    private String descr;
     
     @Inject
     private LoginBean logBean;
@@ -42,13 +43,8 @@ public class AddBookBB implements Serializable{
     @Inject
     private ExchangeBean exchangeBean;
     
-    @Inject
-    public void setShop(ExchangeBean s){
-        this.exchangeBean = s;
-    }
-    
     public void save(){
-        Book b = new Book(title, author, price, logBean.getUser(), course, bookState, new Date());
+        Book b = new Book(title, author, price, logBean.getUser(), course, bookState, new Date(), descr);
         exchangeBean.getBookList().add(b);
     }
     
@@ -81,5 +77,11 @@ public class AddBookBB implements Serializable{
     }
     public void setBookState(Book.BookState state){
         bookState = state;
+    }
+    public String getDescr(){
+        return descr;
+    }
+    public void setDescr(String descr){
+        this.descr = descr;
     }
 }
