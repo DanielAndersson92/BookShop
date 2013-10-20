@@ -14,12 +14,15 @@ and open the template in the editor.
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name='content'>
                 <h:button outcome="add" value="Add book" class="small-button"/>
-                <h:panelGrid columns="2" border="1">
+                <h:panelGrid columns="3" class="panelColumns">
                     <h:outputLabel>
                         <h2 align="center">Wanted books</h2>
                     </h:outputLabel>
                     <h:outputLabel>
                         <h2 align="center">My books for sale</h2>
+                    </h:outputLabel>
+                    <h:outputLabel>
+                        <h2 align="center">My PM</h2>
                     </h:outputLabel>
                     <h:outputLabel>
                         <h:dataTable class='bookTable' var="b" value="#{mypageBB.wanted}">
@@ -93,23 +96,26 @@ and open the template in the editor.
                             </h:column>
                         </h:dataTable>
                     </h:outputLabel>
-                </h:panelGrid>
-                
-                <h:dataTable class="pmTable" var="c" value="#{mypage.conversations}">
-                    <h:column>
-                        <h:dataTable class="pmTable" var="p" value="#{c.posts.get(0)}">
-                            <h:column rendered="#{p.unread}">
-                                    <img src="#{resource['img:unread.png']}" alt="Unread"/>
-                            </h:column>
+                    <h:outputLabel>
+                        <h:dataTable var="c" value="#{mypage.conversations}">
                             <h:column>
-                                <div class="author">
-                                <h:outputText value="#{p.author.fname} #{p.author.lname}"/><br/>
-                                </div>
-                                <h:outputText value="#{p.message}"/>
+                                <h:dataTable class="pmTable" var="p" value="#{c.posts.get(0)}">
+                                    <h:column rendered="#{p.unread}">
+                                            <img src="#{resource['img:unread.png']}" alt="Unread"/>
+                                    </h:column>
+                                    <h:column>
+                                        <div class="author">
+                                        <h:outputText value="#{p.author.fname} #{p.author.lname}"/><br/>
+                                        </div>
+                                        <h:outputText value="#{p.message}"/>
+                                    </h:column>
+                                </h:dataTable>
                             </h:column>
                         </h:dataTable>
-                    </h:column>
-                </h:dataTable>
+                    </h:outputLabel>
+                </h:panelGrid>
+                
+                
             </ui:define>
         </ui:composition>
     </h:body>

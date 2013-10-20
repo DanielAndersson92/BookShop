@@ -7,16 +7,14 @@ and open the template in the editor.
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html">
     <head>
         <title>Start</title>
     </head>
     <body>
-<<<<<<< HEAD
         <ui:composition template="/WEB-INF/template.xhtml">
-            <ui:define name="content">
-                <h:panelGrid columns="2" border="1">
+            <ui:define name="content" >
+                <h:panelGrid columns="2" class="panelColumns">
                     <h:outputLabel>
                         <h2 align="center">Newly wanted</h2>
                     </h:outputLabel>
@@ -31,34 +29,11 @@ and open the template in the editor.
                             <h:column>
                                 <table class="bookTable2">
                                     <thead>
-=======
-        <div id="container">
-            <ui:composition template="/WEB-INF/template.xhtml">
-                <ui:define name="content">
-                    <h:panelGrid columns="2" border="1">
-                        <h:outputLabel>
-                            <h2 align="center">Newly on sale</h2>
-                        </h:outputLabel>
-                        <h:outputLabel>
-                            <h2 align="center">Newly wanted</h2>
-                        </h:outputLabel>
-                        <h:outputLabel>
-                            <div class='bookTable'>
-                                <h:dataTable var="b" value="#{start.forSale}">
-                                    <h:column>
-                                        <img src="#{resource['img:book.jpg']}" alt="some_text"/> 
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText  value="Title"/> 
-                                        </f:facet>
->>>>>>> e4f9690c91024c3254151ff96b28802d3b1175fb
                                         <h:form>
                                             <h:commandLink action="#{bookBB.setBook(b)}" 
                                                            class="booktitle" 
                                                            value="#{b.title}" />
                                         </h:form>
-<<<<<<< HEAD
                                     </thead>
                                     <td>
                                         <h:outputText value="#{b.author}"/><br/>
@@ -99,74 +74,5 @@ and open the template in the editor.
                 </h:panelGrid>
             </ui:define>
         </ui:composition>
-=======
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText  value="Author"/> 
-                                        </f:facet>
-                                        <h:outputText value="#{b.author}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText  value="Owner"/> 
-                                        </f:facet>
-                                        <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText  value="Price"/>
-                                        </f:facet>
-                                        <h:outputText value="#{b.price}"/>
-                                    </h:column>
-                                </h:dataTable>
-                            </div>
-                        </h:outputLabel>
-                        <h:outputLabel>
-                            <div class='bookTable'>
-                                <h:dataTable var="b" value="#{start.wanted}">
-                                    <h:column>
-                                        <img src="#{resource['img:book.jpg']}" alt="some_text"/> 
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText  value="Title"/> 
-                                        </f:facet>
-                                        <h:form>
-                                        <h:commandLink action="#{bookBB.setBook(b)}" 
-                                                       class="booktitle" 
-                                                       value="#{b.title}" />
-                                        </h:form>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText  value="Author"/> 
-                                        </f:facet>
-                                        <h:outputText value="#{b.author}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText  value="Owner"/> 
-                                        </f:facet>
-                                        <h:outputText value="#{b.owner.fname} #{b.owner.lname}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText  value="Price"/>
-                                        </f:facet>
-                                        <h:outputText value="#{b.price}"/>
-                                    </h:column>
-                                </h:dataTable>
-                            </div>
-                        </h:outputLabel>
-                    </h:panelGrid>
-            
-
-                </ui:define>
-            </ui:composition>
-
-            
-        </div>
->>>>>>> e4f9690c91024c3254151ff96b28802d3b1175fb
     </body>
 </html>

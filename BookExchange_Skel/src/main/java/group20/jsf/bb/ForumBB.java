@@ -8,10 +8,6 @@ import group20.bookexchange.forum.Post;
 import group20.jsf.cb.LoginBean;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
-<<<<<<< HEAD
-import java.util.ArrayList;
-=======
->>>>>>> e4f9690c91024c3254151ff96b28802d3b1175fb
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
