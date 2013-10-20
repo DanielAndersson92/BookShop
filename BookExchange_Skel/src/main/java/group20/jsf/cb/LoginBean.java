@@ -22,8 +22,6 @@ import javax.inject.Named;
 public class LoginBean implements Serializable {
  
     private static final long serialVersionUID = 7765876811740798583L;
- 
-    private static final Logger LOGGER = Logger.getLogger("InfoLogging");
     
     @Inject
     private ExchangeBean bookExchange;
@@ -36,9 +34,7 @@ public class LoginBean implements Serializable {
      
     public String doLogin() {
         try{
-            LOGGER.info(cid + password);
             user = bookExchange.getUserRegistry().getByCID(cid);
-            LOGGER.info(user.getCID() + user.getPassword());
             if (user.getPassword().equals(password)) {
                 loggedIn = true;
                 return "mypage";
@@ -62,8 +58,8 @@ public class LoginBean implements Serializable {
     }
      
     public String doLogout() {
-        LOGGER.info("Nu loggar jag ut förihelvette!");
-        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();       
+        loggedIn = false;
+        //FacesContext.getCurrentInstance().getExternalContext().invalidateSession();       
         return "start";
     }
  
