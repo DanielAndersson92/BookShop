@@ -9,10 +9,7 @@ import group20.bookexchange.forum.Post;
 import group20.jsf.cb.LoginBean;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
->>>>>>> databasFilter
 import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
