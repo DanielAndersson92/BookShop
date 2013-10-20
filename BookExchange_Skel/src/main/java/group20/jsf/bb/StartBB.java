@@ -7,11 +7,8 @@ package group20.jsf.bb;
 import group20.bookexchange.core.Book;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -21,36 +18,20 @@ import javax.inject.Named;
  * @author Patrik
  */
 @Named("start")
-@SessionScoped
+@RequestScoped
 public class StartBB implements Serializable {
 
     @Inject
     private ExchangeBean bookExchange;
-    
-    private List<Book> wanted = new ArrayList<Book>();
-    private List<Book> forSale = new ArrayList<Book>();
-    private int numberOfBooks = 2;
-    
-    @PostConstruct
-    public void post() {
-        setForSale();
-        setWanted();
-    }
+    private int numberOfBooks = 10;
     
     public List<Book> getForSale(){
-        return forSale;
-    }
-    
-    public void setForSale(){
-        forSale = bookExchange.getBookList().getRangeDate(numberOfBooks, Book.BookState.FORSALE);
-        
+        return bookExchange.getBookList().getRangeDate(numberOfBooks, 
+                Book.BookState.FORSALE);
     }
     
     public List<Book> getWanted(){
-        return wanted;
-    }
-    
-    public void setWanted(){
-        wanted = bookExchange.getBookList().getRangeDate(numberOfBooks, Book.BookState.WANTED);
+        return bookExchange.getBookList().getRangeDate(numberOfBooks, 
+                Book.BookState.WANTED);
     }
 }

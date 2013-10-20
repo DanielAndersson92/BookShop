@@ -14,69 +14,67 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
-            <ui:define name='content'>
-                
-                
-                <h:form>
-                    <h:commandButton value="sendpm" action="sendpm"/>                
-                </h:form>
-                
-                <p>
-                    Search your feelings!
-                </p>
-                <h:form>
-                    <h:selectOneRadio value="#{searchBB.bookState}">
-                        <f:selectItem itemLabel="Desired" itemValue="WANTED"/>
-                        <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
-                    </h:selectOneRadio>
+            <ui:define name='content'>                
+                <h1>Search after a book</h1>
+                <h:panelGrid columns="2" class="panelColumns">
+                    <h:outputLabel>
+                        <div class='bookTable'>
+                            <h:dataTable var="b" value="#{search.list}">
+                                <h:column>
+                                    <img src="#{resource['img:book.jpg']}" alt="some_text"/> 
+                                </h:column>
+                                <h:column>
+                                    <table class="bookTable2">
+                                        <thead>
+                                            <h:form>
+                                                <h:commandLink action="#{bookBB.setBook(b)}" 
+                                                               class="booktitle" 
+                                                               value="#{b.title}" />
+                                            </h:form>
+                                        </thead>
+                                        <td>
+                                            <h:outputText value="#{b.author}"/><br/>
+                                            <h:outputText value="#{b.course}"/><br/>
+                                        </td>
+                                        <td>
+                                            <h:form>
+                                                <h:commandLink action="#{userBB.setUser(b.owner)}"
+                                                                 value="#{b.owner.fname} #{b.owner.lname}"
+                                                                 class="small-button"/>
+                                                              <br/>
+                                            </h:form>
+                                            <h:outputText class="#{b.bookState}" value="#{b.bookState}"/>
+                                        </td>
+                                        <td>
+                                            <h:outputText class="bookprice" value="#{b.price}kr"/>
+                                        </td>
+                                    </table>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                        <h:form>
+                            <h:commandButton actionListener="#{search.prev}" value="Prev" class="small-button"/>
+                            <h:commandButton actionListener="#{search.next}" value="Next" class="small-button"/>
+                        </h:form>
+                    </h:outputLabel>
+                    <h:outputLabel>
+                        <h:form>
+                            <h:selectOneRadio value="#{searchBB.bookState}">
+                                <f:selectItem itemLabel="Desired" itemValue="WANTED"/>
+                                <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
+                            </h:selectOneRadio>
 
-                    <h:inputText value="#{searchBB.input}"/><br/>
-                    <h:commandButton actionListener="#{search.execute}" value="Search" />
-                    <h:commandButton actionListener="#{search.reset}" value="reset" />
+                            <h:inputText value="#{searchBB.input}"/><br/>
+                            <h:commandButton actionListener="#{search.execute}" value="Search" />
+                            <h:commandButton actionListener="#{search.reset}" value="reset" />
 
-                    <h:selectManyCheckbox value="#{searchBB.selectedItems}">
-                        <f:selectItems value="#{searchBB.selectItems}"/>
-                    </h:selectManyCheckbox>
+                            <h:selectManyCheckbox value="#{searchBB.selectedItems}">
+                                <f:selectItems value="#{searchBB.selectItems}"/>
+                            </h:selectManyCheckbox>
 
-                </h:form>
-                <div class='bookTable'>
-                    <h:dataTable var="b" value="#{search.list}">
-                        <h:column>
-                            <img src="#{resource['img:book.jpg']}" alt="some_text"/> 
-                        </h:column>
-                        <h:column>
-                            <table class="bookTable2">
-                                <thead>
-                                    <h:form>
-                                        <h:commandLink action="#{bookBB.setBook(b)}" 
-                                                       class="booktitle" 
-                                                       value="#{b.title}" />
-                                    </h:form>
-                                </thead>
-                                <td>
-                                    <h:outputText value="#{b.author}"/><br/>
-                                    <h:outputText value="#{b.course}"/><br/>
-                                </td>
-                                <td>
-                                    <h:form>
-                                        <h:commandLink action="#{userBB.setUser(b.owner)}"
-                                                         value="#{b.owner.fname} #{b.owner.lname}"
-                                                         class="small-button"/>
-                                                      <br/>
-                                    </h:form>
-                                    <h:outputText class="#{b.bookState}" value="#{b.bookState}"/>
-                                </td>
-                                <td>
-                                    <h:outputText class="bookprice" value="#{b.price}kr"/>
-                                </td>
-                            </table>
-                        </h:column>
-                    </h:dataTable>
-                </div>
-                <h:form>
-                    <h:commandButton actionListener="#{search.prev}" value="Prev" class="small-button"/>
-                    <h:commandButton actionListener="#{search.next}" value="Next" class="small-button"/>
-                </h:form>
+                        </h:form>
+                    </h:outputLabel>
+                </h:panelGrid>
             </ui:define>
         </ui:composition>
     </h:body>
