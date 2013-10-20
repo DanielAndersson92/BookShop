@@ -9,21 +9,21 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
     <head>
-        <title>Forum</title>
+        <title>Guest</title>
     </head>
     <body>
         <ui:composition template="/WEB-INF/template.xhtml">
                 <ui:define name="content"> 
                     <h:form>
                         <h:inputTextarea class="CommentField"
-                                         value="#{forum.message}"
+                                         value="#{guest.message}"
                                          rows="4" cols="50" style="resize:none" /><br/>
-                        <h:inputText value="#{forum.author}" />
+                        <h:inputText value="#{guest.author}" />
                         <h:commandButton class="CommentButton" value="Comment" 
-                                         action="forum"
-                                         actionListener="#{forum.sendPost}"/>
+                                         action="guest"
+                                         actionListener="#{guest.sendPost}"/>
                     </h:form>
-                    <h:dataTable var="post" value="#{forum.postar}">
+                    <h:dataTable var="post" value="#{guest.postar}">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText  value="Date"/> 

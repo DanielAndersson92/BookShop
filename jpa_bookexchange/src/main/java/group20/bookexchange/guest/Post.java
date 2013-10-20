@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package group20.bookexchange.forum;
+package group20.bookexchange.guest;
 
 import group20.bookexchange.utils.AbstractEntity;
 import java.util.Date;

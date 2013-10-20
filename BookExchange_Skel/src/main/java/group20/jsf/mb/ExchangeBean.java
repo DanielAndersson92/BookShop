@@ -9,7 +9,7 @@ import group20.bookexchange.core.IBookExchange;
 import group20.bookexchange.core.IBookList;
 import group20.bookexchange.core.IUserRegistry;
 import group20.bookexchange.pm.IPMController;
-import group20.bookexchange.forum.IForumThread;
+import group20.bookexchange.guest.IGuestThread;
 import java.io.Serializable;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -44,7 +44,7 @@ public class ExchangeBean implements Serializable{
     public IPMController getPMController(){
         return bookExchange.getPMController();
     }
-    public IForumThread getPostList(){
+    public IGuestThread getPostList(){
         return bookExchange.getPostList();
     }
     

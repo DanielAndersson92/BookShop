@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package group20.bookexchange.forum;
+package group20.bookexchange.guest;
 
 import group20.bookexchange.db.AbstractDAO;
 import java.util.List;
@@ -13,9 +13,9 @@ import javax.persistence.TypedQuery;
  *
  * @author Daniel
  */
-public class ForumThread extends AbstractDAO<Post, Long> implements IForumThread{
+public class GuestThread extends AbstractDAO<Post, Long> implements IGuestThread{
     
-    public ForumThread(String puName){
+    public GuestThread(String puName){
         super(Post.class, puName);
     }
     

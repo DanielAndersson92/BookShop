@@ -23,8 +23,8 @@
             <to-view-id>/jsf/Search/search.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>forum</from-outcome>
-            <to-view-id>/jsf/Forum/forum.xhtml</to-view-id>
+            <from-outcome>guest</from-outcome>
+            <to-view-id>/jsf/Guest/guest.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>about</from-outcome>

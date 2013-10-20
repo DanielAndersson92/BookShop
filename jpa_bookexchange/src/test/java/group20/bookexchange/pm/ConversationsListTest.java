@@ -7,7 +7,7 @@ package group20.bookexchange.pm;
 import group20.bookexchange.core.BookExchangeFactory;
 import group20.bookexchange.core.IBookExchange;
 import group20.bookexchange.core.User;
-import group20.bookexchange.forum.Post;
+import group20.bookexchange.guest.Post;
 import java.util.Date;
 import java.util.List;
 import static org.junit.Assert.*;

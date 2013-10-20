@@ -4,8 +4,8 @@
  */
 package group20.bookexchange.core;
 
+import group20.bookexchange.guest.IGuestThread;
 import group20.bookexchange.pm.IPMController;
-import group20.bookexchange.forum.*;
 
 /**
  *
@@ -18,5 +18,5 @@ public interface IBookExchange {
     public IBookList getBookList();
     
     public IPMController getPMController();
-    public IForumThread getPostList();
+    public IGuestThread getPostList();
 }

@@ -4,8 +4,9 @@
  */
 package group20.bookexchange.core;
 
+import group20.bookexchange.guest.GuestThread;
+import group20.bookexchange.guest.IGuestThread;
 import group20.bookexchange.pm.*;
-import group20.bookexchange.forum.*;
 
 /**
  *
@@ -16,13 +17,13 @@ public class BookExchange implements IBookExchange{
     private final BookList bookList;
     private final UserRegistry userRegistry;
     private final PMController pmController;
-    private final ForumThread forumThread;
+    private final GuestThread forumThread;
     
     public BookExchange(String puName){
         bookList = new BookList(puName);
         userRegistry = new UserRegistry(puName);
         pmController = new PMController(puName);
-        forumThread = new ForumThread(puName);
+        forumThread = new GuestThread(puName);
     }
     
     @Override
@@ -40,7 +41,7 @@ public class BookExchange implements IBookExchange{
         return pmController;
     }
     @Override
-    public IForumThread getPostList() {
+    public IGuestThread getPostList() {
         return forumThread;
     }
 }
