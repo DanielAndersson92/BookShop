@@ -10,7 +10,6 @@ import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -29,40 +28,48 @@ public class MyPageBB implements Serializable {
     private List<Book> forSale;
     @Inject
     private LoginBean logBean;
-        
-    @PostConstruct
-    public void post() {
-        setWanted();
-        setForSale();
-    }
     
     public List<Book> getWanted(){
+        wanted = new ArrayList();
+        try{
+        List<Book> books = bookExchange.getBookList().getByUser(logBean.getUser());
+        
+            for(Book b:books){
+                if (b.getBookState().equals(Book.BookState.WANTED)){
+                    wanted.add(b);
+                }
+            }
+        }
+        catch(NullPointerException e){
+            //If there is no user logged in then we just do nothing.
+        }
         return wanted;
     }
     
     public void setWanted(){
-        List<Book> books;
-        books = bookExchange.getBookList().getByUser(logBean.getUser());
-        wanted = new ArrayList();
-        for(Book b:books){
-            if (b.getBookState().equals(Book.BookState.WANTED)){
-                wanted.add(b);
-            }
-        }
+        
     }
     
     public List<Book> getForSale(){
+        forSale = new ArrayList();
+        
+        try{
+        List<Book> books = bookExchange.getBookList().getByUser(logBean.getUser());
+        
+            for(Book b:books){
+                if (b.getBookState().equals(Book.BookState.FORSALE)){
+                    forSale.add(b);
+                }
+            }
+        }
+        catch(NullPointerException e){
+            //If there is no user logged in then we just do nothing.
+        }
+
         return forSale;
     }
     
     public void setForSale(){
-        List<Book> books;
-        books = bookExchange.getBookList().getByUser(logBean.getUser());
-        forSale = new ArrayList();
-        for(Book b:books){
-            if (b.getBookState().equals(Book.BookState.FORSALE)){
-                forSale.add(b);
-            }
-        }
+        
     }
 }

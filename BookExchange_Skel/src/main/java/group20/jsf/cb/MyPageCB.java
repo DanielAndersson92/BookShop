@@ -35,8 +35,7 @@ public class MyPageCB implements Serializable{
     
     @PostConstruct
     public void post() {
-        mypageBB.setForSale();
-        mypageBB.setWanted();
+
     }
     public List<PMConversation> getConversations(){
         try{
@@ -48,9 +47,6 @@ public class MyPageCB implements Serializable{
     }
     public PMPost getPost(PMConversation c){
         return c.getPosts().get(c.getPosts().size() - 1);
-    }
-    public String getUnread(){
-        return "unreadPM";
     }
     
 }

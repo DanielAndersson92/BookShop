@@ -11,6 +11,7 @@ import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -22,7 +23,7 @@ public class BookBB implements Serializable{
     
     @Inject
     private Conversation conversation;
-    
+    @NotNull
     private Book book;
     
     @PreDestroy
@@ -43,5 +44,4 @@ public class BookBB implements Serializable{
     public Book getBook(){
         return book;
     }
-
 }

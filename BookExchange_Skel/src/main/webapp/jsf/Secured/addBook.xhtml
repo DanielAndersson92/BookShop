@@ -10,8 +10,8 @@
                 <h3>Add Book</h3>
                 <h:form>
                     <h:selectOneRadio value="#{addBookBB.bookState}">
-                        <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
                         <f:selectItem itemLabel="Wanted" itemValue="WANTED"/>
+                        <f:selectItem itemLabel="For sale" itemValue="FORSALE"/>
                     </h:selectOneRadio>
                     <h:panelGrid columns="3">
                         <h:outputText value="Title" />
