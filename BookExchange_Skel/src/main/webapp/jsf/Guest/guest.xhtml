@@ -18,7 +18,8 @@ and open the template in the editor.
                         <h:inputTextarea class="CommentField"
                                          value="#{guest.message}"
                                          rows="4" cols="50" style="resize:none" /><br/>
-                        <h:inputText value="#{guest.author}" />
+                        <h:inputText value="#{guest.author}" 
+                                     rendered="#{!loginBean.loggedIn}" />
                         <h:commandButton class="CommentButton" value="Comment" 
                                          action="guest"
                                          actionListener="#{guest.sendPost}"/>
