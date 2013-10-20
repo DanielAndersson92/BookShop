@@ -27,10 +27,7 @@ and open the template in the editor.
                             <div class='bookTable'>
                                 <h:dataTable var="b" value="#{start.forSale}">
                                     <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText  value="Id"/>
-                                        </f:facet>
-                                        <h:outputText value="#{b.id}"/>
+                                        <img src="#{resource['img:book.jpg']}" alt="some_text"/> 
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
@@ -67,10 +64,7 @@ and open the template in the editor.
                             <div class='bookTable'>
                                 <h:dataTable var="b" value="#{start.wanted}">
                                     <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText  value="Id"/>
-                                        </f:facet>
-                                        <h:outputText value="#{b.id}"/>
+                                        <img src="#{resource['img:book.jpg']}" alt="some_text"/> 
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
