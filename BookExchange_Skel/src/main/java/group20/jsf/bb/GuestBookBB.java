@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.bb;
 
 import group20.bookexchange.forum.Post;
@@ -14,14 +10,15 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.*;
 
-/**
+/*
+ * Backing bean for guestBook.xhtml
  *
  * @author Daniel
  */
 
-@Named("guest")
+@Named("guestBook")
 @RequestScoped
-public class GuestBB implements Serializable {
+public class GuestBookBB implements Serializable {
     
     @Inject
     private ExchangeBean bookExchange;
@@ -48,6 +45,9 @@ public class GuestBB implements Serializable {
         bookExchange.getPostList().add(new Post(message, new Date(), author));
     }
     
+    /*
+     * Getters and setters
+     */
     
     private void setPostar() {
         posts = bookExchange.getPostList().getPosts();

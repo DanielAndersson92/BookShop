@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
@@ -14,6 +10,7 @@ import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 
 /**
+ * Backing bean for book.xhtml
  *
  * @author alexandralazic
  */
@@ -33,6 +30,9 @@ public class BookBB implements Serializable{
         }
     }
     
+    /*
+     * Getters and setters
+     */
     public String setBook(Book book){
         if (conversation.isTransient()) {
             conversation.begin();

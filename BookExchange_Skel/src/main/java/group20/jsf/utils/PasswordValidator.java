@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.utils;
 
 import javax.faces.application.FacesMessage;
@@ -11,7 +7,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-/**
+/*
+ * Validates that the entered "password" and "confirmed password" is the same
  *
  * @author Daniel
  */

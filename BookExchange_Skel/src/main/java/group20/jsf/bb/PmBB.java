@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.bb;
 
 import group20.bookexchange.core.User;
@@ -26,6 +22,9 @@ public class PmBB implements Serializable{
     @Inject
     private Conversation conversation;
     
+    /*
+     * Getters and setters
+     */
     public void setReciever(User reciever){ 
         if (conversation.isTransient()) {
             conversation.begin();

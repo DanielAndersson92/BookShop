@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
@@ -14,7 +10,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-/**
+/*
+ * Backing bean for myPage.xhtml
  *
  * @author alexandralazic
  */
@@ -29,6 +26,10 @@ public class MyPageBB implements Serializable {
     @Inject
     private LoginBean logBean;
     
+    
+    /*
+     * Getters and setters
+     */
     public List<Book> getWanted(){
         wanted = new ArrayList();
         try{

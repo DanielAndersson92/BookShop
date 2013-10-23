@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.bb;
 
 import group20.bookexchange.core.User;
@@ -36,6 +32,9 @@ public class UserBB implements Serializable{
         }
     }
     
+    /*
+     * Getters and setters
+     */
     public String setUser(User user){ 
         if (conversation.isTransient()) {
             conversation.begin();

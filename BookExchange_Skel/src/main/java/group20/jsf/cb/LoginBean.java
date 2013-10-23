@@ -3,7 +3,6 @@ package group20.jsf.cb;
 import group20.bookexchange.core.User;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
-import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -13,8 +12,6 @@ import javax.inject.Named;
  
 /**
  * Simple login bean.
- *
- * @author itcuties
  */
 
 @Named("loginBean")
@@ -45,7 +42,7 @@ public class LoginBean implements Serializable {
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             FacesContext.getCurrentInstance().addMessage(null, msg);
 
-            // To to login page
+            // Go to login page
             return "login";
         }
         catch(Exception e){
@@ -58,14 +55,13 @@ public class LoginBean implements Serializable {
     }
      
     public String doLogout() {
-        loggedIn = false;
-        //FacesContext.getCurrentInstance().getExternalContext().invalidateSession();       
+        loggedIn = false;    
         return "start";
     }
  
-    // ------------------------------
-    // Getters & Setters
-     
+    /*
+     * Getters and setters
+     */ 
     public User getUser(){ return user; }
     public String getCid() {
         return cid;

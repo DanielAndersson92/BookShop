@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
@@ -28,6 +24,9 @@ public class SearchBB implements Serializable{
     private int rangeStart;
     private int range;
     
+    /*
+     * Getters and setters
+     */
     public void setBookState(Book.BookState state){ bookState = state; }
     public Book.BookState getBookState(){ return bookState; }
     

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.bb;
 
 import java.io.Serializable;
@@ -24,6 +20,10 @@ public class RegisterBB implements Serializable{
     private String password;
     private String confirmPassword;
     
+    
+    /*
+     * Getters and setters
+     */
     public void setFname(String fname){ this.fname = fname; }
     public String getFname() { return fname; }
     

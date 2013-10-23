@@ -6,22 +6,22 @@
       xmlns:f="http://java.sun.com/jsf/core">
     <!--Guest book, if not logged in the page lets you insert an "author" name.-->
     <head>
-        <title>Guest</title>
+        <title>Guest Book</title>
     </head>
     <body>
         <ui:composition template="/WEB-INF/template.xhtml">
                 <ui:define name="content"> 
                     <h:form>
                         <h:inputTextarea class="CommentField"
-                                         value="#{guest.message}"
+                                         value="#{guestBook.message}"
                                          rows="4" cols="50" style="resize:none" /><br/>
-                        <h:inputText value="#{guest.author}" 
+                        <h:inputText value="#{guestBook.author}" 
                                      rendered="#{!loginBean.loggedIn}" />
                         <h:commandButton class="CommentButton" value="Comment" 
-                                         action="guest"
-                                         actionListener="#{guest.sendPost}"/>
+                                         action="guestBook"
+                                         actionListener="#{guestBook.sendPost}"/>
                     </h:form>
-                    <h:dataTable var="post" value="#{guest.postar}">
+                    <h:dataTable var="post" value="#{guestBook.postar}">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText  value="Date"/> 

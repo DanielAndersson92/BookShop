@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
@@ -17,6 +13,7 @@ import javax.enterprise.context.Conversation;
 import javax.inject.Inject;
 
 /**
+ * 
  *
  * @author alexandralazic
  */
@@ -73,6 +70,10 @@ public abstract class Conversational implements Serializable {
     
     protected abstract void execute();
     
+    
+    /*
+     * Getetrs and setters
+     */
     protected IBookList getBookList() {
         return exchangeBean.getBookList();
     }

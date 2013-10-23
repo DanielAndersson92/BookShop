@@ -1,12 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.utils;
 
 import group20.jsf.cb.RegisterCB;
 import group20.jsf.mb.ExchangeBean;
-import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -14,7 +9,8 @@ import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 
-/**
+/*
+ * Validates if an enterd cid is already stored in the database
  *
  * @author Daniel
  */

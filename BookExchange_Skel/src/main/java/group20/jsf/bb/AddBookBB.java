@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.jsf.bb;
 
 import group20.bookexchange.core.Book;
@@ -18,6 +14,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
+ * Backing bean for addBook.xhtml
  *
  * @author alexandralazic
  */
@@ -43,11 +40,17 @@ public class AddBookBB implements Serializable{
     @Inject
     private ExchangeBean exchangeBean;
     
+    /*
+     * Saves a book in the database with the input values from addBook.xhtml
+     */
     public void save(){
         Book b = new Book(title, author, price, logBean.getUser(), course, bookState, new Date(), descr);
         exchangeBean.getBookList().add(b);
     }
     
+    /*
+     * Getters and setters
+     */
     public String getTitle() {
         return title;
     }
