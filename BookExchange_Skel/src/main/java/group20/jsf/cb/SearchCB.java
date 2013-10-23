@@ -7,8 +7,9 @@ import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
-import java.util.logging.Logger;
+import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.SelectItem;
@@ -16,15 +17,14 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- *
+ * Provides logic for searching after Books.
  * @author Patrik
  */
 @Named("search")
 @SessionScoped
 public class SearchCB implements Serializable{
-    private static final Logger LOGGER = Logger.getLogger("InfoLogging");
     
-    private static final String SEARCH_STRING = "Search your feelings..";
+    private static final String DEFAULT_SEARCH = "Search your feelings..";
     
     @Inject
     private ExchangeBean bookExchange;
@@ -46,7 +46,7 @@ public class SearchCB implements Serializable{
         searchBB.setRangeStart(0);
         searchBB.setRange(3);
         
-        searchBB.setInput(SEARCH_STRING);
+        searchBB.setInput(DEFAULT_SEARCH);
         
         // The radiobuttons will not have any alternative preselected.
         searchBB.setBookState(null);
@@ -71,7 +71,7 @@ public class SearchCB implements Serializable{
      */
     public List<Book> getList() {
         
-        if(searchBB.getInput()!= null && !searchBB.getInput().equals(SEARCH_STRING))
+        if(searchBB.getInput()!= null && !searchBB.getInput().equals(DEFAULT_SEARCH))
         {
             String sought = searchBB.getInput();
             
@@ -80,30 +80,30 @@ public class SearchCB implements Serializable{
             soughts.add(sought);
             
             IBookList bookList = bookExchange.getBookList();
-            List<Book> bs = new ArrayList();
+            Set<Book> fbs = new HashSet();
             for(String s : soughts){
-                LOGGER.info(s);
                 if(searchBB.getSelectedItems().contains("title") || 
                         searchBB.getSelectedItems().contains("all")){
-                    bs.addAll(bookList.getByTitle(s));
+                    fbs.addAll(bookList.getByTitle(s));
                 }
                 if(searchBB.getSelectedItems().contains("author") || 
                         searchBB.getSelectedItems().contains("all")){
-                    bs.addAll(bookList.getByAuthor(s));
+                    fbs.addAll(bookList.getByAuthor(s));
                 }
                 if(searchBB.getSelectedItems().contains("course") || 
                         searchBB.getSelectedItems().contains("all")){
-                    bs.addAll(bookList.getByCourse(s));
+                    fbs.addAll(bookList.getByCourse(s));
                 }
             }
             if(searchBB.getBookState() != null){
-                List<Book> nbs = new ArrayList();
-                for(Book b : bs){
+                Set<Book> nbs = new HashSet();
+                for(Book b : fbs){
                     if(b.getBookState().equals(searchBB.getBookState()))
                         nbs.add(b);
                 }
-                bs = nbs;
+                fbs = nbs;
             }
+            List<Book> bs = new ArrayList(fbs);
             int count = bs.size();
             int first = searchBB.getRangeStart();
             int nItems = searchBB.getRange();
