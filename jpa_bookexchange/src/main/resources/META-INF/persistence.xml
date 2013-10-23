@@ -7,7 +7,7 @@
     <class>group20.bookexchange.core.User</class>
     <class>group20.bookexchange.pm.PMConversation</class>
     <class>group20.bookexchange.pm.PMPost</class>
-    <class>group20.bookexchange.guest.Post</class>
+    <class>group20.bookexchange.forum.Post</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/BookExchange"/>
       <property name="javax.persistence.jdbc.password" value="app"/>
