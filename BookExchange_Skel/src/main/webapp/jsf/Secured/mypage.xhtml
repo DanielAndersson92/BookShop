@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
-        <title>This is your page</title>
-</h:head>
+    <!--XHTML page used to show the logged in user's page. Showing owned and
+    wanted books and PMs.
+    If not logged in user gets redirected to the log in page-->
+    <h:head>
+            <title>This is your page</title>
+    </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name='content'>

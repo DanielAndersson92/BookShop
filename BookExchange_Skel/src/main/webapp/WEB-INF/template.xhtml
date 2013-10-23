@@ -3,10 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
-
-    <!--    
-      THIS IS THE OVERALL LAYOUT FOR THE SITE (not accessible from outside)
-    -->
+    <!--Template of the web application-->
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="normalize.css"  />
@@ -18,9 +15,11 @@
     <h:body>
         <span id="page">
             <header>
+                <!--Banner and slogan-->
                 <hgroup>
                     <h1>Book Exchange</h1>
                     <h2>Smarter ways to trade</h2>
+                    <!--Log in and register fields and buttons-->
                     <h:form id="headerLogin">
                         <h:outputText value="Chalmers ID: "
                                       rendered="#{!loginBean.loggedIn}"
@@ -53,6 +52,7 @@
                 </hgroup>
             </header>
             <div id="content">
+                <!--Left menu-->
                 <div id="bookmenu" class="bookmenu">
                     <nav> 
                         <ul>
@@ -70,6 +70,7 @@
                     <ui:insert name="content">Content</ui:insert>
                 </div>
             </div>
+            <!--Footer-->
             <footer>
                 <p> © 2013 BookExchange AB. </p> 
             </footer>
