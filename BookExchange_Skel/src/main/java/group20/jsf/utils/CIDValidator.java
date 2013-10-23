@@ -4,8 +4,6 @@
  */
 package group20.jsf.utils;
 
-import group20.bookexchange.core.BookExchange;
-import group20.bookexchange.core.User;
 import group20.jsf.cb.RegisterCB;
 import group20.jsf.mb.ExchangeBean;
 import java.util.logging.Logger;
@@ -15,15 +13,12 @@ import javax.faces.context.FacesContext;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
-import javax.persistence.RollbackException;
 
 /**
  *
  * @author Daniel
  */
 public class CIDValidator implements Validator {
-    
-    private static final Logger LOGGER = Logger.getLogger("InfoLogging");
     
     @Inject
     public ExchangeBean exchangeBean;
@@ -40,7 +35,6 @@ public class CIDValidator implements Validator {
         }
         return b;
     }
-    
     
     @Override
     public void validate(FacesContext context, UIComponent component, Object value)

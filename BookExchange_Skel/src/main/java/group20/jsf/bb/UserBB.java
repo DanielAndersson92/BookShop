@@ -15,7 +15,7 @@ import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * The backing bean for userpage.xhtml
  * @author Patrik
  */
 @Named("userBB")
@@ -40,12 +40,8 @@ public class UserBB implements Serializable{
         if (conversation.isTransient()) {
             conversation.begin();
         }
-        LOGGER.info("setUser = "+user.getCID());
         this.user = user; 
         return "user";
     }
-    public User getUser() { 
-        LOGGER.info("getUser = "+user.getCID());
-        return user; 
-    }
+    public User getUser() { return user; }
 }

@@ -13,7 +13,8 @@ import javax.inject.Named;
 
 
 /**
- *
+ * The backing bean for search.xhtml
+ * Is SessionScoped because the navigation functionality
  * @author Patrik
  */
 @Named("searchBB")

@@ -5,13 +5,12 @@
 package group20.jsf.bb;
 
 import java.io.Serializable;
-import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 
 /**
- *
+ * The backing bean for register.xhtml
  * @author Patrik
  */
 @Named("registerBB")

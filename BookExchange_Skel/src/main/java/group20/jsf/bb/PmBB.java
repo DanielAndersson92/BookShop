@@ -6,8 +6,6 @@ package group20.jsf.bb;
 
 import group20.bookexchange.core.User;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -15,7 +13,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- *
+ * The backing bean for pm.xhtml.
  * @author Patrik
  */
 @Named("pmBB")

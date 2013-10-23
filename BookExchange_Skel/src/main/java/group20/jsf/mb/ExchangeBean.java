@@ -11,25 +11,20 @@ import group20.bookexchange.core.IUserRegistry;
 import group20.bookexchange.pm.IPMController;
 import group20.bookexchange.guest.IGuestThread;
 import java.io.Serializable;
-import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
- *
+ * A wrapper for the model. Gives access to the database.
  * @author Daniel
  */
-
-
 @Singleton
 public class ExchangeBean implements Serializable{
 
-    private static final Logger LOGGER = Logger.getLogger("InfoLogging");
     private final IBookExchange bookExchange;
     
     @Inject
     public ExchangeBean() {
-        LOGGER.info("Exchangebean is under the way of being built.");
         bookExchange = BookExchangeFactory.getBookExchange(false);
     }
     

@@ -10,24 +10,19 @@ import group20.jsf.bb.PmBB;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.NoResultException;
 
 /**
- *
+ * Creates conversations between users and sends pms.
  * @author Patrik
  */
 @Named("pm")
 @RequestScoped
 public class PmCB implements Serializable{
-    
-    private static final Logger LOGGER = Logger.getLogger("InfoLogging");
-    
+
     @Inject
     private ExchangeBean bookExchange;
     @Inject
@@ -53,7 +48,6 @@ public class PmCB implements Serializable{
     }
     
     public PMConversation getConversations(){
-        LOGGER.info(bookExchange.getPMController().getConversationsList().getByUser(loginbean.getUser()).toString());
         try{
             return bookExchange.getPMController().getConversationsList().getByUsers(loginbean.getUser(), pmBB.getReciever());
         }
