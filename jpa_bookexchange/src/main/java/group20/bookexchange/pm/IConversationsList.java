@@ -9,7 +9,7 @@ import group20.bookexchange.db.IDAO;
 import java.util.List;
 
 /**
- *
+ * ConversationsList is the database connection for the Conversation object.
  * @author Patrik
  */
 public interface IConversationsList extends IDAO<PMConversation, Long> {

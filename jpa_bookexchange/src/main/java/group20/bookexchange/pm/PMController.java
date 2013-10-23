@@ -5,7 +5,7 @@
 package group20.bookexchange.pm;
 
 /**
- *
+ * Is the hub in the PM system.
  * @author Patrik
  */
 public class PMController implements IPMController{

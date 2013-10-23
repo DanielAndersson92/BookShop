@@ -6,7 +6,7 @@ package group20.bookexchange.pm;
 
 
 /**
- *
+ * Produced a PMController.
  * @author Patrik
  */
 public class PMControllerFactory {

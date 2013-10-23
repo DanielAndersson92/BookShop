@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
 /**
- *
+ * PMConversation represents a conversation between two users.
  * @author Patrik
  */
 @Entity

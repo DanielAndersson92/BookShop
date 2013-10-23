@@ -11,7 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 /**
- *
+ * ConversationsList is the database connection for the PMConversation object.
  * @author Patrik
  */
 public class ConversationsList extends AbstractDAO<PMConversation, Long> implements IConversationsList{

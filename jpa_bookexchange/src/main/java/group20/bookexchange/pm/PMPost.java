@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
+ * PMPost represents a post in a PMConversation.
  * @author Daniel
  */
 @Entity

@@ -5,7 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-
+/**
+ * 
+ * @author Patrik
+ */
 public class UserRegistryTest {
 
     static IBookExchange be;
@@ -35,18 +38,12 @@ public class UserRegistryTest {
         assertTrue(ur.getCount() == 1);
 
         User u2 = ur.find(u1.getId());
-        // Not same transaction
         assertTrue(u2 != u1);
-        // Equal by value
         assertTrue(u2.equals(u1));
 
         User u = new User(u1.getId(), "updated", u1.getLname(), u1.getCID(), u1.getEmail(), u1.getPassword());
         u1 = ur.update(u);
-        /*
-         * Id NOT changed here we have two Products with
-         * same id but different state! 
-         * Seems to be no single simple solution to this..?!
-         */
+
         assertTrue(u2.equals(u1));
         assertFalse(u2.getFname().equals(u1.getFname()));
         assertTrue(ur.getCount() == 1);
@@ -55,7 +52,6 @@ public class UserRegistryTest {
         assertTrue(ur.getCount() == 0);
         assertTrue(ur.find(u1.getId()) == null);
 
-        // No change in program (but deleted from database)
         assertTrue(u2.equals(u1));
         assertFalse(u2.getFname().equals(u1.getFname()));
     }
@@ -82,6 +78,5 @@ public class UserRegistryTest {
         ur.add(u1);
         ur.add(u2);
         User us = ur.getByCID("bogar");
-        //assertTrue(us.size() == 1);
     }
 }
