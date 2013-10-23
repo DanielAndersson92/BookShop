@@ -1,7 +1,7 @@
 package group20.bookexchange.core;
 
-import group20.bookexchange.guest.GuestThread;
-import group20.bookexchange.guest.IGuestThread;
+import group20.bookexchange.forum.ForumThread;
+import group20.bookexchange.forum.IForumThread;
 import group20.bookexchange.pm.*;
 
 /**
@@ -13,13 +13,13 @@ public class BookExchange implements IBookExchange{
     private final BookList bookList;
     private final UserRegistry userRegistry;
     private final PMController pmController;
-    private final GuestThread forumThread;
+    private final ForumThread forumThread;
     
     public BookExchange(String puName){
         bookList = new BookList(puName);
         userRegistry = new UserRegistry(puName);
         pmController = new PMController(puName);
-        forumThread = new GuestThread(puName);
+        forumThread = new ForumThread(puName);
     }
     
     @Override
@@ -29,5 +29,5 @@ public class BookExchange implements IBookExchange{
     @Override
     public IPMController getPMController() { return pmController; }
     @Override
-    public IGuestThread getPostList() { return forumThread; }
+    public IForumThread getPostList() { return forumThread; }
 }
