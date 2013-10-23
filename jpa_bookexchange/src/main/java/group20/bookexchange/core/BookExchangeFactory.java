@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.bookexchange.core;
 
 import group20.bookexchange.guest.Post;
@@ -10,14 +6,13 @@ import group20.bookexchange.guest.IGuestThread;
 import java.util.Date;
 
 /**
- *
+ * Produces the BookExchange. Use the 'test' variable to get preprogrammed 
+ * users and books.
  * @author Patrik
  */
 public class BookExchangeFactory {
     
-    
-    private BookExchangeFactory(){
-    
+    private BookExchangeFactory(){ 
     }
 
     public static IBookList getBookList() {

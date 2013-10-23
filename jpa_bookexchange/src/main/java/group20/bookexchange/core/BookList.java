@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.bookexchange.core;
 
 import group20.bookexchange.db.AbstractDAO;
@@ -9,6 +5,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+/**
+ * BookList is the database connection for the Book object. 
+ * @author Patrik
+ */
 public class BookList extends AbstractDAO<Book,Long> implements IBookList {
     
     public BookList(String puName){
@@ -69,6 +69,12 @@ public class BookList extends AbstractDAO<Book,Long> implements IBookList {
         em.close();
         return books;
     }
+    /**
+     * Returns the N latest books with X as state.
+     * @param nrOfBooks N
+     * @param bookState X
+     * @return 
+     */
     @Override
     public List<Book> getRangeDate(Integer nrOfBooks, Book.BookState bookState){
         EntityManager em = getEMF().createEntityManager();

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.bookexchange.core;
 
 import group20.bookexchange.guest.GuestThread;
@@ -9,8 +5,8 @@ import group20.bookexchange.guest.IGuestThread;
 import group20.bookexchange.pm.*;
 
 /**
- *
- * @author Daniel
+ * BookExchange is the hub in our model.
+ * @author Patrik
  */
 public class BookExchange implements IBookExchange{
 
@@ -27,21 +23,11 @@ public class BookExchange implements IBookExchange{
     }
     
     @Override
-    public IUserRegistry getUserRegistry() {
-        return userRegistry;
-    }
-
+    public IUserRegistry getUserRegistry() { return userRegistry; }
     @Override
-    public IBookList getBookList() {
-        return bookList;
-    }
-    
+    public IBookList getBookList() { return bookList; }
     @Override
-    public IPMController getPMController() {
-        return pmController;
-    }
+    public IPMController getPMController() { return pmController; }
     @Override
-    public IGuestThread getPostList() {
-        return forumThread;
-    }
+    public IGuestThread getPostList() { return forumThread; }
 }

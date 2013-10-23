@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.bookexchange.core;
 
 import group20.bookexchange.utils.AbstractEntity;
@@ -14,8 +10,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
- * @author Daniel
+ * A class that represents a book. The book can have four different states.
+ * @author Patrik
  */
 @Entity
 public class Book extends AbstractEntity{
@@ -67,46 +63,24 @@ public class Book extends AbstractEntity{
         this.descr = descr;
     }
     
-    public String getTitle(){
-        return title;
-    }
-    public String getAuthor(){
-        return author;
-    }
-    public void setTitle(String title){
-        this.title = title;
-    }
-    public void setAuthor(String author){
-        this.author = author;
-    }
-    public int getPrice(){
-        return price;
-    }
-    public void setPrice(int price){
-        this.price = price;
-    }
-    public User getOwner(){
-        return owner;
-    }
-    public String getCourse(){
-        return course;
-    }
-    public BookState getBookState(){
-        return bookState;
-    }
-    public void setBookState(BookState state){
-        bookState = state;
-    }
-    public void setDate(Date bookDate){
-        this.bookDate = bookDate;
-    }
-    public Date getDate(){
-        return bookDate;
-    }
-    public String getDescr(){
-        return descr;
-    }
-    public void setDescr(String descr){
-        this.descr = descr;
-    }
+    public String getTitle(){ return title; }
+    public String getAuthor(){ return author; }
+    
+    public void setTitle(String title){ this.title = title; }
+    public void setAuthor(String author){ this.author = author; }
+    
+    public int getPrice(){ return price; }
+    public void setPrice(int price){ this.price = price; }
+    
+    public User getOwner(){ return owner; }
+    public String getCourse(){ return course; }
+    
+    public BookState getBookState(){ return bookState; }
+    public void setBookState(BookState state){ bookState = state; }
+    
+    public void setDate(Date bookDate){ this.bookDate = bookDate; }
+    public Date getDate(){ return bookDate; }
+    
+    public String getDescr(){ return descr; }
+    public void setDescr(String descr){ this.descr = descr; }
 }

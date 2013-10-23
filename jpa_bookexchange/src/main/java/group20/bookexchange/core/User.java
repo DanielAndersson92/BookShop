@@ -1,8 +1,3 @@
-/*
- * 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.bookexchange.core;
 
 import group20.bookexchange.utils.AbstractEntity;
@@ -11,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /*
- *
- * @author Daniel
+ * User represents a user in the system.
+ * @author Patrik
  */
 @Entity
 @Table(name = "bookUser")
@@ -46,21 +41,9 @@ public class User extends AbstractEntity {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getFname() {
-        return fname;
-    }
-
-    public String getLname() {
-        return lname;
-    }
-    public String getCID(){
-        return cid;
-    }
-    public String getPassword(){
-        return password;
-    }
+    public String getEmail() { return email; }
+    public String getFname() { return fname; }
+    public String getLname() { return lname; }
+    public String getCID(){ return cid; }
+    public String getPassword(){ return password; }
 }

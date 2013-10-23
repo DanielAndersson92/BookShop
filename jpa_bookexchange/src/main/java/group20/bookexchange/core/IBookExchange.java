@@ -1,14 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.bookexchange.core;
 
 import group20.bookexchange.guest.IGuestThread;
 import group20.bookexchange.pm.IPMController;
 
 /**
- *
+ * BookExchange is the hub in our model.
  * @author Daniel
  */
 public interface IBookExchange {

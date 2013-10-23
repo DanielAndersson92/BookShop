@@ -1,14 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package group20.bookexchange.core;
 
 import group20.bookexchange.db.IDAO;
 import java.util.List;
 
 /**
- *
+ * BookList is the database connection for the Book object. 
  * @author Daniel
  */
 public interface IBookList extends IDAO<Book, Long> {
