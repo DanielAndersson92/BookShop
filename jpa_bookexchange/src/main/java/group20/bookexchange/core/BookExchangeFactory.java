@@ -1,8 +1,8 @@
 package group20.bookexchange.core;
 
-import group20.bookexchange.guest.Post;
-import group20.bookexchange.guest.GuestThread;
-import group20.bookexchange.guest.IGuestThread;
+import group20.bookexchange.forum.Post;
+import group20.bookexchange.forum.ForumThread;
+import group20.bookexchange.forum.IForumThread;
 import java.util.Date;
 
 /**
@@ -19,8 +19,8 @@ public class BookExchangeFactory {
         return new BookList("BookExchange");
     }
     
-    public static IGuestThread getPostList() {
-        return new GuestThread("BookExchange");
+    public static IForumThread getPostList() {
+        return new ForumThread("BookExchange");
     }
     
     public static IBookExchange getBookExchange(boolean test) {
@@ -34,7 +34,7 @@ public class BookExchangeFactory {
     private static void initTestData(IBookExchange be) {
         IUserRegistry ur = be.getUserRegistry();
         IBookList bl = be.getBookList();
-        IGuestThread pl = be.getPostList();
+        IForumThread pl = be.getPostList();
         
         User u1 = new User("Greta","Garbo","grega","greta@hollywood.com","123456");
         ur.add(u1);

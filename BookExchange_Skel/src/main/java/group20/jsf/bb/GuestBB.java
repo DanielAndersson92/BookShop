@@ -4,7 +4,7 @@
  */
 package group20.jsf.bb;
 
-import group20.bookexchange.guest.Post;
+import group20.bookexchange.forum.Post;
 import group20.jsf.cb.LoginBean;
 import group20.jsf.mb.ExchangeBean;
 import java.io.Serializable;

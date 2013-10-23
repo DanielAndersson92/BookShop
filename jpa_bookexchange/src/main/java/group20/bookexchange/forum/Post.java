@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package group20.bookexchange.guest;
+package group20.bookexchange.forum;
 
 import group20.bookexchange.utils.AbstractEntity;
 import java.util.Date;
@@ -11,7 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
+ * Post represents a post in the guest book. 
  * @author Daniel
  */
 @Entity
